@@ -8,8 +8,8 @@
         templateUrl:"partials/homepage.html",
         controller:"QuestionController"
       })
-      .when("/goOut",{
-        templateUrl:"partials/goOut.html",
+      .when("/inout",{
+        templateUrl:"partials/inOut.html",
         controller:"QuestionController"
       })
     })
