@@ -1,8 +1,14 @@
-// (function() {
-//   function QuestionService($location) {
-//
-//   }
-//   angular
-//   .module("app")
-//   .factory("EventService", EventService);
-// })();
+(function() {
+  function EventService($location) {
+    return{
+      goOut:goOut
+    }
+
+    function goOut(){
+      $location.path('/goOut');
+    }
+  }
+  angular
+  .module("app")
+  .factory("EventService", EventService);
+})();
