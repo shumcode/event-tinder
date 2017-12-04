@@ -1,9 +1,10 @@
 (function(){
   function QuestionController(EventService){
     var vm = this;
-    vm.goOut= function(){
-      EventService.goOut();
+    vm.goOut= function(out){
+      EventService.goOut(out);
     }
+
 
   }
 

@@ -5,8 +5,8 @@
     }
 
     function goOut(){
-      $location.path('/goOut');
-    }
+      return $location.path('/goOut')
+    };
   }
   angular
   .module("app")
