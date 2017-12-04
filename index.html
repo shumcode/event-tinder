@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="app" lang="en">
   <head>
     <meta charset="utf-8">
     <link rel-"stylesheet" href="styles/style.css">
     <title></title>
   </head>
   <body>
-    <script src="scripts/jquery-3.2.1.min.js"></script>
+    {{ 3 + 3}}
+    <ng-view></ng-view>
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js"></script>
-    <script src="scripts/config.js"></script>
-    <script src="scripts/controller.js"></script>
-    <script src="scripts/data-service.js"></script>
+    <script src="scripts/jquery-3.2.1.min.js"></script>
     <script src="scripts/module.js"></script>
-    <script src="scripts/question-component.js"></script>
+    <script src="scripts/config.js"></script>
+    <!-- <script src="scripts/controller.js"></script>
+    <script src="scripts/data-service.js"></script> -->  
+    <!-- <script src="scripts/question-component.js"></script> -->
   </body>
 </html>

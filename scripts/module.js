@@ -1,1 +1,5 @@
-//Andrew module file//
+(function() {
+
+  angular
+  .module("app", ["ngRoute"]);
+})();
