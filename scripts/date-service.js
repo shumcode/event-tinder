@@ -1,11 +1,26 @@
 (function() {
   function EventService($location) {
+    var choiceArray= [];
+
     return{
-      goOut:goOut
+      routeFunc:routeFunc
     }
 
-    function goOut(){
-      $location.path('/goOut');
+
+
+    function routeFunc(choice){
+
+      if(choice === "goout"){
+        choiceArray.push(choice);
+        console.log(choiceArray);
+        $location.path('/inout');
+
+      }else if(choice === "stayin"){
+        choiceArray.push(choice);
+        console.log(choiceArray);
+        $location.path('/inout');
+      }
+
     }
   }
   angular

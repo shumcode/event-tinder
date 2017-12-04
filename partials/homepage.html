@@ -1,14 +1,14 @@
-<div>
+<div ng-controller = "QuestionController as question">
     <div>
-          <p>Player</p>
+      <p>Player</p>
     </div>
     <div id="goout">
       <img src="" />
-      <button ng-click="$ctrl.goOut()">Go Out</button>
+      <button ng-click="question.routeFunc('goout');">Go Out</button>
     </div>
     <div id ="stayin">
       <img src="" />
-      <button ng-click="">Stay In</button>
+      <button ng-click="question.routeFunc('stayin')">Stay In</button>
     </div>
 
 </div>

@@ -1,8 +1,8 @@
 (function(){
   function QuestionController(EventService){
     var vm = this;
-    vm.goOut= function(){
-      EventService.goOut();
+    vm.routeFunc= function(choice){
+      EventService.routeFunc(choice);
     }
 
   }
