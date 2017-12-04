@@ -1,16 +1,11 @@
-(function () {
+(function(){
 
   angular
-  .module("app")
-  .config(function($routeProvider) {
+    .module("app")
+    .config(function($routeProvider){
       $routeProvider
-      .when('/hello', {
-      template:`
-      <p>sup</p>
-      `
+      .when("/", {
+        templateUrl:`./partials/homepage.html`
+      })
     })
-    .when('/', {
-      template:``
-    })
-  })
 })();

@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html ng-app="app" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel-"stylesheet" href="styles/style.css">
-    <title></title>
-  </head>
-  <body>
-    {{ 3 + 3}}
-    <ng-view></ng-view>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+
+  <div id = header>
+    <div id="tutorial">
+      <p>How to Play</p>
+    </div>
+    <h1>DateOff</h1>
+  </div>
 
 
+  <ng-view></ng-view>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js"></script>
-    <script src="scripts/jquery-3.2.1.min.js"></script>
-    <script src="scripts/module.js"></script>
-    <script src="scripts/config.js"></script>
-    <!-- <script src="scripts/controller.js"></script>
-    <script src="scripts/data-service.js"></script> -->  
-    <!-- <script src="scripts/question-component.js"></script> -->
-  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js"></script>
+  <!-- <script src="scripts/jquery-3.2.1.min.js"></script> -->
+  <script src="scripts/module.js"></script>
+  <script src="scripts/config.js"></script>
+  <script src="scripts/controller.js"></script>
+  <!-- <script src="scripts/data-service.js"></script> -->
+  <script src="scripts/question-component.js"></script>
+
+</body>
 </html>
