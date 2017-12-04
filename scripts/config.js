@@ -5,12 +5,10 @@
     .config(function($routeProvider){
       $routeProvider
       .when("/", {
-        templateUrl:"partials/homepage.html",
-        controller:"QuestionController"
+        template:"<questionone-component></questionone-component>"
       })
       .when("/inout",{
-        templateUrl:"partials/inOut.html",
-        controller:"QuestionController"
+        template:"<questiontwo-component></questiontwo-component>"
       })
     })
 })();

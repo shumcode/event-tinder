@@ -1,13 +1,15 @@
-<div>
-  <p id = "paragraph"></p>
-</div>
-<div id="indoor">
-  <img src="" />
-  <button ng-click="">Indoor Event</button>
-</div>
-<div id ="outdoor">
-  <img src="" />
-  <button ng-click="">OutdoorEvent</button>
-</div>
+  <div>
+    <p id = "paragraph"></p>
+  </div>
 
-</div>
+  <div id="indoor">
+    <img src="" />
+    {{$ctrl.object.choice1}}
+    <button ng-click="">Indoor Event</button>
+  </div>
+
+  <div id ="outdoor">
+    <img src="" />
+    {{$ctrl.object.choice2}}
+    <button ng-click="">Outdoor Event</button>
+  </div>
