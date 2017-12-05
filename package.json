@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/shumcode/event-tinder/issues"
   },
-  "homepage": "https://github.com/shumcode/event-tinder#readme"
+  "homepage": "https://github.com/shumcode/event-tinder#readme",
+  "devDependencies": {
+    "dotenv": "^4.0.0"
+  }
 }
