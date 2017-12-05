@@ -7,8 +7,14 @@
       .when("/", {
         template:"<questionone-component></questionone-component>"
       })
-      .when("/inout",{
+      .when("/round2",{
         template:"<questiontwo-component></questiontwo-component>"
+      })
+      .when("/round3",{
+        template:"<questionthree-component></questionthree-component>"
+      })
+      .when("/round4", {
+        template:"<questionfour-component></questionfour-component>"
       })
     })
 })();

@@ -3,12 +3,16 @@
     var vm = this;
     vm.rmessage;
     vm.routeFunc= function(choice){
-      vm.rmessage = EventService.routeFunc(choice);
+      EventService.routeFunc(choice);
     }
-    vm.object = EventService.returnObj();
-    console.log(vm.object);
 
-  }
+    vm.object = EventService.returnObj();
+
+    EventService.makeRequest().then(function(response) {
+      // console.log(response);
+      vm.events = response.data._embedded.events
+    })
+  }/*End of Controller*/
 
   angular
     .module("app")
