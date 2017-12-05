@@ -3,15 +3,32 @@
     <p>Player 1 - </p>
   </div>
 
+  <h2>What type of event(s) would you like to attend? ROUND 3</h2>
+
   <div id ="choice3" class ="choice">
     <img src="" />
     {{$ctrl.object.choice3}}
-    <button ng-click="$ctrl.routeFunc($ctrl.object.choice3)">{{$ctrl.object.choice3}} </button>
+    <input type="checkbox" ng-model="$ctrl.object.choice3" ng-change="$ctrl.routeFunc($ctrl.object.choice3)">
   </div>
 
   <div id="choice4" class ="choice">
     <img src="" />
     {{$ctrl.object.choice4}}
-    <button ng-click="$ctrl.routeFunc($ctrl.object.choice4)">{{$ctrl.object.choice4}}</button>
+    <input type="checkbox" ng-model="$ctrl.object.choice4" ng-change="$ctrl.routeFunc($ctrl.object.choice4)">
   </div>
+
+  <div id="choice5" class ="choice">
+    <img src="" />
+    {{$ctrl.object.choice5}}
+    <input type="checkbox" ng-model="$ctrl.object.choice5" ng-change="$ctrl.routeFunc($ctrl.object.choice5)">
+  </div>
+
+  <div id="choice6" class ="choice">
+    <img src="" />
+    {{$ctrl.object.choice6}}
+    <input type="checkbox" ng-model="$ctrl.object.choice6" ng-change="$ctrl.routeFunc($ctrl.object.choice6)">
+  </div>
+
+  <button>SUBMIT</button>
+
 </div>
