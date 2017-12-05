@@ -2,19 +2,25 @@
   function EventService($location, $http) {
     var choiceArray= [];
     var obj = {};
+    var location = "";
     return{
       routeFunc:routeFunc,
       returnObj:returnObj,
-      makeRequest:makeRequest
+      makeRequest:makeRequest,
+      cityFunc:cityFunc
     }
 
+    function cityFunc(location){
+      makeRequest(location);
+      console.log(location);
+    }
 
-    function makeRequest() {
+    function makeRequest(location) {
       return $http({
         method: "GET",
-        url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Fofko8RmpmL96QGJQhwbo7tDY0ToAKuz&city=detroit"
+        url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Fofko8RmpmL96QGJQhwbo7tDY0ToAKuz&city=" + location + ""
       }).then(function(response) {
-        // console.log(response);
+        console.log(response);
         return response;
       });
     }
@@ -22,13 +28,13 @@
     function routeFunc(choice){
       //Route 2
       if(choice === "goout"){
-        choiceArray.push(choice);
+        choiceArray.push(choice); 
         $location.path('/round2');
-        obj.choice1 = "Outdoor";
-        obj.choice2 = "Indoor";
+        obj.choice1 = "Less than $35";
+        obj.choice2 = "More than $35";
         return {
-          choice1:"Indoor",
-          choice2: "Outdoor"
+          choice1:"Less than $35",
+          choice2: "More than $35"
         }
       }else if(choice === "stayin"){
         choiceArray.push(choice);
@@ -41,18 +47,23 @@
         }
       }
       //Round 3 - going out
-      if(choice === "Outdoor"){
+      if(choice === "Less than $35"){
         choiceArray.push(choice);
         console.log(choiceArray);
         $location.path('/round3');
-        obj.choice3 = "Concert";
-        obj.choice4 = "Festival";
-      }else if(choice === "Indoor"){
+        obj.choice3 = "Music";
+        obj.choice4 = "Sports";
+        obj.choice5 = "Family";
+        obj.choice6 = "Arts & Theatre";
+        console.log(obj);
+      }else if(choice === "More than $35"){
         choiceArray.push(choice);
         console.log(choiceArray);
         $location.path('/round3');
-        obj.choice3 = "Sports Event";
-        obj.choice4 = "Indoor Concert";
+        obj.choice3 = "Music";
+        obj.choice4 = "Sports";
+        obj.choice5 = "Family";
+        obj.choice6 = "Arts & Theatre";
       }
       //Route 3 - staying in
       if(choice === "Do something relaxed"){
@@ -69,18 +80,30 @@
         obj.choice4 = "Play wrestle";
       }
       //Round 4 - going out
-      if(choice === "Outdoor"){
+      if(choice === "Music"){
         choiceArray.push(choice);
         console.log(choiceArray);
-        $location.path('/round3');
-        obj.choice3 = "Concert";
-        obj.choice4 = "Festival";
-      }else if(choice === "Indoor"){
+        $location.path('/round2');
+        // obj.choice3 = "Concert";
+        // obj.choice4 = "Festival";
+      }else if(choice === "Family"){
         choiceArray.push(choice);
         console.log(choiceArray);
-        $location.path('/round3');
-        obj.choice3 = "Sports Event";
-        obj.choice4 = "Indoor Concert";
+        $location.path('/round2');
+        // obj.choice3 = "Sports Event";
+        // obj.choice4 = "Indoor Concert";
+      }else if(choice === "Sports"){
+        choiceArray.push(choice);
+        console.log(choiceArray);
+        $location.path('/round2');
+        // obj.choice3 = "Sports Event";
+        // obj.choice4 = "Indoor Concert";
+      }else if(choice === "Arts & Theatre"){
+        choiceArray.push(choice);
+        console.log(choiceArray);
+        $location.path('/round2');
+        // obj.choice3 = "Sports Event";
+        // obj.choice4 = "Indoor Concert";
       }
       //Route 4 - staying in
       if(choice === "Watch a movie"){
