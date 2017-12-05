@@ -2,19 +2,22 @@
   function QuestionController(EventService){
     var vm = this;
     vm.rmessage;
-    // vm.events;
+    vm.events = [];
     vm.routeFunc= function(choice){
       EventService.routeFunc(choice);
     }
 
+    vm.tinder = function() {
+      console.log("heyy");
+      EventService.tinderRoute();
+    }
+
     vm.object = EventService.returnObj();
 
-    EventService.makeRequest().then(function(response) {
-      // vm.events = response.data._embedded.events
-    })
-
     vm.getCity = function(location){
-      EventService.cityFunc(location);
+      EventService.makeRequest(location).then(function(response) {
+        vm.events = response.data._embedded.events;
+      })
     } 
   }/*End of Controller*/
 

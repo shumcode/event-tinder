@@ -16,5 +16,8 @@
       .when("/round4", {
         template:"<questionfour-component></questionfour-component>"
       })
+      .when("/tindertime", {
+        template:"<tinder-component></tinder-component>"
+      });
     })
 })();

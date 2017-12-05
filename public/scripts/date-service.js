@@ -3,11 +3,14 @@
     var choiceArray= [];
     var obj = {};
     var location = "";
+    var tinderEvents = "";
     return{
       routeFunc:routeFunc,
       returnObj:returnObj,
       makeRequest:makeRequest,
-      cityFunc:cityFunc
+      cityFunc:cityFunc,
+      tinderRoute: tinderRoute,
+      returnTinderEvents: returnTinderEvents
     }
 
     function cityFunc(location){
@@ -15,14 +18,25 @@
       console.log(location);
     }
 
+    function returnTinderEvents() {
+      return tinderEvents;
+    }
+
     function makeRequest(location) {
       return $http({
         method: "GET",
         url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Fofko8RmpmL96QGJQhwbo7tDY0ToAKuz&city=" + location + ""
       }).then(function(response) {
+        tinderEvents = response.data._embedded.events;
+        console.log(tinderEvents);
         return response;
       });
     }
+
+    function tinderRoute() {
+      $location.path('/tindertime');
+    }
+
     //This function will handle how each route is populated
     function routeFunc(choice){
       console.log(choice);
