@@ -8,27 +8,27 @@
   <div id ="choice3" class ="choice">
     <img src="" />
     {{$ctrl.object.choice3}}
-    <input type="checkbox" ng-model="$ctrl.object.choice3" ng-change="$ctrl.routeFunc($ctrl.object.choice3)">
+    <input type="checkbox" ng-model="$ctrl.object.choice3checked">
   </div>
 
   <div id="choice4" class ="choice">
     <img src="" />
     {{$ctrl.object.choice4}}
-    <input type="checkbox" ng-model="$ctrl.object.choice4" ng-change="$ctrl.routeFunc($ctrl.object.choice4)">
+    <input type="checkbox" ng-model="$ctrl.object.choice4checked">
   </div>
 
   <div id="choice5" class ="choice">
     <img src="" />
     {{$ctrl.object.choice5}}
-    <input type="checkbox" ng-model="$ctrl.object.choice5" ng-change="$ctrl.routeFunc($ctrl.object.choice5)">
+    <input type="checkbox" ng-model="$ctrl.object.choice5checked">
   </div>
 
   <div id="choice6" class ="choice">
     <img src="" />
     {{$ctrl.object.choice6}}
-    <input type="checkbox" ng-model="$ctrl.object.choice6" ng-change="$ctrl.routeFunc($ctrl.object.choice6)">
+    <input type="checkbox" ng-model="$ctrl.object.choice6checked">
   </div>
 
-  <button>SUBMIT</button>
+  <button ng-click="$ctrl.routeFunc($ctrl.object);">SUBMIT</button>
 
 </div>

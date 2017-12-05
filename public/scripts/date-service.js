@@ -20,23 +20,27 @@
         method: "GET",
         url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Fofko8RmpmL96QGJQhwbo7tDY0ToAKuz&city=" + location + ""
       }).then(function(response) {
-        console.log(response);
         return response;
       });
     }
     //This function will handle how each route is populated
     function routeFunc(choice){
+      console.log(choice);
       //Route 2
       if(choice === "goout"){
+        obj.hide = false;
+        obj.choice0 = "goout";
         choiceArray.push(choice); 
         $location.path('/round2');
         obj.choice1 = "Less than $35";
         obj.choice2 = "More than $35";
         return {
           choice1:"Less than $35",
-          choice2: "More than $35"
+          choice2:"More than $35"
         }
       }else if(choice === "stayin"){
+        obj.hide = true;
+        obj.choice0 = "stayin";
         choiceArray.push(choice);
         $location.path('/round2');
         obj.choice1 = "Do something relaxed";
@@ -48,14 +52,13 @@
       }
       //Round 3 - going out
       if(choice === "Less than $35"){
+        obj.choice2 = "";
         choiceArray.push(choice);
-        console.log(choiceArray);
         $location.path('/round3');
         obj.choice3 = "Music";
         obj.choice4 = "Sports";
         obj.choice5 = "Family";
         obj.choice6 = "Arts & Theatre";
-        console.log(obj);
       }else if(choice === "More than $35"){
         choiceArray.push(choice);
         console.log(choiceArray);
@@ -83,25 +86,21 @@
       if(choice === "Music"){
         choiceArray.push(choice);
         console.log(choiceArray);
-        $location.path('/round2');
         // obj.choice3 = "Concert";
         // obj.choice4 = "Festival";
       }else if(choice === "Family"){
         choiceArray.push(choice);
         console.log(choiceArray);
-        $location.path('/round2');
         // obj.choice3 = "Sports Event";
         // obj.choice4 = "Indoor Concert";
       }else if(choice === "Sports"){
         choiceArray.push(choice);
         console.log(choiceArray);
-        $location.path('/round2');
         // obj.choice3 = "Sports Event";
         // obj.choice4 = "Indoor Concert";
       }else if(choice === "Arts & Theatre"){
         choiceArray.push(choice);
         console.log(choiceArray);
-        $location.path('/round2');
         // obj.choice3 = "Sports Event";
         // obj.choice4 = "Indoor Concert";
       }

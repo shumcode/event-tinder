@@ -10,7 +10,6 @@
     vm.object = EventService.returnObj();
 
     EventService.makeRequest().then(function(response) {
-      console.log(response);
       // vm.events = response.data._embedded.events
     })
 

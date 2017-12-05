@@ -18,3 +18,11 @@
     background-color:white;
     padding:5px;
 }
+
+.round2inputhide {
+    display: none;
+}
+
+.round2inputshow {
+    display: block;
+}
