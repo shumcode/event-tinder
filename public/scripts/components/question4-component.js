@@ -1,5 +1,5 @@
 (function(){
-    var questionfourComponent = {
+    var questionFourComponent = {
     templateUrl:"partials/round4.html",
     controller: "QuestionController"
   };
