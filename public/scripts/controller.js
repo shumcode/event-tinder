@@ -3,7 +3,7 @@
     var vm = this;
     vm.rmessage;
     vm.events = [];
-    vm.routeFunc= function(choice){
+    vm.routeFunc = function(choice){
       EventService.routeFunc(choice);
     }
 
@@ -19,7 +19,7 @@
         vm.events = response.data._embedded.events;
         console.log(vm.events);
       })
-    } 
+    }
   }/*End of Controller*/
 
   angular

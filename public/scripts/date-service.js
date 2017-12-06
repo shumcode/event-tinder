@@ -10,7 +10,8 @@
       makeRequest:makeRequest,
       cityFunc:cityFunc,
       tinderRoute: tinderRoute,
-      returnTinderEvents: returnTinderEvents
+      returnTinderEvents: returnTinderEvents,
+      startOverRoute: startOverRoute
     }
 
     function cityFunc(location){
@@ -19,7 +20,6 @@
     }
 
     function returnTinderEvents() {
-      console.log(tinderEvents);
       return tinderEvents;
     }
 
@@ -33,6 +33,10 @@
         console.log(tinderEvents);
         return response;
       });
+    }
+
+    function startOverRoute() {
+      $location.path('/round2');
     }
 
     function tinderRoute() {
@@ -68,7 +72,6 @@
       }
       //Round 3 - going out
       if(choice === "Less than $35"){
-        obj.choice2 = "";
         choiceArray.push(choice);
         $location.path('/round3');
         obj.choice3 = "Music";
@@ -150,6 +153,7 @@
 
     //This function will return an object full of the choices the player made. Use choices in array to filter out API.
     function returnObj(){
+      // console.log(obj);
       return obj;
     }
 
