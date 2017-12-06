@@ -58,8 +58,8 @@
         obj.choice0 = "stayin";
         choiceArray.push(choice);
         $location.path('/round2');
-        obj.choice1 = "Do something relaxed";
-        obj.choice2 = "Do something active";
+        obj.choice1 = "Go buy something to do at home";
+        obj.choice2 = "Find something to do at home";
         return {
           choice1: "Do something relaxed",
           choice2:"Do something active"
@@ -84,16 +84,16 @@
         obj.choice6 = "Arts & Theatre";
       }
       //Route 3 - staying in
-      if(choice === "Do something relaxed"){
+      if(choice === "Go buy something to do at home"){
         choiceArray.push(choice);
         console.log(choiceArray);
-        $location.path('/round3');
-        obj.choice3 = "Watch a movie";
-        obj.choice4 = "Cuddle";
-      }else if(choice === "Do something active"){
+        $location.path('/round4');
+        obj.choice3 = "Buy things to make dinner.";
+        obj.choice4 = "Buy things for other activities";
+      }else if(choice === "Find something to do at home"){
         choiceArray.push(choice);
         console.log(choiceArray);
-        $location.path('/round3');
+        $location.path('/round4');
         obj.choice3 = "Do a puzzle";
         obj.choice4 = "Play wrestle";
       }
@@ -120,31 +120,33 @@
         // obj.choice4 = "Indoor Concert";
       }
       //Route 4 - staying in
-      if(choice === "Watch a movie"){
-        choiceArray.push(choice);
-        console.log(choiceArray);
-        $location.path('/round4');
-        obj.choice5 = "Scary";
-        obj.choice6 = "Romantic";
-      }else if(choice === "Cuddle"){
-        choiceArray.push(choice);
-        console.log(choiceArray);
-        $location.path('/round4');
-        obj.choice5 = "On the couch";
-        obj.choice6 = "Elsewhere";
-      }else if(choice === "Do a puzzle"){
-        choiceArray.push(choice);
-        console.log(choiceArray);
-        $location.path('/round4');
-        obj.choice5 = "Small Puzzle";
-        obj.choice6 = "Large Puzzle";
-      }else if(choice === "Play wrestle"){
-        choiceArray.push(choice);
-        console.log(choiceArray);
-        $location.path('/round4');
-        obj.choice5 = "WWE style";
-        obj.choice6 = "Elsewhere";
-      }
+      // if(choice === "Watch a movie"){
+      //   choiceArray.push(choice);
+      //   console.log(choiceArray);
+      //   $location.path('/round4');
+      //   obj.choice5 = "Scary";
+      //   obj.choice6 = "Romantic";
+      // }else if(choice === "Cuddle"){
+      //   choiceArray.push(choice);
+      //   console.log(choiceArray);
+      //   $location.path('/round4');
+      //   obj.choice5 = "On the couch";
+      //   obj.choice6 = "Elsewhere";
+      // }else if(choice === "Do a puzzle"){
+      //   choiceArray.push(choice);
+      //   console.log(choiceArray);
+      //   $location.path('/round4');
+      //   obj.choice5 = "Small Puzzle";
+      //   obj.choice6 = "Large Puzzle";
+      // }else if(choice === "Play wrestle"){
+      //   choiceArray.push(choice);
+      //   console.log(choiceArray);
+      //   $location.path('/round4');
+      //   obj.choice5 = "WWE style";
+      //   obj.choice6 = "Elsewhere";
+      // }
+
+      //Route 5- Only for staying in
     }//end of route function
 
     //This function will return an object full of the choices the player made. Use choices in array to filter out API.
