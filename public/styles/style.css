@@ -7,7 +7,7 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    background-color:#65293a;
+    background-image: url("../images/header_image.jpg");
 }
 
 #header h1{
@@ -15,16 +15,19 @@
     font-family: 'lobster';
     margin-bottom:10px;
 }
-#header #tutorial{
+
+
+#header #tutorial p{
     font-family: 'Open Sans',sans-serif;
-    margin-bottom:10px;
-    background-color:#feaf80;
-    padding: 11px;
     border-radius: 4px;
     width: 110px;
     text-align: center;margin-bottom:10px;
     background-color:white;
     padding:5px;
+    background-color:#feaf80;
+    padding: 11px;
+    padding: 11px;
+    color: white;
 }
 
 .players{
@@ -33,8 +36,10 @@
   flex-direction: column;
   background-color: #65293a;
 }
+
 .players p{
   color: white;
+  font-family: 'Open Sans',sans-serif;
 }
 
 .round2inputhide {
@@ -45,16 +50,24 @@
     display: block;
 }
 
+.submit {
+  text-align: center;
+}
+
 button {
+  font-family: 'Cabin', sans-serif;
   background-color: #65293a;
-  width: 163px;
+  width: 200px;
   height: 32px;
   border-radius: 5px;
+  color: white;
 }
 
 h2 {
   display: flex;
   justify-content: center;
+  font-family: 'Cabin', sans-serif;
+  color: #89766bc2;
 }
 .choice {
   display: flex;
@@ -67,4 +80,14 @@ img {
   width: 200px;
   padding: 17px;
   border-radius: 28px;
+}
+
+#round2input {
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+  }
+
+#round2input input {
+border: 1px solid black;
 }
