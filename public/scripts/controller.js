@@ -17,7 +17,6 @@
     vm.getCity = function(location){
       EventService.makeRequest(location).then(function(response) {
         vm.events = response.data._embedded.events;
-        console.log(vm.events);
       })
     }
   }/*End of Controller*/

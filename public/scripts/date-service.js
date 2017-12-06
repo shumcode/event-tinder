@@ -3,7 +3,9 @@
     var choiceArray= [];
     var obj = {};
     var location = "";
-    var tinderEvents = "";
+    var tinderEvents = [];
+    var minArr = null;
+    var maxArr = null;
     return{
       routeFunc:routeFunc,
       returnObj:returnObj,
@@ -20,7 +22,12 @@
     }
 
     function returnTinderEvents() {
-      return tinderEvents;
+      if (obj.userChoice <= 35) {
+        console.log(minArr);
+        return minArr;
+      } else {
+        return maxArr;
+      }
     }
 
       //This function is requesting API
@@ -30,7 +37,6 @@
         url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Fofko8RmpmL96QGJQhwbo7tDY0ToAKuz&city=" + location + ""
       }).then(function(response) {
         tinderEvents = response.data._embedded.events;
-        console.log(tinderEvents);
         return response;
       });
     }
@@ -41,6 +47,18 @@
 
     function tinderRoute() {
       $location.path('/tindertime');
+      minArr = tinderEvents.filter(function(item, index){
+        if (item.priceRanges['0'].min <= 35) {
+          return item;
+        }
+      })
+      maxArr = tinderEvents.filter(function(item, index){
+        if (item.priceRanges['0'].min > 35) {
+          return item;
+        }
+      })
+      console.log(maxArr);
+      console.log(minArr);
     }
 
     //This function will handle how each route is populated
@@ -72,6 +90,7 @@
       }
       //Round 3 - going out
       if(choice === "Less than $35"){
+        obj.userChoice = 30;
         choiceArray.push(choice);
         $location.path('/round3');
         obj.choice3 = "Music";
@@ -79,6 +98,7 @@
         obj.choice5 = "Family";
         obj.choice6 = "Arts & Theatre";
       }else if(choice === "More than $35"){
+        obj.userChoice = 36;
         choiceArray.push(choice);
         console.log(choiceArray);
         $location.path('/round3');
