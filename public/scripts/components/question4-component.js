@@ -5,5 +5,5 @@
   };
   angular
     .module("app")
-    .component("questionfourComponent", questionfourComponent)
+    .component("questionFourComponent", questionFourComponent)
 })();

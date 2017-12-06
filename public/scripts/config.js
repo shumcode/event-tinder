@@ -5,16 +5,16 @@
     .config(function($routeProvider){
       $routeProvider
       .when("/", {
-        template:"<questionone-component></questionone-component>"
+        template:"<question-one-component></question-one-component>"
       })
       .when("/round2",{
-        template:"<questiontwo-component></questiontwo-component>"
+        template:"<question-two-component></question-two-component>"
       })
       .when("/round3",{
-        template:"<questionthree-component></questionthree-component>"
+        template:"<question-three-component></question-three-component>"
       })
       .when("/round4", {
-        template:"<questionfour-component></questionfour-component>"
+        template:"<question-four-component></question-four-component>"
       })
       .when("/tindertime", {
         template:"<tinder-component></tinder-component>"

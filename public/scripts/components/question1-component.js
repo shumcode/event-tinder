@@ -1,9 +1,9 @@
 (function(){
-    var questiononeComponent = {
+    var questionOneComponent = {
     templateUrl:"partials/homepage.html",
     controller: "QuestionController"
   };
   angular
     .module("app")
-    .component("questiononeComponent", questiononeComponent)
+    .component("questionOneComponent", questionOneComponent)
 })();
