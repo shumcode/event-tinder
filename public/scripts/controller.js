@@ -19,7 +19,7 @@
         vm.events = response.data._embedded.events;
         console.log(vm.events);
       })
-    } 
+    }
   }/*End of Controller*/
 
   angular

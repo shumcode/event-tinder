@@ -1,10 +1,12 @@
 <div>
   <div>
-    <img src="{{ $ctrl.events['0'].images['0'].url }}">
-    <p>{{ $ctrl.events["0"].name }}</p>
-    <p>{{ $ctrl.events["0"]._embedded.venues['0'].name }}</p>
-    <p>{{ $ctrl.events["0"]._embedded.venues['0'].address.line1 }}</p>
-    <p>Price: ${{ $ctrl.events["0"].priceRanges['0'].min }} - ${{ $ctrl.events["0"].priceRanges['0'].max }}</p>
+    <div ng-repeat="event in $ctrl.events track by $index" ng-show="event.priceRanges">
+        <img ng-src="{{ event.images['0'].url }}">
+        <p>{{ event.name }}</p>
+        <p>{{ event._embedded.venues['0'].name }}</p>
+        <p>{{ event._embedded.venues['0'].address.line1 }}</p>
+        <p>Price: ${{ event.priceRanges['0'].min }} - ${{ event.priceRanges['0'].max }}</p>
+    </div>
     <button>X</button>
     <button>Y</button>
   </div>

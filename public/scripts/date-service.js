@@ -19,7 +19,6 @@
     }
 
     function returnTinderEvents() {
-      console.log(tinderEvents);
       return tinderEvents;
     }
 
