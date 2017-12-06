@@ -3,7 +3,7 @@
     var vm = this;
     vm.rmessage;
     vm.events = [];
-    vm.routeFunc= function(choice){
+    vm.routeFunc = function(choice){
       EventService.routeFunc(choice);
     }
 
