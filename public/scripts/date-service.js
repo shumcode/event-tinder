@@ -22,6 +22,7 @@
       return tinderEvents;
     }
 
+      //This function is requesting API
     function makeRequest(location) {
       return $http({
         method: "GET",
@@ -44,7 +45,7 @@
       if(choice === "goout"){
         obj.hide = false;
         obj.choice0 = "goout";
-        choiceArray.push(choice); 
+        choiceArray.push(choice);
         $location.path('/round2');
         obj.choice1 = "Less than $35";
         obj.choice2 = "More than $35";

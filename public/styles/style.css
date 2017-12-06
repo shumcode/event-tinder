@@ -44,3 +44,27 @@
 .round2inputshow {
     display: block;
 }
+
+button {
+  background-color: #65293a;
+  width: 163px;
+  height: 32px;
+  border-radius: 5px;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
+.choice {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+img {
+  width: 200px;
+  padding: 17px;
+  border-radius: 28px;
+}
