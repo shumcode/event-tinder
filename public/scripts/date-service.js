@@ -6,6 +6,7 @@
     var tinderEvents = [];
     var minArr = null;
     var maxArr = null;
+    
     return{
       routeFunc:routeFunc,
       returnObj:returnObj,
