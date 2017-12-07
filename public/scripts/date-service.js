@@ -23,6 +23,7 @@
     }
 
     function returnTinderEvents() {
+//returns minArr if userchoice is <= 35, returns maxArr if userchoice is > 35
       if (obj.userChoice <= 35) {
         console.log(minArr);
         return minArr;
@@ -31,7 +32,7 @@
       }
     }
 
-      //This function is requesting API
+//This function is requesting API
     function makeRequest(location) {
       return $http({
         method: "GET",
@@ -48,11 +49,13 @@
 
     function tinderRoute() {
       $location.path('/tindertime');
+// this array shows all events under $35
       minArr = tinderEvents.filter(function(item, index){
         if (item.priceRanges['0'].min <= 35) {
           return item;
         }
       })
+// this array shows all events above $35
       maxArr = tinderEvents.filter(function(item, index){
         if (item.priceRanges['0'].min > 35) {
           return item;
@@ -62,10 +65,10 @@
       console.log(minArr);
     }
 
-    //This function will handle how each route is populated
+//This function will handle how each route is populated
     function routeFunc(choice){
       console.log(choice);
-      //Route 2
+//Route 2
       if(choice === "goout"){
         obj.hide = false;
         obj.choice0 = "goout";
@@ -88,6 +91,18 @@
           choice1: "Do something relaxed",
           choice2:"Do something active"
         }
+      }
+      if (obj.choice3checked === true) {
+        console.log("choice3checked true");
+      }
+      if (obj.choice4checked === true) {
+        console.log("choice4checked true");
+      }
+      if (obj.choice5checked ===true) {
+        console.log("choice5checked true");
+      }
+      if (obj.choice6checked === true) {
+        console.log("choice6checked true");
       }
       //Round 3 - going out
       if(choice === "Less than $35"){
