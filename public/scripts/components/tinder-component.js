@@ -10,6 +10,9 @@
     vm.saveCard = function(index) {
       EventService.cardSaver(index);
     }
+    vm.playerTwo = function() {
+      EventService.twoRoute();
+    }
     vm.startOver = function() {
       vm.try = EventService.returnObj();
       vm.try.location = "";

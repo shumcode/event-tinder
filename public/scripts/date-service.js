@@ -7,6 +7,8 @@
     var minArr = null;
     var maxArr = null;
     var p1Events = [];
+    var playerMinCounter = null;
+    var playerMaxCounter = null;
 
     return{
       startGame: startGame,
@@ -18,7 +20,8 @@
       returnTinderEvents: returnTinderEvents,
       startOverRoute: startOverRoute,
       cardRemover: cardRemover,
-      cardSaver: cardSaver
+      cardSaver: cardSaver,
+      twoRoute: twoRoute
     }
 
     function startGame () {
@@ -28,13 +31,11 @@
     //grabbing the API city.
     function cityFunc(location){
       makeRequest(location);
-      console.log(location);
     }
 
     function returnTinderEvents() {
 //returns minArr if userchoice is <= 35, returns maxArr if userchoice is > 35
       if (obj.userChoice <= 35) {
-        console.log(minArr);
         return minArr;
       } else {
         return maxArr;
@@ -54,23 +55,49 @@
 
     function startOverRoute() {
       $location.path('/round2');
-      console.log(minArr, maxArr);
     }
+
+    function twoRoute() {
+      playerMinCounter = minArr.length;
+      playerMaxCounter = maxArr.length;
+      if (obj.userChoice < 35) {
+      if (playerMinCounter <= 0) {
+        $location.path('/round1');
+        return playerMinCounter;
+        // document.getElementsByClassName("playernumber")['0'].innerText = "Player 2";
+      }
+    } else {
+      if (playerMaxCounter <= 0) {
+        $location.path('/round1');
+        // document.getElementsByClassName("playernumber")['0'].innerText = "Player 2";
+      }
+    }
+  }
 
 
 // removes cards from min and max array when you press X
     function cardRemover(index) {
-      minArr.splice(index, 1);
-      maxArr.splice(index, 1);
+      if (obj.userChoice < 35) {
+        minArr.splice(index, 1);
+      } else {
+        maxArr.splice(index, 1);
+      }
     }
 
     function cardSaver(index) {
-      var card = minArr[index];
-      p1Events.push(card);
-      minArr.splice(index, 1);
-      maxArr.splice(index, 1);
-      console.log(card, p1Events);
-    }
+      if (obj.userChoice < 35) {
+        var minCard = minArr[index];
+        p1Events.push(minCard);
+        minArr.splice(index, 1);
+      } else {
+        var maxCard = maxArr[index];
+        p1Events.push(maxCard);
+        maxArr.splice(index, 1);
+      }
+      console.log(minCard);
+      console.log(maxCard);
+      console.log(p1Events);
+    } 
 
     function tinderRoute() {
       $location.path('/tindertime');
@@ -99,6 +126,7 @@
           }
         }
       })
+      console.log(minArr);
 // this array shows all events above $35
       maxArr = tinderEvents.filter(function(item, index){
         if (item.priceRanges['0'].min > 35) {
@@ -124,6 +152,7 @@
           }
         }
       })
+      console.log(maxArr);
     }
 
 //This function will handle how each route is populated
