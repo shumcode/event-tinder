@@ -6,6 +6,7 @@
     var tinderEvents = [];
     var minArr = null;
     var maxArr = null;
+    var p1Events = [];
     
     return{
       routeFunc:routeFunc,
@@ -14,7 +15,9 @@
       cityFunc:cityFunc,
       tinderRoute: tinderRoute,
       returnTinderEvents: returnTinderEvents,
-      startOverRoute: startOverRoute
+      startOverRoute: startOverRoute,
+      cardRemover: cardRemover,
+      cardSaver: cardSaver
     }
 
     function cityFunc(location){
@@ -45,10 +48,22 @@
 
     function startOverRoute() {
       $location.path('/round2');
+      console.log(minArr, maxArr);
     }
 
-    function cardRemover($index) {
 
+// removes cards from min and max array when you press X
+    function cardRemover(index) {
+      minArr.splice(index, 1);
+      maxArr.splice(index, 1);
+    }
+
+    function cardSaver(index) {
+      var card = minArr[index];
+      p1Events.push(card);
+      minArr.splice(index, 1);
+      maxArr.splice(index, 1);
+      console.log(card, p1Events);
     }
 
     function tinderRoute() {
