@@ -3,6 +3,7 @@
     var vm = this;
     vm.rmessage;
     vm.events = [];
+    vm.classifcation = [];
     vm.routeFunc = function(choice){
       EventService.routeFunc(choice);
     }
@@ -17,8 +18,10 @@
     vm.getCity = function(location){
       EventService.makeRequest(location).then(function(response) {
         vm.events = response.data._embedded.events;
-      })
+      });
     }
+
+
   }/*End of Controller*/
 
   angular

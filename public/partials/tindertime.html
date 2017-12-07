@@ -7,8 +7,8 @@
         <p>{{ event._embedded.venues['0'].name }}</p>
         <p>{{ event._embedded.venues['0'].address.line1 }}</p>
         <p>Price: ${{ event.priceRanges['0'].min }} - ${{ event.priceRanges['0'].max }}</p>
-        <button>X</button>
-        <button>Y</button>
+        <button ng-click="removeCard($index)">X</button>
+        <button ng-click="">Y</button>
     </div>
   </div>
 </div>
