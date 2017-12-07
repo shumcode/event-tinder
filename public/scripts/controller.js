@@ -8,7 +8,6 @@
     }
 
     vm.tinder = function() {
-      console.log("heyy");
       EventService.tinderRoute();
     }
 
