@@ -8,6 +8,7 @@
     var maxArr = null;
 
     return{
+      startGame: startGame,
       routeFunc:routeFunc,
       returnObj:returnObj,
       makeRequest:makeRequest,
@@ -17,6 +18,11 @@
       startOverRoute: startOverRoute
     }
 
+    function startGame () {
+      $location.path('/round1');
+    }
+
+    //grabbing the API city.
     function cityFunc(location){
       makeRequest(location);
       console.log(location);
@@ -48,7 +54,8 @@
     }
 
     function cardRemover($index) {
-
+      console.log("cardRemover");
+      // tinderEvents.splice($index,1);
     }
 
     function tinderRoute() {
