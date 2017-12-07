@@ -7,8 +7,9 @@
     var minArr = null;
     var maxArr = null;
     var p1Events = [];
-    
+
     return{
+      startGame: startGame,
       routeFunc:routeFunc,
       returnObj:returnObj,
       makeRequest:makeRequest,
@@ -20,6 +21,11 @@
       cardSaver: cardSaver
     }
 
+    function startGame () {
+      $location.path('/round1');
+    }
+
+    //grabbing the API city.
     function cityFunc(location){
       makeRequest(location);
       console.log(location);
@@ -194,6 +200,7 @@
         // obj.choice3 = "Sports Event";
         // obj.choice4 = "Indoor Concert";
       }
+
       // Round 5 - staying in
       if(choice === "Buy things to cook from the store"){
         choiceArray.push(choice);

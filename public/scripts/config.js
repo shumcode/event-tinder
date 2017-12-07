@@ -5,6 +5,9 @@
     .config(function($routeProvider){
       $routeProvider
       .when("/", {
+        template:"<home-component></home-component>"
+      })
+      .when("/round1", {
         template:"<question-one-component></question-one-component>"
       })
       .when("/round2",{
