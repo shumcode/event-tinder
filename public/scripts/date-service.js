@@ -6,7 +6,7 @@
     var tinderEvents = [];
     var minArr = null;
     var maxArr = null;
-    
+
     return{
       routeFunc:routeFunc,
       returnObj:returnObj,
@@ -159,6 +159,7 @@
         // obj.choice3 = "Sports Event";
         // obj.choice4 = "Indoor Concert";
       }
+
       // Round 5 - staying in
       if(choice === "Buy things to cook from the store"){
         choiceArray.push(choice);
