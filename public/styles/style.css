@@ -79,7 +79,7 @@ h2 {
 }
 
 img {
-  width: 200px;
+  max-width: 150px;
   padding: 17px;
   border-radius: 28px;
 }
