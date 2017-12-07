@@ -18,6 +18,16 @@
       })
       .when("/tindertime", {
         template:"<tinder-component></tinder-component>"
-      });
+      })
+      .when("/round5",{
+        template:"<question-five-component></question-five-component>"
+      })
+      .when("/round6",{
+        template:"<question-six-component></question-six-component>"
+      })
+      .when("/round7", {
+        template:"<question-seven-component></question-seven-component>"
+      })
+      ;
     })
 })();
