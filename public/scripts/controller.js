@@ -7,8 +7,12 @@
       EventService.routeFunc(choice);
     }
 
+    vm.removeCard = function() {
+      console.log("removecard");
+      EventService.cardRemover($index);
+    }
+
     vm.tinder = function() {
-      console.log("heyy");
       EventService.tinderRoute();
     }
 
