@@ -134,6 +134,11 @@
       $location.path('/tindertime');
 // this array shows all events under $35
       minArr = tinderEvents.filter(function(item, index){
+        if (item.priceRanges === undefined) {
+
+        } else {
+
+        
         if (item.priceRanges['0'].min <= 35) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
@@ -156,10 +161,16 @@
             }
           }
         }
+      }
       })
       console.log(minArr);
 // this array shows all events above $35
       maxArr = tinderEvents.filter(function(item, index){
+        if (item.priceRanges === undefined) {
+
+        } else {
+
+        
         if (item.priceRanges['0'].min > 35) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
@@ -182,6 +193,7 @@
             }
           }
         }
+      }
       })
       console.log(maxArr);
     }
