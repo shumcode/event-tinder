@@ -9,16 +9,9 @@
         <p>{{ event._embedded.venues['0'].address.line1 }}</p>
         <p>Price: ${{ event.priceRanges['0'].min }} - ${{ event.priceRanges['0'].max }}</p>
       <div id="button">
-<<<<<<< HEAD
         <button ng-click="$ctrl.removeCard($index);">X</button>
         <button ng-click="$ctrl.saveCard($index);">Y</button>
       </div>
-=======
-        <button ng-click="$ctrl.removeCard($index);$ctrl.playerTwo();" button-directive player-directive>X</button>
-        <button ng-click="$ctrl.saveCard($index);$ctrl.playerTwo();" button-directive>Y</button>
-      </div>
-      
->>>>>>> 2ea4b636f3b10a492ffd5b9803586c6c0aee282b
     </div>
     <div class="hide">
       <h2>This is the event for date night!</h2>
