@@ -20,6 +20,11 @@
       });
     }
 
+    vm.dataSetting = function(){
+        console.log("hey");
+//        EventService.dataSetting();
+    
+    }
 
   }/*End of Controller*/
 
