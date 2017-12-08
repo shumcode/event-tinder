@@ -13,6 +13,7 @@
     var p1RandomEvent = {};
     var finalEvent = [];
     var finalRandomEvent = {};
+    var DS = null;
     // var playerMinCounter = null;
     // var playerMaxCounter = null;
 
@@ -28,6 +29,8 @@
       cardRemover: cardRemover,
       cardSaver: cardSaver,
       twoRoute: twoRoute,
+      stayInIdeas: stayInIdeas,
+      dataSetting: dataSetting,
       randomEvent: randomEvent
     }
 
@@ -64,6 +67,7 @@
       $location.path('/round2');
     }
 
+      //THIS FOR ROUND 5 GOING OUT
     function twoRoute() {
       $location.path('/round1');
       // playerMinCounter = minArr.length;
@@ -194,10 +198,7 @@
         $location.path('/round2');
         obj.choice1 = "Less than $35";
         obj.choice2 = "More than $35";
-        return {
-          choice1:"Less than $35",
-          choice2:"More than $35"
-        }
+      
       }else if(choice === "stayin"){
         playerCounter++;
         console.log(playerCounter);
@@ -207,11 +208,7 @@
         $location.path('/round2');
         obj.choice1 = "Go buy something to do at home";
         obj.choice2 = "Find something to do at home";
-        return {
-          choice1: "Do something relaxed",
-          choice2:"Do something active"
-        }
-      }
+     }
       //Round 3 - going out
       if(choice === "Less than $35"){
         obj.userChoice = 30;
@@ -232,11 +229,14 @@
       }
       //Round 4 - staying in
       if(choice === "Go buy something to do at home"){
-        choiceArray.push(choice);
+          obj.choice2= null;
+          choiceArray.push(choice);
+          dataSetting();
         $location.path('/round4');
         obj.choice3 = "Buy things to cook from the store";
         obj.choice4 = "Buy things for other activities";
       }else if(choice === "Find something to do at home"){
+          obj.choice1= null;
         choiceArray.push(choice);
         $location.path('/round4');
         obj.choice3 = "Do something active";
@@ -263,73 +263,117 @@
 
       // Round 5 - staying in
       if(choice === "Buy things to cook from the store"){
+        obj.choice4 = null;
         choiceArray.push(choice);
+        dataSetting();
         $location.path('/round5');
         obj.choice5 = "Buy ingredients for dinner";
         obj.choice6 = "Buy ingredients for another meal";
       }else if(choice === "Buy things for other activities"){
+        obj.choice3 = null;
         choiceArray.push(choice);
-        $location.path('/round5');
+        $location.path('/round8');
         obj.choice5 = "Buy arts and crafts supplies";
         obj.choice6 = "Buy something active";
       }else if(choice === "Do something active"){
+        obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
+        
+          //**NEED TO CREATE FINAL ROUND 6 FUNCTION/ PAGE**//
+          
         obj.choice5 = "Do arts and crafts";
         //decision tree ends. Returns list of things to make from database
+        dataSetting();
         obj.choice6 = "Other active activities";
         //decision tree ends. Returns list of things more active from database
       }else if(choice === "Do something relaxing"){
+        obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
-        obj.choice5 = "Watch a movie";
-        obj.choice6 = "Watch other type of entertainment";
+//        obj.choice5 = "Watch a movie";
+//        obj.choice6 = "Watch other type of entertainment";
       }
+        
+//        if(choice === "Do arts and crafts"){
+//            $location.path('/stayintinder')
+//        }
 
       //Round 6- Only for staying in
       if(choice === "Buy ingredients for dinner"){
+        obj.choice6 = null;
         choiceArray.push(choice);
+        dataSetting();
         $location.path('/round6');
         obj.choice7 = "Easy Recipe";
         //decision tree ends. Returns easy recipes for dinner
         obj.choice8 = "Hard Recipe";
         //decision tree ends. Returns hard recipes for dinner
-      }else if(choice === "Buy ingredients for another meal"){
+      }
+        
+        if(choice === "Easy Recipe"){
+            $location.path("/stayintinder");
+            DS = 1;
+        }
+        
+        if(choice === "Hard Recipe"){
+            $location.path("/stayintinder");
+        }
+        
+        if(choice === "Do something relaxing"){
+            $location.path("/stayintinder");
+        }
+        
+        if(choice === "Other active activities"){
+            $location.path("/stayintinder");
+        }
+        
+        if(choice === "Do arts and crafts"){
+            $location.path("/stayintinder");
+        }
+        
+        
+        else if(choice === "Buy ingredients for another meal"){
+        obj.choice5 = null;
         choiceArray.push(choice);
         // $location.path('/round6');
         //decision tree ends. Returns recipes for something other than dinner
-      }else if(choice === "Watch a movie"){
-        choiceArray.push(choice);
-        $location.path('/round7');
-        obj.choice9 = "Horror";
-        obj.choice10 = "Sci-Fi";
-        obj.choice11 = "Action/Adventure";
-        obj.choice12 = "Comedy";
-        obj.choice13 = "Drama";
-      }else if(choice === "Watch other type of entertainment"){
-        choiceArray.push(choice);
-        $location.path('/round6');
-        obj.choice7 = "Watch a tv show";
-        obj.choice8 = "Watch online video clips";
+//      }else if(choice === "Watch a movie"){
+//        choiceArray.push(choice);
+//        $location.path('/round7');
+//        obj.choice9 = "Horror";
+//        obj.choice10 = "Sci-Fi";
+//        obj.choice11 = "Action/Adventure";
+//        obj.choice12 = "Comedy";
+//        obj.choice13 = "Drama";
+//      }else if(choice === "Watch other type of entertainment"){
+//        choiceArray.push(choice);
+//        $location.path('/round6');
+//        obj.choice7 = "Watch a tv show";
+//        obj.choice8 = "Watch online video clips";
       }
-      //round7
-      if(choice === "Watch a tv show"){
-        choiceArray.push(choice);
-        $location.path('/round7');
-        obj.choice9 = "Horror";
-        obj.choice10 = "Sci-Fi";
-        obj.choice11 = "Action/Adventure";
-        obj.choice12 = "Comedy";
-        obj.choice13 = "Drama";
-      }else if(choice === "Watch online video clips"){
-        choiceArray.push(choice);
-        $location.path('/round7');
-        obj.choice9 = "Educational";
-        obj.choice10 = "Documentary";
-        obj.choice11 = "Original Content";
-        obj.choice12 = "Foreign";
-        obj.choice13 = "Comedy";
-      }
+        
+        
+        
+        
+//      //round7
+//      if(choice === "Watch a tv show"){
+//        choiceArray.push(choice);
+//        $location.path('/round7');
+//        obj.choice9 = "Horror";
+//        obj.choice10 = "Sci-Fi";
+//        obj.choice11 = "Action/Adventure";
+//        obj.choice12 = "Comedy";
+//        obj.choice13 = "Drama";
+//      }else if(choice === "Watch online video clips"){
+//        choiceArray.push(choice);
+//        $location.path('/round7');
+//        obj.choice9 = "Educational";
+//        obj.choice10 = "Documentary";
+//        obj.choice11 = "Original Content";
+//        obj.choice12 = "Foreign";
+//        obj.choice13 = "Comedy";
+//      }
 
     }//end of route function
 
@@ -339,6 +383,36 @@
       return obj;
     }
 
+      
+    function dataSetting (){
+        if(obj.choice1 === "Go buy something to do at home" && obj.choice3 === "Buy things to cook from the store" && obj.choice5 === "Buy ingredients for dinner" && obj.choice7 === "Easy Recipe"){
+           console.log("success!!!");}}
+        
+        
+        
+        //functions for dataSet1//}){DS = 1},
+//        else if(obj.choice1 === "stayin" && obj.choice3 === "blah blah" && obj.choice5 === = {//functions for dataSet2//}){DS = 2},
+//        else if(obj = {//functions for dataSet3//}){DS = 3},
+//        else if(obj = {//functions for dataSet4//}){DS = 4},
+//        else if(obj = {//functions for dataSet5//}){DS = 5},
+//        else if(obj = {//functions for dataSet6//}){DS = 6},
+//        else if(obj = {//functions for dataSet7//}){DS = 7}, else if(obj = {//functions for dataSet8//}){DS = 8} 
+//    }  
+      
+      
+     
+      
+    function stayInIdeas() {
+      return $http({
+        method: "GET",
+        url: "/stayInIdeas"
+      }).then(function(response) {
+//        stayInIdeastest = response.data;
+//        console.log(response);
+        return response;
+      });
+    }
+      
   }//end of service
   angular
   .module("app")

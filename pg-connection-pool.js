@@ -13,7 +13,7 @@ const params = url.parse(process.env.DATABASE_URL);
 const auth = params.auth.split(':');
 
 
-//const congif = ...This is how to configure the connection to the Heroku server//
+//const config = ...This is how to configure the connection to the Heroku server//
 //the .env file is the credentials (i.e. username and password) we need to connect to the Heroku server.  This is referenced with the information below//
 
 const config = {
