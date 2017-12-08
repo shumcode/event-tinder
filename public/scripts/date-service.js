@@ -7,8 +7,14 @@
     var minArr = null;
     var maxArr = null;
     var p1Events = [];
-    var playerMinCounter = null;
-    var playerMaxCounter = null;
+    var p2Events = [];
+    var playerCounter = 0;
+    var p2RandomEvent = {};
+    var p1RandomEvent = {};
+    var finalEvent = [];
+    var finalRandomEvent = {};
+    // var playerMinCounter = null;
+    // var playerMaxCounter = null;
 
     return{
       startGame: startGame,
@@ -21,7 +27,8 @@
       startOverRoute: startOverRoute,
       cardRemover: cardRemover,
       cardSaver: cardSaver,
-      twoRoute: twoRoute
+      twoRoute: twoRoute,
+      randomEvent: randomEvent
     }
 
     function startGame () {
@@ -58,20 +65,20 @@
     }
 
     function twoRoute() {
-      playerMinCounter = minArr.length;
-      playerMaxCounter = maxArr.length;
-      if (obj.userChoice < 35) {
-      if (playerMinCounter <= 0) {
-        $location.path('/round1');
-        return playerMinCounter;
-        // document.getElementsByClassName("playernumber")['0'].innerText = "Player 2";
-      }
-    } else {
-      if (playerMaxCounter <= 0) {
-        $location.path('/round1');
-        // document.getElementsByClassName("playernumber")['0'].innerText = "Player 2";
-      }
-    }
+      $location.path('/round1');
+      // playerMinCounter = minArr.length;
+      // playerMaxCounter = maxArr.length;
+    //   if (obj.userChoice < 35) {
+    //     if (playerMinCounter <= 0) {
+    //       $location.path('/round1');
+         // document.getElementsByClassName("playernumber")['0'].innerText = "Player 2";
+    //   }
+    // } else {
+    //     if (playerMaxCounter <= 0) {
+    //       $location.path('/round1');
+         // document.getElementsByClassName("playernumber")['0'].innerText = "Player 2";
+    //   }
+    // }
   }
 
 
@@ -85,7 +92,8 @@
     }
 
     function cardSaver(index) {
-      if (obj.userChoice < 35) {
+      if (playerCounter === 1) {
+        if (obj.userChoice < 35) {
         var minCard = minArr[index];
         p1Events.push(minCard);
         minArr.splice(index, 1);
@@ -94,10 +102,29 @@
         p1Events.push(maxCard);
         maxArr.splice(index, 1);
       }
-      console.log(minCard);
-      console.log(maxCard);
-      console.log(p1Events);
+    } else {
+      if (obj.userChoice < 35) {
+        var minCard = minArr[index];
+        p2Events.push(minCard);
+        minArr.splice(index, 1);
+      } else {
+        var maxCard = maxArr[index];
+        p2Events.push(maxCard);
+        maxArr.splice(index, 1);
+      }
+    }
+      // console.log(minCard);
+      // console.log(maxCard);
     } 
+
+    function randomEvent() {
+      p2RandomEvent = p2Events[Math.floor(Math.random() * p2Events.length)];
+      p1RandomEvent = p1Events[Math.floor(Math.random() * p1Events.length)];
+      finalEvent.push(p2RandomEvent);
+      finalEvent.push(p1RandomEvent);
+      finalRandomEvent = finalEvent[Math.floor(Math.random() * finalEvent.length)];
+      return finalRandomEvent;
+    }
 
     function tinderRoute() {
       $location.path('/tindertime');
@@ -159,6 +186,8 @@
     function routeFunc(choice){
 //Route 2
       if(choice === "goout"){
+        playerCounter++;
+        console.log(playerCounter);
         obj.hide = false;
         obj.choice0 = "goout";
         choiceArray.push(choice);
@@ -170,6 +199,8 @@
           choice2:"More than $35"
         }
       }else if(choice === "stayin"){
+        playerCounter++;
+        console.log(playerCounter);
         obj.hide = true;
         obj.choice0 = "stayin";
         choiceArray.push(choice);
@@ -191,7 +222,7 @@
         obj.choice5 = "Family";
         obj.choice6 = "Arts & Theatre";
       }else if(choice === "More than $35"){
-        obj.userChoice = 36;
+        // obj.userChoice = 36;
         choiceArray.push(choice);
         $location.path('/round3');
         obj.choice3 = "Music";

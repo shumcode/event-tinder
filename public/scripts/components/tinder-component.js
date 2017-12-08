@@ -13,6 +13,10 @@
     vm.playerTwo = function() {
       EventService.twoRoute();
     }
+    vm.randomEvent = function() {
+      console.log("it's working");
+      vm.winningEvent = EventService.randomEvent();
+    }
     vm.startOver = function() {
       vm.try = EventService.returnObj();
       vm.try.location = "";
