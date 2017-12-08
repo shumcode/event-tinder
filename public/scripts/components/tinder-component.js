@@ -11,6 +11,12 @@
       EventService.cardSaver(index);
     }
     vm.playerTwo = function() {
+      vm.try = EventService.returnObj();
+      vm.try.location = "";
+      vm.try.choice3checked = false;
+      vm.try.choice4checked = false;
+      vm.try.choice5checked = false;
+      vm.try.choice6checked = false;
       EventService.twoRoute();
     }
     vm.randomEvent = function() {
