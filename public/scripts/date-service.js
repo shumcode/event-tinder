@@ -21,7 +21,8 @@
       startOverRoute: startOverRoute,
       cardRemover: cardRemover,
       cardSaver: cardSaver,
-      twoRoute: twoRoute
+      twoRoute: twoRoute,
+      stayInIdeas: stayInIdeas    
     }
 
     function startGame () {
@@ -308,6 +309,29 @@
       return obj;
     }
 
+      
+      //    function dataSetting (obj){
+//        if(obj = {//functions for dataSet1//}){DS = 1},
+//        else if(obj = {//functions for dataSet2//}){DS = 2},
+//        else if(obj = {//functions for dataSet3//}){DS = 3},
+//        else if(obj = {//functions for dataSet4//}){DS = 4},
+//        else if(obj = {//functions for dataSet5//}){DS = 5},
+//        else if(obj = {//functions for dataSet6//}){DS = 6},
+//        else if(obj = {//functions for dataSet7//}){DS = 7}, else if(obj = {//functions for dataSet8//}){DS = 8} 
+//    }  
+      
+      
+    function stayInIdeas() {
+      return $http({
+        method: "GET",
+        url: "/stayInIdeas"
+      }).then(function(response) {
+//        stayInIdeastest = response.data;
+//        console.log(response);
+        return response;
+      });
+    }
+      
   }//end of service
   angular
   .module("app")

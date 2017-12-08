@@ -31,6 +31,10 @@
       .when("/round7", {
         template:"<question-seven-component></question-seven-component>"
       })
+      .when("/stayintinder", {
+          template:"<stay-in-tinder-component></stay-in-tinder-component>"
+      })
+      
       ;
     })
 })();
