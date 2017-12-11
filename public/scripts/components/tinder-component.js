@@ -12,7 +12,6 @@
     }
     vm.playerTwo = function() {
       vm.try = EventService.returnObj();
-      vm.try.location = "";
       vm.try.choice3checked = false;
       vm.try.choice4checked = false;
       vm.try.choice5checked = false;

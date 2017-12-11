@@ -14,8 +14,6 @@
     var finalEvent = [];
     var finalRandomEvent = {};
     var DS = null;
-    // var playerMinCounter = null;
-    // var playerMaxCounter = null;
 
     return{
       startGame: startGame,
@@ -69,19 +67,6 @@
       //THIS FOR ROUND 5 GOING OUT
     function twoRoute() {
       $location.path('/round1');
-      // playerMinCounter = minArr.length;
-      // playerMaxCounter = maxArr.length;
-    //   if (obj.userChoice < 35) {
-    //     if (playerMinCounter <= 0) {
-    //       $location.path('/round1');
-         // document.getElementsByClassName("playernumber")['0'].innerText = "Player 2";
-    //   }
-    // } else {
-    //     if (playerMaxCounter <= 0) {
-    //       $location.path('/round1');
-         // document.getElementsByClassName("playernumber")['0'].innerText = "Player 2";
-    //   }
-    // }
   }
 
 
@@ -255,20 +240,16 @@
       //Round 4 - going out
       if(choice === "Music"){
         choiceArray.push(choice);
-        // obj.choice3 = "Concert";
-        // obj.choice4 = "Festival";
+
       }else if(choice === "Family"){
         choiceArray.push(choice);
-        // obj.choice3 = "Sports Event";
-        // obj.choice4 = "Indoor Concert";
+
       }else if(choice === "Sports"){
         choiceArray.push(choice);
-        // obj.choice3 = "Sports Event";
-        // obj.choice4 = "Indoor Concert";
+
       }else if(choice === "Arts & Theatre"){
         choiceArray.push(choice);
-        // obj.choice3 = "Sports Event";
-        // obj.choice4 = "Indoor Concert";
+
       }
 
       // Round 5 - staying in
@@ -299,8 +280,6 @@
         obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
-//        obj.choice5 = "Watch a movie";
-//        obj.choice6 = "Watch other type of entertainment";
       }
         
 //        if(choice === "Do arts and crafts"){
