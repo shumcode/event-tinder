@@ -16,9 +16,9 @@ var pool = require("./pg-connection-pool.js");
 
 
 //.get is a method that allows us set an endpoint to another server/database.  The first parameter (ex. "/stayIn2") is naming the endpoint that we will be referencing within our own internal server - i.e. within the date-service.js file.  The 2nd parameter (ex. function(req, res){...}) is the function we want to run whenever this endpoint is called within our internal documents (i.e. when a service.js calls)//
-routes.get("/stayInIdeas", function(req, res){
+routes.get("/stayInIdeas/:id", function(req, res){
     var sql = "select * from stayIn where infoset = $1::int";
-    var values = [1];
+    var values = [req.params.id];
     pool.query(sql, values).then(function(result){
         console.log(result.rows);
         res.send(result.rows)    

@@ -205,7 +205,8 @@
         obj.choice1 = "Go buy something to do at home";
         obj.choice2 = "Find something to do at home";
      }
-      //Round 3 - going out
+        
+//Round 3 - going out
       if(choice === "Less than $35"){
         obj.userChoice = 30;
         choiceArray.push(choice);
@@ -262,7 +263,7 @@
       }else if(choice === "Buy things for other activities"){
         obj.choice3 = null;
         choiceArray.push(choice);
-        $location.path('/round8');
+        $location.path('/round5');
         obj.choice5 = "Buy arts and crafts supplies";
         obj.choice6 = "Buy something active";
       }else if(choice === "Do something active"){
@@ -282,9 +283,7 @@
         $location.path('/round5');
       }
         
-//        if(choice === "Do arts and crafts"){
-//            $location.path('/stayintinder')
-//        }
+
 
       //Round 6- Only for staying in
       if(choice === "Buy ingredients for dinner"){
@@ -298,19 +297,22 @@
       }
         
         if(choice === "Easy Recipe"){
-            $location.path("/stayintinder");
             DS = 1;
+            $location.path("/stayintinder");
         }
         
         if(choice === "Hard Recipe"){
+            DS = 2;
             $location.path("/stayintinder");
         }
         
         if(choice === "Do something relaxing"){
+            DS = 3;
             $location.path("/stayintinder");
         }
         
         if(choice === "Other active activities"){
+            
             $location.path("/stayintinder");
         }
         
@@ -369,14 +371,13 @@
       return obj;
     }
 
-      
-      
-     
+  
       
     function stayInIdeas() {
-      return $http({
+//        $location.path("/stayintinder");
+        return $http({
         method: "GET",
-        url: "/stayInIdeas"
+        url: "/stayInIdeas/" + DS
       }).then(function(response) {
 //        stayInIdeastest = response.data;
 //        console.log(response);
