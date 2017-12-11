@@ -9,13 +9,13 @@
                 console.log(vm.ideas);
             });
             
-            vm.removeCard = function(index){
-                EventService.cardRemover(index);
-            }
-            vm.saveCard = function(index){
-                EventService.cardSaver(index);
+            vm.addSICard = function(index){
+                EventService.addSICard(index);
             }
             
+            vm.removeSICard = function(index){
+                EventService.removeSICard(index);
+            }
         }
     }
     angular
