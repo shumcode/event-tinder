@@ -30,7 +30,6 @@
       cardSaver: cardSaver,
       twoRoute: twoRoute,
       stayInIdeas: stayInIdeas,
-      dataSetting: dataSetting,
       randomEvent: randomEvent
     }
 
@@ -243,8 +242,7 @@
       if(choice === "Go buy something to do at home"){
           obj.choice2= null;
           choiceArray.push(choice);
-          dataSetting();
-        $location.path('/round4');
+          $location.path('/round4');
         obj.choice3 = "Buy things to cook from the store";
         obj.choice4 = "Buy things for other activities";
       }else if(choice === "Find something to do at home"){
@@ -277,7 +275,6 @@
       if(choice === "Buy things to cook from the store"){
         obj.choice4 = null;
         choiceArray.push(choice);
-        dataSetting();
         $location.path('/round5');
         obj.choice5 = "Buy ingredients for dinner";
         obj.choice6 = "Buy ingredients for another meal";
@@ -296,7 +293,6 @@
           
         obj.choice5 = "Do arts and crafts";
         //decision tree ends. Returns list of things to make from database
-        dataSetting();
         obj.choice6 = "Other active activities";
         //decision tree ends. Returns list of things more active from database
       }else if(choice === "Do something relaxing"){
@@ -315,7 +311,6 @@
       if(choice === "Buy ingredients for dinner"){
         obj.choice6 = null;
         choiceArray.push(choice);
-        dataSetting();
         $location.path('/round6');
         obj.choice7 = "Easy Recipe";
         //decision tree ends. Returns easy recipes for dinner
@@ -395,21 +390,6 @@
       return obj;
     }
 
-      
-    function dataSetting (){
-        if(obj.choice1 === "Go buy something to do at home" && obj.choice3 === "Buy things to cook from the store" && obj.choice5 === "Buy ingredients for dinner" && obj.choice7 === "Easy Recipe"){
-           console.log("success!!!");}}
-        
-        
-        
-        //functions for dataSet1//}){DS = 1},
-//        else if(obj.choice1 === "stayin" && obj.choice3 === "blah blah" && obj.choice5 === = {//functions for dataSet2//}){DS = 2},
-//        else if(obj = {//functions for dataSet3//}){DS = 3},
-//        else if(obj = {//functions for dataSet4//}){DS = 4},
-//        else if(obj = {//functions for dataSet5//}){DS = 5},
-//        else if(obj = {//functions for dataSet6//}){DS = 6},
-//        else if(obj = {//functions for dataSet7//}){DS = 7}, else if(obj = {//functions for dataSet8//}){DS = 8} 
-//    }  
       
       
      
