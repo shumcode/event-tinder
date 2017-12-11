@@ -4,7 +4,7 @@
         controller: function (EventService){
             var vm = this;
             
-            EventService.stayInIdeas().then(function(re sponse){
+            EventService.stayInIdeas().then(function(response){
                 vm.ideas = response.data;
                 console.log(vm.ideas);
             });
