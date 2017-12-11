@@ -190,7 +190,6 @@
         if (playerCounter === 2) {
           obj.player2 = true;
           obj.player1 = false;
-          console.log(obj.player);
         }
         if (playerCounter === 1) {
           obj.player1 = true;
