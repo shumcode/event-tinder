@@ -14,6 +14,7 @@
     var finalEvent = [];
     var finalRandomEvent = {};
     var DS = null;
+    var stayInArray = [];
 
     return{
       startGame: startGame,
@@ -28,7 +29,9 @@
       cardSaver: cardSaver,
       twoRoute: twoRoute,
       stayInIdeas: stayInIdeas,
-      randomEvent: randomEvent
+      randomEvent: randomEvent,
+      removeSICard: removeSICard,
+      addSICard: addSICard
     }
 
     function startGame () {
@@ -67,7 +70,32 @@
       //THIS FOR ROUND 5 GOING OUT
     function twoRoute() {
       $location.path('/round1');
-  }
+    }
+
+
+//Adds the Stay In ideas in Tinder mode to a user's array
+    function addSICard(index) {
+        if (playerCounter === 1) {
+            console.log(index);
+            var minCard = stayInArray[index];
+            p1Events.push(minCard);
+            stayInArray.splice(index, 1);
+            console.log(stayInArray);
+            console.log(p1Events);
+        } else {
+            var minCard = stayInArray[index];
+            p2Events.push(minCard);
+            stayInArray.splice(index, 1);
+        }
+    }
+
+//Removes Stay In ideas in Tinder mode from the screen
+    function removeSICard(index){
+          stayInArray.splice(index, 1);
+          console.log(stayInArray);
+    }
+
+
 
 
 // removes cards from min and max array when you press X
@@ -101,9 +129,13 @@
         maxArr.splice(index, 1);
       }
     }
+<<<<<<< HEAD
       // console.log(minCard);
       // console.log(maxCard);
     }
+=======
+    }
+>>>>>>> 80529d0e5f8ab28be013913094cec8b77fe43ee8
 
     function randomEvent() {
       p2RandomEvent = p2Events[Math.floor(Math.random() * p2Events.length)];
@@ -247,16 +279,17 @@
           obj.choice2= null;
           choiceArray.push(choice);
           $location.path('/round4');
-        obj.choice3 = "Buy things to cook from the store";
-        obj.choice4 = "Buy things for other activities";
+          obj.choice3 = "Buy things to cook from the store";
+          obj.choice4 = "Buy things for other activities";
       }else if(choice === "Find something to do at home"){
           obj.choice1= null;
-        choiceArray.push(choice);
-        $location.path('/round4');
-        obj.choice3 = "Do something active";
-        obj.choice4 = "Do something relaxing";
+          choiceArray.push(choice);
+          $location.path('/round4');
+          obj.choice3 = "Do something active";
+          obj.choice4 = "Do something relaxing";
       }
-      //Round 4 - going out
+
+//Round 4 - going out
       if(choice === "Music"){
         choiceArray.push(choice);
 
@@ -271,26 +304,26 @@
 
       }
 
-      // Round 5 - staying in
+// Round 5 - staying in
       if(choice === "Buy things to cook from the store"){
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Buy ingredients for dinner";
-        obj.choice6 = "Buy ingredients for another meal";
+        obj.choice6 = "Buy ingredients for a dessert";
+        //decision tree ends. Returns list of things to buy to make something other than a meal from database
       }else if(choice === "Buy things for other activities"){
         obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Buy arts and crafts supplies";
+        //decision tree ends. Returns list of things to buy to make arts and crafts from database
         obj.choice6 = "Buy something active";
+        //decision tree ends. Returns list of things to buy to do that are active from database
       }else if(choice === "Do something active"){
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
-
-          //**NEED TO CREATE FINAL ROUND 6 FUNCTION/ PAGE**//
-
         obj.choice5 = "Do arts and crafts";
         //decision tree ends. Returns list of things to make from database
         obj.choice6 = "Other active activities";
@@ -299,11 +332,13 @@
         obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
+        obj.choice5 = "Watch a movie";
+        obj.choice6 = "Watch a tv show";
       }
 
 
 
-      //Round 6- Only for staying in
+//Round 6- Only for staying in
       if(choice === "Buy ingredients for dinner"){
         obj.choice6 = null;
         choiceArray.push(choice);
@@ -312,8 +347,32 @@
         //decision tree ends. Returns easy recipes for dinner
         obj.choice8 = "Hard Recipe";
         //decision tree ends. Returns hard recipes for dinner
+      } else if(choice === "Watch a movie"){
+        obj.choice6 = null;
+        choiceArray.push(choice);
+        $location.path('/round7');
+        obj.choice9 = "Horror";
+        obj.choice10 = "Sci-Fi";
+        obj.choice11 = "Action/Adventure";
+        obj.choice12 = "Comedy";
+        obj.choice13 = "Drama";
+      } else if(choice === "Watch a tv show"){
+        obj.choice5 = null;
+        choiceArray.push(choice);
+        $location.path('/round7');
+        obj.choice9 = "Horror";
+        obj.choice10 = "Sci-Fi";
+        obj.choice11 = "Action/Adventure";
+        obj.choice12 = "Comedy";
+        obj.choice13 = "Drama";
       }
+<<<<<<< HEAD
 
+=======
+
+
+    //These are the final endpoints that will transfer to the stayintinder component with the appropriate data set//
+>>>>>>> 80529d0e5f8ab28be013913094cec8b77fe43ee8
         if(choice === "Easy Recipe"){
             DS = 1;
             $location.path("/stayintinder");
@@ -322,21 +381,38 @@
         if(choice === "Hard Recipe"){
             DS = 2;
             $location.path("/stayintinder");
+            console.log(choiceArray);
         }
+<<<<<<< HEAD
 
         if(choice === "Do something relaxing"){
+=======
+
+        if(choice === "Buy arts and crafts supplies"){
+>>>>>>> 80529d0e5f8ab28be013913094cec8b77fe43ee8
             DS = 3;
             $location.path("/stayintinder");
+            console.log(choiceArray);
         }
+<<<<<<< HEAD
 
         if(choice === "Other active activities"){
 
+=======
+
+        if(choice === "Buy something active"){
+            DS = 4;
+>>>>>>> 80529d0e5f8ab28be013913094cec8b77fe43ee8
             $location.path("/stayintinder");
+            console.log(choiceArray);
         }
 
         if(choice === "Do arts and crafts"){
+            DS = 5;
             $location.path("/stayintinder");
+            console.log(choiceArray);
         }
+<<<<<<< HEAD
 
 
         else if(choice === "Buy ingredients for another meal"){
@@ -380,6 +456,31 @@
 //        obj.choice12 = "Foreign";
 //        obj.choice13 = "Comedy";
 //      }
+=======
+
+        if(choice === "Other active activities"){
+            DS = 6;
+            $location.path("/stayintinder");
+            console.log(choiceArray);
+        }
+
+        if(choice === "Buy ingredients for a dessert"){
+            DS = 7;
+            $location.path("/stayintinder");
+            console.log(choiceArray);
+        }
+
+//        if(choice === "Horror" && obj.choice5 === "Watch a movie"){
+//            console.log("Horror Movie is happy");
+//        }
+//
+//        if(choice === "Sci-Fi" && obj.choice5 === "Watch a movie"){
+//            console.log("Sci-Fi Movie is happy");
+//        }
+
+
+
+>>>>>>> 80529d0e5f8ab28be013913094cec8b77fe43ee8
 
     }//end of route function
 
@@ -392,14 +493,13 @@
 
 
     function stayInIdeas() {
-//        $location.path("/stayintinder");
         return $http({
         method: "GET",
         url: "/stayInIdeas/" + DS
       }).then(function(response) {
-//        stayInIdeastest = response.data;
-//        console.log(response);
-        return response;
+            stayInArray = response.data;
+            console.log(stayInArray);
+            return response;
       });
     }
 
