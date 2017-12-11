@@ -103,7 +103,7 @@
     }
       // console.log(minCard);
       // console.log(maxCard);
-    } 
+    }
 
     function randomEvent() {
       p2RandomEvent = p2Events[Math.floor(Math.random() * p2Events.length)];
@@ -122,7 +122,7 @@
 
         } else {
 
-        
+
         if (item.priceRanges['0'].min <= 35) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
@@ -154,7 +154,7 @@
 
         } else {
 
-        
+
         if (item.priceRanges['0'].min > 35) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
@@ -185,7 +185,9 @@
 //This function will handle how each route is populated
     function routeFunc(choice){
 //Route 2
+
       if(choice === "goout"){
+        obj.goout = true;
         playerCounter++;
         if (playerCounter === 2) {
           obj.player2 = true;
@@ -201,8 +203,9 @@
         $location.path('/round2');
         obj.choice1 = "Less than $35";
         obj.choice2 = "More than $35";
-      
+
       }else if(choice === "stayin"){
+        obj.goout = false;
         playerCounter++;
         if (playerCounter === 2) {
           obj.player2 = true;
@@ -217,10 +220,10 @@
         obj.choice0 = "stayin";
         choiceArray.push(choice);
         $location.path('/round2');
-        obj.choice1 = "Go buy something to do at home";
+        obj.choice1 = "Go grocery and cook at home";
         obj.choice2 = "Find something to do at home";
      }
-        
+
 //Round 3 - going out
       if(choice === "Less than $35"){
         obj.userChoice = 30;
@@ -285,9 +288,9 @@
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
-        
+
           //**NEED TO CREATE FINAL ROUND 6 FUNCTION/ PAGE**//
-          
+
         obj.choice5 = "Do arts and crafts";
         //decision tree ends. Returns list of things to make from database
         obj.choice6 = "Other active activities";
@@ -297,7 +300,7 @@
         choiceArray.push(choice);
         $location.path('/round5');
       }
-        
+
 
 
       //Round 6- Only for staying in
@@ -310,32 +313,32 @@
         obj.choice8 = "Hard Recipe";
         //decision tree ends. Returns hard recipes for dinner
       }
-        
+
         if(choice === "Easy Recipe"){
             DS = 1;
             $location.path("/stayintinder");
         }
-        
+
         if(choice === "Hard Recipe"){
             DS = 2;
             $location.path("/stayintinder");
         }
-        
+
         if(choice === "Do something relaxing"){
             DS = 3;
             $location.path("/stayintinder");
         }
-        
+
         if(choice === "Other active activities"){
-            
+
             $location.path("/stayintinder");
         }
-        
+
         if(choice === "Do arts and crafts"){
             $location.path("/stayintinder");
         }
-        
-        
+
+
         else if(choice === "Buy ingredients for another meal"){
         obj.choice5 = null;
         choiceArray.push(choice);
@@ -355,10 +358,10 @@
 //        obj.choice7 = "Watch a tv show";
 //        obj.choice8 = "Watch online video clips";
       }
-        
-        
-        
-        
+
+
+
+
 //      //round7
 //      if(choice === "Watch a tv show"){
 //        choiceArray.push(choice);
@@ -386,8 +389,8 @@
       return obj;
     }
 
-  
-      
+
+
     function stayInIdeas() {
 //        $location.path("/stayintinder");
         return $http({
@@ -399,7 +402,7 @@
         return response;
       });
     }
-      
+
   }//end of service
   angular
   .module("app")

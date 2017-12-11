@@ -6,7 +6,7 @@
     </div>
   <div class="Round2">
     <div id ="choice1" class="choice">
-      <img src="" />
+      <img ng-hide="$ctrl.object.goout" ng-src="images/gobuy.jpeg" />
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice1);$ctrl.getCity($ctrl.object.location);" button-directive>{{$ctrl.object.choice1}} </button>
     </div>
 
