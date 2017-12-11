@@ -176,12 +176,9 @@ img {
   align-items: center;
 }
 
+
+/*  MEDIA QUERIES */
 @media screen and (min-width: 480px) {
-  #container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
   /*start home styling*/
   h1 {
     font-size: 35px;
@@ -226,20 +223,31 @@ img {
     line-height: 200%;
     margin-bottom: 15px;
     }  /*End home styling*/
-    /* img{
-    min-width: 300px;
-    max-width: 300px;
-    } */
+
     #event img {
       min-height: 250px;
       max-height: 250px;
       min-width: 400px;
       max-width: 400px;
     }
+    /*Round 1 */
+    #container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    /*End of Round 1 */
+
+    /*Round 3*/
     #round3 {
       display: flex;
       justify-content: space-around;
     }
+    .btn3 {
+      margin-top: 25%;
+    }
+    /*End of Round 3*/
   }
 
 
