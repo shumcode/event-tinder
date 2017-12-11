@@ -3,6 +3,25 @@
   padding: 0;
 }
 
+#icon1:hover {
+  color:grey;
+}
+
+#icon2:hover {
+  color:grey;
+}
+
+#icon1{
+  font-size: 60px;
+  color: red;
+  cursor:default;
+}
+#icon2 {
+  cursor: default;
+  color: green;
+  font-size: 60px;
+}
+
 #header{
   display:flex;
   flex-direction:column;
@@ -243,11 +262,13 @@ img {
     #round3 {
       display: flex;
       justify-content: space-around;
+      margin-top:5%;
     }
     .btn3 {
-    display:flex;
-    align-items:center;
-    
+      display:flex;
+      justify-content: center;
+      margin-top: 106px;
+    }
     /*End of Round 3*/
   }
 
@@ -279,8 +300,5 @@ img {
       min-width: 400px;
       max-width: 400px;
     }
-    #round3 {
-      display: flex;
-      justify-content: space-around;
-    }
+
   }
