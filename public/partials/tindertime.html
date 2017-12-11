@@ -1,7 +1,7 @@
 <div id="eventpageholder">
 
-    <button player-two-directive ng-click="$ctrl.playerTwo();" city-directive>CLICK HERE FOR PLAYER TWO!</button>
-    <button ng-click="$ctrl.startOver();">CHANGE CITY</button>
+    <button player-two-directive ng-hide="$ctrl.object.player2" ng-click="$ctrl.playerTwo();">CLICK HERE FOR PLAYER TWO!</button>
+    <button ng-hide="$ctrl.object.player2" ng-click="$ctrl.startOver();">CHANGE CITY</button>
     <div ng-repeat="event in $ctrl.events track by $index" ng-show="event.priceRanges" id="event">
         <img ng-src="{{ event.images['0'].url }}">
         <p>{{ event.name }}</p>
@@ -22,5 +22,5 @@
       <p>Price: ${{ $ctrl.winningEvent.priceRanges['0'].min }} - ${{ $ctrl.winningEvent.priceRanges['0'].max }}</p>
       <a href="{{ $ctrl.winningEvent.url }}">Click here to access the Event!</a>
     </div>
-    <button type="button" ng-click="$ctrl.randomEvent();" tinder-directive>CLICK HERE TO GET YOUR DATE</button>
+    <button type="button" ng-click="$ctrl.randomEvent();" ng-hide="$ctrl.object.player1" tinder-directive>CLICK HERE TO GET YOUR DATE</button>
 </div>

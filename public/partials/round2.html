@@ -1,20 +1,17 @@
 <div>
   <h2>How much would you like to spend? In what City? ROUND 2</h2>
 
-    <div ng-hide="$ctrl.object.hide" id="round2input">
-      <input  type="text" ng-model="$ctrl.object.location" placeholder="Your City">
-
+    <div ng-hide="$ctrl.object.player2" id="round2input">
+      <input type="text" ng-model="$ctrl.object.location" placeholder="Your City" class="cityinput">
     </div>
   <div class="Round2">
-    <div id ="choice1" class ="choice">
+    <div id ="choice1" class="choice">
       <img src="" />
-      {{$ctrl.object.choice1}}
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice1);$ctrl.getCity($ctrl.object.location);" button-directive>{{$ctrl.object.choice1}} </button>
     </div>
 
-    <div id="choice2" class ="choice">
+    <div id="choice2" class="choice">
       <img src="" />
-      {{$ctrl.object.choice2}}
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice2);$ctrl.getCity($ctrl.object.location);" button-directive>{{$ctrl.object.choice2}}</button>
     </div>
   </div>

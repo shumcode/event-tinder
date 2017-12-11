@@ -18,6 +18,8 @@
       vm.try.choice6checked = false;
       EventService.twoRoute();
     }
+    vm.object = EventService.returnObj();
+    //
     vm.randomEvent = function() {
       console.log("it's working");
       vm.winningEvent = EventService.randomEvent();
