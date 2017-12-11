@@ -245,8 +245,9 @@ img {
       justify-content: space-around;
     }
     .btn3 {
-      margin-top: 25%;
-    }
+    display:flex;
+    align-items:center;
+    
     /*End of Round 3*/
   }
 
