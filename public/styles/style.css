@@ -176,6 +176,10 @@ img {
   align-items: center;
 }
 
+#checkbox {
+  padding: 10px;
+}
+
 
 /*  MEDIA QUERIES */
 @media screen and (min-width: 480px) {

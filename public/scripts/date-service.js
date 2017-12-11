@@ -187,6 +187,14 @@
 //Route 2
       if(choice === "goout"){
         playerCounter++;
+        if (playerCounter === 2) {
+          obj.player2 = true;
+          obj.player1 = false;
+          console.log(obj.player);
+        }
+        if (playerCounter === 1) {
+          obj.player1 = true;
+        }
         console.log(playerCounter);
         obj.hide = false;
         obj.choice0 = "goout";
@@ -197,6 +205,14 @@
       
       }else if(choice === "stayin"){
         playerCounter++;
+        if (playerCounter === 2) {
+          obj.player2 = true;
+          obj.player1 = false;
+          console.log(obj.player);
+        }
+        if (playerCounter === 1) {
+          obj.player1 = true;
+        }
         console.log(playerCounter);
         obj.hide = true;
         obj.choice0 = "stayin";
