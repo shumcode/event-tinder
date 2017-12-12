@@ -34,6 +34,18 @@
       EventService.startOverRoute();
     }
     vm.events = EventService.returnTinderEvents();
+    
+    EventService.stayInIdeas().then(function(response){
+        vm.ideas = response.data;
+    });
+    
+    vm.addSICard = function(index){
+        EventService.addSICard(index);
+    }
+            
+    vm.removeSICard = function(index){
+        EventService.removeSICard(index);
+    }
   }
 };
 angular

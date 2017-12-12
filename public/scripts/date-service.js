@@ -111,7 +111,6 @@
 //Adds the Stay In ideas in Tinder mode to a user's array
     function addSICard(index) {
         if (playerCounter === 1) {
-            console.log(index);
             var minCard = stayInArray[index];
             p1Events.push(minCard);
             stayInArray.splice(index, 1);
@@ -270,6 +269,8 @@
     function routeFunc(choice){
 //Route 2
       if(choice === "goout"){
+          obj.goout = true;
+          obj.stayin = false;
         playerCounter++;
         if (playerCounter === 2) {
           obj.player2 = true;
@@ -296,6 +297,8 @@
         obj.choice1 = "Less than $35";
         obj.choice2 = "More than $35";
       }else if(choice === "stayin"){
+          obj.stayin = true;
+          obj.goout = false;
         playerCounter++;
         if (playerCounter === 2) {
           obj.player2 = true;
@@ -368,7 +371,7 @@
         $location.path('/round5');
         obj.choice5 = "Buy ingredients for dinner";
         obj.choice6 = "Buy ingredients for a dessert";
-        //decision tree ends. Returns list of things to buy to make something other than a meal from database
+        //decision tree ends. Returns list of desserts to make from database
       }else if(choice === "Buy things for other activities"){
         obj.choice3 = null;
         choiceArray.push(choice);
@@ -428,42 +431,42 @@
     //These are the final endpoints that will transfer to the stayintinder component with the appropriate data set//
         if(choice === "Easy Recipe"){
             DS = 1;
-            $location.path("/stayintinder");
+            $location.path("/tindertime");
         }
 
         if(choice === "Hard Recipe"){
             DS = 2;
-            $location.path("/stayintinder");
+            $location.path("/tindertime");
             console.log(choiceArray);
         }
 
         if(choice === "Buy arts and crafts supplies"){
             DS = 3;
-            $location.path("/stayintinder");
+            $location.path("/tindertime");
             console.log(choiceArray);
         }
 
         if(choice === "Buy something active"){
             DS = 4;
-            $location.path("/stayintinder");
+            $location.path("/tindertime");
             console.log(choiceArray);
         }
 
         if(choice === "Do arts and crafts"){
             DS = 5;
-            $location.path("/stayintinder");
+            $location.path("/tindertime");
             console.log(choiceArray);
         }
 
         if(choice === "Other active activities"){
             DS = 6;
-            $location.path("/stayintinder");
+            $location.path("/tindertime");
             console.log(choiceArray);
         }
 
         if(choice === "Buy ingredients for a dessert"){
             DS = 7;
-            $location.path("/stayintinder");
+            $location.path("/tindertime");
             console.log(choiceArray);
         }
 
