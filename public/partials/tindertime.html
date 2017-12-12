@@ -30,3 +30,13 @@
     </div>
     <button type="button" ng-click="$ctrl.randomEvent();" ng-hide="$ctrl.object.player1" tinder-directive>CLICK HERE TO GET YOUR DATE</button>
 </div>
+
+<div ng-repeat="idea in $ctrl.ideas track by $index" id="event" ng-show="$ctrl.object.stayin">
+    <img ng-src="{{idea.Image}}">
+    <p>{{ idea.idea }}</p>
+    <a href="{{ idea.Details }}">Link to Idea</a>
+    <div id="button">
+        <i ng-click="$ctrl.removeSICard($index);" id="icon1" class="material-icons">cancel</i>
+        <i ng-click="$ctrl.addSICard($index);" id="icon2" class="material-icons">check</i>
+    </div>
+</div>

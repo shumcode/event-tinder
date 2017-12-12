@@ -1,10 +1,10 @@
 (function(){
   var questionSevenComponent = {
-    templateUrl:"partials/round7.html",
+    templateUrl:"partials/round8.html",
     controller: "QuestionController"
   }
 
   angular
     .module("app")
-    .component("questionSevenComponent", questionSevenComponent)
+    .component("questionEightComponent", questionSevenComponent)
 })();

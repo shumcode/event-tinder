@@ -19,9 +19,6 @@
       .when("/round4", {
         template:"<question-four-component></question-four-component>"
       })
-      .when("/tindertime", {
-        template:"<tinder-component></tinder-component>"
-      })
       .when("/round5",{
         template:"<question-five-component></question-five-component>"
       })
@@ -31,8 +28,11 @@
       .when("/round7", {
         template:"<question-seven-component></question-seven-component>"
       })
-      .when("/stayintinder", {
-          template:"<stay-in-tinder-component></stay-in-tinder-component>"
+      .when("/round8", {
+          template:"<question-eight-component></question-eight-component>"
+      })
+      .when("/tindertime", {
+          template:"<tinder-component></tinder-component>"
       })
       
       ;
