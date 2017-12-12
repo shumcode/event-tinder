@@ -52,9 +52,9 @@ h1 {
   width: auto;
   height: auto;
   position: relative;
-  -webkit-animation-name: example;  /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 3s;  /* Safari 4.0 - 8.0 */
-  -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+  -webkit-animation-name: example;  /* chrome */
+  -webkit-animation-duration: 3s;  /* chrome */
+  -webkit-animation-fill-mode: forwards; /* chrome */
   animation-name: example;
   animation-duration: 3s;
   animation-fill-mode: forwards;

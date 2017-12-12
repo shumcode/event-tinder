@@ -15,6 +15,8 @@
     var finalRandomEvent = {};
     var stayInArray = [];
     var DS = null;
+    var todaysDate = "";
+    var maxDate = "";
     // gets date for if statement
     var today = new Date();
     var dd = today.getDate();
@@ -22,30 +24,13 @@
     var yyyy = today.getFullYear();
     
     if(dd<10) {
-        dd = '0'+dd
+      dd = '0'+dd
     } 
     
     if(mm<10) {
-        mm = '0'+mm
+      mm = '0'+mm
     } 
-    
     today = yyyy + '-' + mm + '-' + dd; 
-    // var todaydate = null;
-    // var currentdatedd = obj.currentDate.getDate();
-    // var currentdatemm = obj.currentDate.getMonth()+1;
-    // var currentdateyyyy = obj.currentDate.getFullYear();
-
-    // if (currentdatedd<10) {
-    //   currentdatedd = '0'+currentdatedd
-    // }
-    // if(currentdatemm<10) {
-    //   currentdatemm = '0'+currentdatemm
-    // }
-
-    // todaydate = yyyy + '-' + currentdatemm + '-' + currendatedd;
-
-    // console.log(todaydate);
-
     return{
       startGame: startGame,
       routeFunc:routeFunc,
@@ -62,7 +47,9 @@
       randomEvent: randomEvent,
       getDate: getDate,
       removeSICard: removeSICard,
-      addSICard: addSICard
+      addSICard: addSICard,
+      tinderTime: tinderTime,
+      makeArrays: makeArrays
     }
 
     function getDate () {
@@ -97,7 +84,7 @@
         return response;
       });
     }
-
+ 
     function startOverRoute() {
       $location.path('/round2');
     }
@@ -114,8 +101,6 @@
             var minCard = stayInArray[index];
             p1Events.push(minCard);
             stayInArray.splice(index, 1);
-            console.log(stayInArray);
-            console.log(p1Events);
         } else {
             var minCard = stayInArray[index];
             p2Events.push(minCard);
@@ -126,7 +111,6 @@
 //Removes Stay In ideas in Tinder mode from the screen
     function removeSICard(index){
           stayInArray.splice(index, 1);
-          console.log(stayInArray);
     }
 
 
@@ -174,16 +158,22 @@
       return finalRandomEvent;
     }
 
-    function tinderRoute() {
-      console.log(obj);
+    function tinderTime() {
       $location.path('/tindertime');
-// this array shows all events under $35
-      minArr = tinderEvents.filter(function(item, index){
+    }
+    
+    function tinderRoute(todaydate, maxdate) {
+      todaysDate = todaydate;
+      maxDate = maxdate;
+    }
+    function makeArrays() {
+      minArr = tinderEvents.filter(function(item, index) { 
+        var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
         if (item.priceRanges === undefined) {
 
         } else {
 
-        if (item.dates.start.localDate == today) {
+        if (eventdatenumber >= todaysDate && eventdatenumber <= maxDate) {
         if (item.priceRanges['0'].min <= 35) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
@@ -209,7 +199,6 @@
       }
     }
       })
-      console.log(minArr);
       if (minArr.length === 0 && obj.userChoice === 30) {
         obj.minchoice = true;
       } else {
@@ -217,11 +206,12 @@
       }
 // this array shows all events above $35
       maxArr = tinderEvents.filter(function(item, index){
+        var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
         if (item.priceRanges === undefined) {
 
         } else {
 
-        if (item.dates.start.localDate == today) {
+        if (eventdatenumber >= todaysDate && eventdatenumber <= maxDate) {
         if (item.priceRanges['0'].min > 35) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
@@ -247,7 +237,7 @@
       }
     }
       })
-      console.log(maxArr);
+      console.log(minArr);
       if (maxArr.length === 0 && obj.userChoice === 36) {
         obj.maxchoice = true;
       } else {
@@ -307,7 +297,6 @@
         if (playerCounter === 1) {
           obj.player1 = true;
         }
-        // console.log(playerCounter);
         obj.hide = true;
         obj.choice0 = "stayin";
         choiceArray.push(choice);
@@ -437,37 +426,31 @@
         if(choice === "Hard Recipe"){
             DS = 2;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
         if(choice === "Buy arts and crafts supplies"){
             DS = 3;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
         if(choice === "Buy something active"){
             DS = 4;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
         if(choice === "Do arts and crafts"){
             DS = 5;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
         if(choice === "Other active activities"){
             DS = 6;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
         if(choice === "Buy ingredients for a dessert"){
             DS = 7;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
 //        if(choice === "Horror" && obj.choice5 === "Watch a movie"){
