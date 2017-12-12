@@ -129,13 +129,7 @@
         maxArr.splice(index, 1);
       }
     }
-<<<<<<< HEAD
-      // console.log(minCard);
-      // console.log(maxCard);
     }
-=======
-    }
->>>>>>> 80529d0e5f8ab28be013913094cec8b77fe43ee8
 
     function randomEvent() {
       p2RandomEvent = p2Events[Math.floor(Math.random() * p2Events.length)];
@@ -217,9 +211,7 @@
 //This function will handle how each route is populated
     function routeFunc(choice){
 //Route 2
-
       if(choice === "goout"){
-        obj.goout = true;
         playerCounter++;
         if (playerCounter === 2) {
           obj.player2 = true;
@@ -237,7 +229,6 @@
         obj.choice2 = "More than $35";
 
       }else if(choice === "stayin"){
-        obj.goout = false;
         playerCounter++;
         if (playerCounter === 2) {
           obj.player2 = true;
@@ -252,7 +243,7 @@
         obj.choice0 = "stayin";
         choiceArray.push(choice);
         $location.path('/round2');
-        obj.choice1 = "Go grocery and cook at home";
+        obj.choice1 = "Go buy something to do at home";
         obj.choice2 = "Find something to do at home";
      }
 
@@ -366,13 +357,9 @@
         obj.choice12 = "Comedy";
         obj.choice13 = "Drama";
       }
-<<<<<<< HEAD
-
-=======
 
 
     //These are the final endpoints that will transfer to the stayintinder component with the appropriate data set//
->>>>>>> 80529d0e5f8ab28be013913094cec8b77fe43ee8
         if(choice === "Easy Recipe"){
             DS = 1;
             $location.path("/stayintinder");
@@ -383,26 +370,15 @@
             $location.path("/stayintinder");
             console.log(choiceArray);
         }
-<<<<<<< HEAD
-
-        if(choice === "Do something relaxing"){
-=======
 
         if(choice === "Buy arts and crafts supplies"){
->>>>>>> 80529d0e5f8ab28be013913094cec8b77fe43ee8
             DS = 3;
             $location.path("/stayintinder");
             console.log(choiceArray);
         }
-<<<<<<< HEAD
-
-        if(choice === "Other active activities"){
-
-=======
 
         if(choice === "Buy something active"){
             DS = 4;
->>>>>>> 80529d0e5f8ab28be013913094cec8b77fe43ee8
             $location.path("/stayintinder");
             console.log(choiceArray);
         }
@@ -412,51 +388,6 @@
             $location.path("/stayintinder");
             console.log(choiceArray);
         }
-<<<<<<< HEAD
-
-
-        else if(choice === "Buy ingredients for another meal"){
-        obj.choice5 = null;
-        choiceArray.push(choice);
-        // $location.path('/round6');
-        //decision tree ends. Returns recipes for something other than dinner
-//      }else if(choice === "Watch a movie"){
-//        choiceArray.push(choice);
-//        $location.path('/round7');
-//        obj.choice9 = "Horror";
-//        obj.choice10 = "Sci-Fi";
-//        obj.choice11 = "Action/Adventure";
-//        obj.choice12 = "Comedy";
-//        obj.choice13 = "Drama";
-//      }else if(choice === "Watch other type of entertainment"){
-//        choiceArray.push(choice);
-//        $location.path('/round6');
-//        obj.choice7 = "Watch a tv show";
-//        obj.choice8 = "Watch online video clips";
-      }
-
-
-
-
-//      //round7
-//      if(choice === "Watch a tv show"){
-//        choiceArray.push(choice);
-//        $location.path('/round7');
-//        obj.choice9 = "Horror";
-//        obj.choice10 = "Sci-Fi";
-//        obj.choice11 = "Action/Adventure";
-//        obj.choice12 = "Comedy";
-//        obj.choice13 = "Drama";
-//      }else if(choice === "Watch online video clips"){
-//        choiceArray.push(choice);
-//        $location.path('/round7');
-//        obj.choice9 = "Educational";
-//        obj.choice10 = "Documentary";
-//        obj.choice11 = "Original Content";
-//        obj.choice12 = "Foreign";
-//        obj.choice13 = "Comedy";
-//      }
-=======
 
         if(choice === "Other active activities"){
             DS = 6;
@@ -480,7 +411,6 @@
 
 
 
->>>>>>> 80529d0e5f8ab28be013913094cec8b77fe43ee8
 
     }//end of route function
 
