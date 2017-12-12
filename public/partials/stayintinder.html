@@ -6,8 +6,8 @@
         <p>{{ idea.idea }}</p>
         <a href="{{ idea.Details }}">Link to Recipe</a>
         <div id="button">
-            <button ng-click="$ctrl.removeCard($index);">X</button>
-            <button ng-click="$ctrl.saveCard($index);">Y</button>
+            <i ng-click="$ctrl.removeSICard($index);" id="icon1" class="material-icons">cancel</i>
+            <i ng-click="$ctrl.addSICard($index);" id="icon2" class="material-icons">check</i>
         </div>
     </div>
 </div>

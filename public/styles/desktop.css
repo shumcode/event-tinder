@@ -1,0 +1,33 @@
+@media screen and (min-width:780px)  {
+  img {
+    min-width: 400px;
+    max-width: 400px;
+  }
+  #choice3 img {
+   min-width: 300px;
+   max-width: 300px;
+ }
+ #choice4 img {
+   min-width: 300px;
+   max-width: 300px;
+ }
+ #choice5 img {
+   min-width: 300px;
+   max-width: 300px;
+ }
+ #choice6 img {
+   min-width: 300px;
+   max-width: 300px;
+ }
+  #event img {
+    min-height: 250px;
+    max-height: 250px;
+    min-width: 400px;
+    max-width: 400px;
+  }
+
+  #event {
+    height:450px;
+  }
+
+}
