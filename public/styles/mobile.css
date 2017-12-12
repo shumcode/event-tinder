@@ -30,6 +30,11 @@
   background-size: contain;
 }
 
+.moneyicons2 {
+  display: flex;
+  flex-direction: row;
+}
+
 /*Home page styling*/
 h1 {
   font-size: 20px;

@@ -269,8 +269,8 @@
     function routeFunc(choice){
 //Route 2
       if(choice === "goout"){
-          obj.goout = true;
-          obj.stayin = false;
+        obj.stayin = false;
+        obj.goout = true;
         playerCounter++;
         if (playerCounter === 2) {
           obj.player2 = true;
@@ -297,8 +297,8 @@
         obj.choice1 = "Less than $35";
         obj.choice2 = "More than $35";
       }else if(choice === "stayin"){
-          obj.stayin = true;
-          obj.goout = false;
+        obj.goout = false;
+        obj.stayin = true;
         playerCounter++;
         if (playerCounter === 2) {
           obj.player2 = true;
