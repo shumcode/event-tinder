@@ -12,12 +12,18 @@
   <div class="Round2">
     <div id="choice1" class="choice" ng-hide="$ctrl.object.lesschoice">
       <img ng-hide="$ctrl.object.goout" ng-src="images/gobuy.jpeg" />
-      <i ng-show="$ctrl.object.goout" class="materials-icon">&</i>
+      <div class="moneyicons1">
+        <i ng-show="$ctrl.object.goout" class="material-icons">&#xE227;</i>
+        </div>
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice1);$ctrl.getCity($ctrl.object.location);" button-directive>{{$ctrl.object.choice1}} </button>
     </div>
 
     <div id="choice2" class="choice" ng-hide="$ctrl.object.morechoice">
-      <img  ng-hide="$ctrl.object.goout" ng-src="images/homeact.jpeg" />
+      <img ng-hide="$ctrl.object.goout" ng-src="images/homeact.jpeg" />
+      <div class="moneyicons2">
+      <i ng-show="$ctrl.object.goout" class="material-icons">&#xE227;</i>
+      <i ng-show="$ctrl.object.goout" class="material-icons">&#xE227;</i>
+      </div>
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice2);$ctrl.getCity($ctrl.object.location);" button-directive>{{$ctrl.object.choice2}}</button>
     </div>
   </div>
