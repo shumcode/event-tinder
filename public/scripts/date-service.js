@@ -20,16 +20,16 @@
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
-    
+
     if(dd<10) {
         dd = '0'+dd
-    } 
-    
+    }
+
     if(mm<10) {
         mm = '0'+mm
-    } 
-    
-    today = yyyy + '-' + mm + '-' + dd; 
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
     // var todaydate = null;
     // var currentdatedd = obj.currentDate.getDate();
     // var currentdatemm = obj.currentDate.getMonth()+1;
@@ -276,7 +276,7 @@
         if (playerCounter === 2) {
           obj.player2 = true;
           obj.player1 = false;
- 
+
         }
         if (playerCounter === 1) {
           obj.player1 = true;
@@ -313,7 +313,7 @@
         obj.choice0 = "stayin";
         choiceArray.push(choice);
         $location.path('/round2');
-        obj.choice1 = "Go buy something to do at home";
+        obj.choice1 = "Cook at home";
         obj.choice2 = "Find something to do at home";
      }
 
@@ -336,7 +336,7 @@
         obj.choice6 = "Arts & Theatre";
       }
       //Round 4 - staying in
-      if(choice === "Go buy something to do at home"){
+      if(choice === "Cook at home"){
           obj.choice2= null;
           choiceArray.push(choice);
           $location.path('/round4');
@@ -366,7 +366,7 @@
       }
 
 // Round 5 - staying in
-      if(choice === "Buy things to cook from the store"){
+      if(choice === "Cook at home"){
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
