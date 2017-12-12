@@ -12,6 +12,12 @@
         <i ng-click="$ctrl.saveCard($index);" id="icon2" class="material-icons">check</i>
       </div>
     </div>
+    <div ng-show="$ctrl.object.minchoice">
+      There are no events under $35 dollars, click the change city button to change your price range or city.
+    </div>
+    <div ng-show="$ctrl.object.maxchoice">
+      There are no events, select a different city.
+    </div>
     <div class="hide">
       <h2>This is the event for date night!</h2>
       <img ng-src="{{ $ctrl.winningEvent.images['0'].url }}">

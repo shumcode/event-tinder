@@ -4,13 +4,18 @@
     <div ng-hide="$ctrl.object.player2" id="round2input">
       <input type="text" ng-model="$ctrl.object.location" placeholder="Your City" class="cityinput">
     </div>
+    <div>
+      <input type="date" min="{{$ctrl.todaydate}}" ng-model="$ctrl.object.currentdate">
+      <p>Set Date for Events</p>
+      <input type="date" min="{{$ctrl.todaydate}}" ng-model="$ctrl.object.maxdate">
+    </div>
   <div class="Round2">
-    <div id ="choice1" class="choice">
+    <div id ="choice1" class="choice" ng-hide="$ctrl.object.lesschoice">
       <img src="" />
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice1);$ctrl.getCity($ctrl.object.location);" button-directive>{{$ctrl.object.choice1}} </button>
     </div>
 
-    <div id="choice2" class="choice">
+    <div id="choice2" class="choice" ng-hide="$ctrl.object.morechoice">
       <img src="" />
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice2);$ctrl.getCity($ctrl.object.location);" button-directive>{{$ctrl.object.choice2}}</button>
     </div>

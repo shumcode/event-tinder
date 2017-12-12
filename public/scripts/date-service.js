@@ -14,6 +14,36 @@
     var finalEvent = [];
     var finalRandomEvent = {};
     var DS = null;
+    // gets date for if statement
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    
+    if(dd<10) {
+        dd = '0'+dd
+    } 
+    
+    if(mm<10) {
+        mm = '0'+mm
+    } 
+    
+    today = yyyy + '-' + mm + '-' + dd; 
+    // var todaydate = null;
+    // var currentdatedd = obj.currentDate.getDate();
+    // var currentdatemm = obj.currentDate.getMonth()+1;
+    // var currentdateyyyy = obj.currentDate.getFullYear();
+
+    // if (currentdatedd<10) {
+    //   currentdatedd = '0'+currentdatedd
+    // }
+    // if(currentdatemm<10) {
+    //   currentdatemm = '0'+currentdatemm
+    // }
+
+    // todaydate = yyyy + '-' + currentdatemm + '-' + currendatedd;
+
+    // console.log(todaydate);
 
     return{
       startGame: startGame,
@@ -28,7 +58,12 @@
       cardSaver: cardSaver,
       twoRoute: twoRoute,
       stayInIdeas: stayInIdeas,
-      randomEvent: randomEvent
+      randomEvent: randomEvent,
+      getDate: getDate
+    }
+
+    function getDate () {
+      return today;
     }
 
     function startGame () {
@@ -115,6 +150,7 @@
     }
 
     function tinderRoute() {
+      console.log(obj);
       $location.path('/tindertime');
 // this array shows all events under $35
       minArr = tinderEvents.filter(function(item, index){
@@ -122,7 +158,7 @@
 
         } else {
 
-        
+        if (item.dates.start.localDate == today) {
         if (item.priceRanges['0'].min <= 35) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
@@ -146,15 +182,21 @@
           }
         }
       }
+    }
       })
       console.log(minArr);
+      if (minArr.length === 0 && obj.userChoice === 30) {
+        obj.minchoice = true;
+      } else {
+        obj.minchoice = false;
+      }
 // this array shows all events above $35
       maxArr = tinderEvents.filter(function(item, index){
         if (item.priceRanges === undefined) {
 
         } else {
 
-        
+        if (item.dates.start.localDate == today) {
         if (item.priceRanges['0'].min > 35) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
@@ -178,8 +220,24 @@
           }
         }
       }
+    }
       })
       console.log(maxArr);
+      if (maxArr.length === 0 && obj.userChoice === 36) {
+        obj.maxchoice = true;
+      } else {
+        obj.maxchoice = false;
+      }
+      if (minArr.length === 0) {
+          obj.minarr = true;
+        } else {
+          obj.minarr = false;
+        }
+      if (maxArr.length === 0) {
+          obj.maxarr = true;
+        } else {
+          obj.maxarr = false;
+        }
     }
 
 //This function will handle how each route is populated
@@ -190,29 +248,38 @@
         if (playerCounter === 2) {
           obj.player2 = true;
           obj.player1 = false;
+ 
         }
         if (playerCounter === 1) {
           obj.player1 = true;
         }
-        console.log(playerCounter);
+        if (obj.minarr === true && playerCounter === 2) {
+          obj.lesschoice = true;
+        } else {
+          obj.lesschoice = false;
+        }
+        if (obj.maxarr === true && playerCounter === 2) {
+          obj.morechoice = true;
+        } else {
+          obj.morechoice = false;
+        }
         obj.hide = false;
         obj.choice0 = "goout";
         choiceArray.push(choice);
         $location.path('/round2');
         obj.choice1 = "Less than $35";
         obj.choice2 = "More than $35";
-      
+       
       }else if(choice === "stayin"){
         playerCounter++;
         if (playerCounter === 2) {
           obj.player2 = true;
           obj.player1 = false;
-          console.log(obj.player);
         }
         if (playerCounter === 1) {
           obj.player1 = true;
         }
-        console.log(playerCounter);
+        // console.log(playerCounter);
         obj.hide = true;
         obj.choice0 = "stayin";
         choiceArray.push(choice);
@@ -231,7 +298,7 @@
         obj.choice5 = "Family";
         obj.choice6 = "Arts & Theatre";
       }else if(choice === "More than $35"){
-        // obj.userChoice = 36;
+        obj.userChoice = 36;
         choiceArray.push(choice);
         $location.path('/round3');
         obj.choice3 = "Music";
