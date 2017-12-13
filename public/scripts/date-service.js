@@ -24,7 +24,6 @@
     var yyyy = today.getFullYear();
 
     if(dd<10) {
-<<<<<<< HEAD
         dd = '0'+dd
     }
 
@@ -33,31 +32,14 @@
     }
 
     today = yyyy + '-' + mm + '-' + dd;
-    // var todaydate = null;
-    // var currentdatedd = obj.currentDate.getDate();
-    // var currentdatemm = obj.currentDate.getMonth()+1;
-    // var currentdateyyyy = obj.currentDate.getFullYear();
 
-    // if (currentdatedd<10) {
-    //   currentdatedd = '0'+currentdatedd
-    // }
-    // if(currentdatemm<10) {
-    //   currentdatemm = '0'+currentdatemm
-    // }
-
-    // todaydate = yyyy + '-' + currentdatemm + '-' + currendatedd;
-
-    // console.log(todaydate);
-
-=======
       dd = '0'+dd
-    } 
-    
+    }
+
     if(mm<10) {
       mm = '0'+mm
-    } 
-    today = yyyy + '-' + mm + '-' + dd; 
->>>>>>> ccdb6fb3986754e45dc8a9d49511d5166c335392
+    }
+    today = yyyy + '-' + mm + '-' + dd;
     return{
       startGame: startGame,
       routeFunc:routeFunc,
@@ -111,7 +93,7 @@
         return response;
       });
     }
- 
+
     function startOverRoute() {
       $location.path('/round2');
     }
@@ -187,22 +169,17 @@
 
     function tinderTime() {
       $location.path('/tindertime');
-<<<<<<< HEAD
 // this array shows all events under $35
-      minArr = tinderEvents.filter(function(item, index){
         // this will stop running if there's nore price.
-=======
     }
-    
     function tinderRoute(todaydate, maxdate) {
       todaysDate = todaydate;
       maxDate = maxdate;
     }
     function makeArrays() {
       console.log(tinderEvents);
-      minArr = tinderEvents.filter(function(item, index) { 
+      minArr = tinderEvents.filter(function(item, index) {
         var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
->>>>>>> ccdb6fb3986754e45dc8a9d49511d5166c335392
         if (item.priceRanges === undefined) {
 
         } else {
@@ -528,10 +505,9 @@
             console.log(stayInArray);
             return response;
       });
-    }
-
+    
   }//end of service
-  angular
-  .module("app")
-  .factory("EventService", EventService);
+    angular
+    .module("app")
+    .factory("EventService", EventService);
 })();
