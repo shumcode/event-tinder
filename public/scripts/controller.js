@@ -13,9 +13,10 @@
     }
 
     vm.object = EventService.returnObj();
-      
+
     vm.filterArray = function () {
       var stuff = EventService.makeArrays();
+      console.log(stuff);
     }
 
     vm.awesome = function() {
@@ -47,20 +48,20 @@
     }
 
     vm.makeMovieTVRequest = function() {
-        EventService.movieTVRequest();
+        EventService.movieTVRequest()
     }
-        
+
     vm.filteredMovieTV = function(object){
-        EventService.filteredMovieTV(object);
+        EventService.filteredMovieTV(object)
     }
-    
+
     vm.getCity = function(location){
         EventService.makeRequest(location).then(function(response) {
         vm.events = response.data._embedded.events;
       });
     }
 
-  }/*End of Controller*/
+  }
 
   angular
     .module("app")

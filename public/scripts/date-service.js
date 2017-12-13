@@ -18,11 +18,9 @@
     var DS = null;
     var todaysDate = null;
     var maxDate = null;
-    var minArrLength = null;
-    var maxArrLength = null;
     var today = new Date();
     var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
+    var mm = today.getMonth()+1;
     var yyyy = today.getFullYear();
 
     if(dd<10) {
@@ -53,8 +51,7 @@
       movieTVRequest: movieTVRequest,
       filteredMovieTV: filteredMovieTV,
       tinderTime: tinderTime,
-      makeArrays: makeArrays,
-      returnArrayLength: returnArrayLength
+      makeArrays: makeArrays
     }
 
     function getDate () {
@@ -77,14 +74,6 @@
       }
     }
 
-    function returnArrayLength () {
-      if (obj.userChoice <= 50) {
-        return minArrLength;
-      } else {
-        return maxArrLength;
-      }
-    }
-      
     function makeRequest(location) {
       return $http({
         method: "GET",
@@ -104,19 +93,19 @@
     }
 
     function addSICard(index) {
-      if (playerCounter === 1) {
-          var minCard = stayInArray[index];
-          p1Events.push(minCard);
-          stayInArray.splice(index, 1);
-      } else {
-          var minCard = stayInArray[index];
-          p2Events.push(minCard);
-          stayInArray.splice(index, 1);
-      }
+        if (playerCounter === 1) {
+            var minCard = stayInArray[index];
+            p1Events.push(minCard);
+            stayInArray.splice(index, 1);
+        } else {
+            var minCard = stayInArray[index];
+            p2Events.push(minCard);
+            stayInArray.splice(index, 1);
+        }
     }
 
     function removeSICard(index){
-      stayInArray.splice(index, 1);
+          stayInArray.splice(index, 1);
     }
 
 
@@ -134,31 +123,22 @@
         var minCard = minArr[index];
         p1Events.push(minCard);
         minArr.splice(index, 1);
-        minArrLength = minArr.length;
-        console.log(minArrLength);
       } else {
         var maxCard = maxArr[index];
         p1Events.push(maxCard);
         maxArr.splice(index, 1);
-        maxArrLength = maxArr.length;
-        console.log(maxArrLength);
       }
     } else {
       if (obj.userChoice < 50) {
         var minCard = minArr[index];
         p2Events.push(minCard);
         minArr.splice(index, 1);
-        minArrLength = minArr.length;
-        console.log(minArrLength);
       } else {
         var maxCard = maxArr[index];
         p2Events.push(maxCard);
         maxArr.splice(index, 1);
-        maxArrLength = maxArr.length;
-        console.log(maxArrLength);
       }
     }
-    returnArrayLength();
     }
 
     function randomEvent() {
@@ -167,9 +147,7 @@
       finalEvent.push(p2RandomEvent);
       finalEvent.push(p1RandomEvent);
       finalRandomEvent = finalEvent[Math.floor(Math.random() * finalEvent.length)];
-      if (finalRandomEvent.Details === undefined) {
-        obj.goOutEvent = true;
-      }
+
       return finalRandomEvent;
     }
 
@@ -185,6 +163,7 @@
     var todaysDate = "";
     var maxDate = "";
     function makeArrays() {
+      console.log(tinderEvents);
       minArr = tinderEvents.filter(function(item, index) {
         var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
         if (item.priceRanges === undefined) {
@@ -255,10 +234,8 @@
       }
     }
       })
-      // minArrLength = minArr.length;
-      // maxArrLength = maxArr.length;
-      // console.log(minArrLength);
-      // console.log(maxArrLength);
+      console.log(minArr);
+      console.log(maxArr);
       if (maxArr.length === 0 && obj.userChoice === 55) {
         obj.maxchoice = true;
       } else {
@@ -305,10 +282,11 @@
         }
         obj.hide = false;
         obj.choice0 = "goout";
+        choiceArray.push(choice);
         $location.path('/round2');
         obj.choice1 = "Less than $50";
         obj.choice2 = "More than $50";
-      } else if(choice === "stayin"){
+      }else if(choice === "stayin"){
         obj.goout = false;
         obj.stayin = true;
         playerCounter++;
@@ -321,6 +299,7 @@
         }
         obj.hide = true;
         obj.choice0 = "stayin";
+        choiceArray.push(choice);
         $location.path('/round2');
         obj.choice1 = "Go buy something to do at home";
         obj.choice2 = "Find something to do at home";
@@ -328,6 +307,7 @@
 
       if(choice === "Less than $50"){
         obj.userChoice = 30;
+        choiceArray.push(choice);
         $location.path('/round3');
         obj.choice3 = "Music";
         obj.choice4 = "Sports";
@@ -335,6 +315,7 @@
         obj.choice6 = "Arts & Theatre";
       }else if(choice === "More than $50"){
         obj.userChoice = 55;
+        choiceArray.push(choice);
         $location.path('/round3');
         obj.choice3 = "Music";
         obj.choice4 = "Sports";
@@ -343,32 +324,58 @@
       }
 
       if(choice === "Go buy something to do at home"){
-        obj.atHome = false;
-        $location.path('/round4');
-        obj.choice3 = "Buy things to cook from the store";
-        obj.choice4 = "Buy things for other activities";
+          obj.atHome = false;
+          obj.choice2= null;
+          choiceArray.push(choice);
+          $location.path('/round4');
+          obj.choice3 = "Buy things to cook from the store";
+          obj.choice4 = "Buy things for other activities";
       }else if(choice === "Find something to do at home"){
-        obj.atHome = true;
-        $location.path('/round4');
-        obj.choice3 = "Do something active";
-        obj.choice4 = "Do something relaxing";
+          obj.atHome = true;
+          obj.choice1= null;
+          choiceArray.push(choice);
+          $location.path('/round4');
+          obj.choice3 = "Do something active";
+          obj.choice4 = "Do something relaxing";
+      }
+
+      if(choice === "Music"){
+        choiceArray.push(choice);
+
+      }else if(choice === "Family"){
+        choiceArray.push(choice);
+
+      }else if(choice === "Sports"){
+        choiceArray.push(choice);
+
+      }else if(choice === "Arts & Theatre"){
+        choiceArray.push(choice);
+
       }
 
       if(choice === "Buy things to cook from the store"){
+        obj.choice4 = null;
+        choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Buy ingredients for dinner";
         obj.choice6 = "Buy ingredients for a dessert";
       }else if(choice === "Buy things for other activities"){
+        obj.choice3 = null;
+        choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Arts and Crafts Supplies";
         obj.choice6 = "Something Active";
       }else if(choice === "Do something active"){
         obj.relaxing = false;
+        obj.choice4 = null;
+        choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Do arts and crafts";
         obj.choice6 = "Other active activities";
       }else if(choice === "Do something relaxing"){
         obj.relaxing = true;
+        obj.choice3 = null;
+        choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Watch a movie";
         obj.choice6 = "Watch a tv show";
@@ -377,10 +384,14 @@
 
 
       if(choice === "Buy ingredients for dinner"){
+        obj.choice6 = null;
+        choiceArray.push(choice);
         $location.path('/round6');
         obj.choice7 = "Easy Recipe";
         obj.choice8 = "Hard Recipe";
       } else if(choice === "Watch a movie"){
+        obj.choice6 = null;
+        choiceArray.push(choice);
         $location.path('/round7');
         obj.choice9 = "Horror";
         obj.choice10 = "Sci-Fi";
@@ -388,6 +399,8 @@
         obj.choice12 = "Comedy";
         obj.choice13 = "Drama";
       } else if(choice === "Watch a tv show"){
+        obj.choice5 = null;
+        choiceArray.push(choice);
         $location.path('/round8');
         obj.choice9 = "Documentary";
         obj.choice10 = "Sci-Fi";
@@ -396,40 +409,40 @@
         obj.choice13 = "Drama";
       }
 
-      if(choice === "Easy Recipe"){
-        DS = 1;
-        $location.path("/tindertime");
-      }
+        if(choice === "Easy Recipe"){
+            DS = 1;
+            $location.path("/tindertime");
+        }
 
-      if(choice === "Hard Recipe"){
-        DS = 2;
-        $location.path("/tindertime");
-      }
+        if(choice === "Hard Recipe"){
+            DS = 2;
+            $location.path("/tindertime");
+        }
 
-      if(choice === "Arts and Crafts Supplies"){
-        DS = 3;
-        $location.path("/tindertime");
-      }
+        if(choice === "Buy arts and crafts supplies"){
+            DS = 3;
+            $location.path("/tindertime");
+        }
 
-      if(choice === "Something Active"){
-        DS = 4;
-        $location.path("/tindertime");
-      }
+        if(choice === "Buy something active"){
+            DS = 4;
+            $location.path("/tindertime");
+        }
 
-      if(choice === "Do arts and crafts"){
-        DS = 5;
-        $location.path("/tindertime");
-      }
+        if(choice === "Do arts and crafts"){
+            DS = 5;
+            $location.path("/tindertime");
+        }
 
-      if(choice === "Other active activities"){
-        DS = 6;
-        $location.path("/tindertime");
-      }
+        if(choice === "Other active activities"){
+            DS = 6;
+            $location.path("/tindertime");
+        }
 
-      if(choice === "Buy ingredients for a dessert"){
-        DS = 7;
-        $location.path("/tindertime");
-      }
+        if(choice === "Buy ingredients for a dessert"){
+            DS = 7;
+            $location.path("/tindertime");
+        }
 
 
     }//end of route function
@@ -445,11 +458,11 @@
             url: "/stayInIdeas/" + DS
         }).then(function(response) {
             stayInArray = response.data;
-            //console.log(stayInArray);
+            console.log(stayInArray);
             return response;
         });
     }
-          
+
       function movieTVRequest(){
           return $http({
               method: "GET",
@@ -458,18 +471,20 @@
               movieTVFullArray = response.data;
           });
       }
-      
-            
+
+
       function filteredMovieTV(){
           $location.path('/tindertime');
-          stayInArray = movieTVFullArray.filter(function(item, index){ 
-          if(obj.choice5 === "Watch a movie"){
+
+          stayInArray = movieTVFullArray.filter(function(item, index){
+              if(obj.choice5 === "Watch a movie"){
             if(obj.choice9checked === true){
                 if(item.infoset == 8){
                     return item;
                 }
               }
             if(obj.choice10checked === true){
+
                 if(item.infoset == 9){
                     return item;
                 }
@@ -488,43 +503,44 @@
                 if(item.infoset == 12){
                     return item;
                 }
-            }
-          }
+              }
+             }
           if(obj.choice6 === "Watch a tv show"){
             if(obj.choice9checked === true){
                 if(item.infoset == 17){
                     return item;
                 }
-            }
+                }
             if(obj.choice10checked === true){
                 if(item.infoset == 16){
                     return item;
                 }
-            }
+                }
             if(obj.choice11checked === true){
                 if(item.infoset == 13){
                     return item;
                 }
-            }
+                }
             if(obj.choice12checked === true){
                 if(item.infoset == 14){
                     return item;
                 }
-            }
+                }
             if(obj.choice13checked === true){
                 if(item.infoset == 15){
                     return item;
                 }
-            }      
-              
+                }
+
           }})
+          console.log(stayInArray);
           return stayInArray;
       }
-             
-      
-    
-    
-      
+
+
+
+
+
 
   }//end of service
   angular

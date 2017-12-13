@@ -4,14 +4,16 @@
     <div ng-repeat="event in $ctrl.events track by $index" ng-show="event.priceRanges" id="event">
         <p>{{ $ctrl.arrayLength }}</p>
         <img ng-src="{{ event.images['0'].url }}">
-        <p>{{ event.name }}</p>
-        <p>{{ event._embedded.venues['0'].name }}</p>
-        <p>{{ event._embedded.venues['0'].address.line1 }}</p>
-        <p>Price: ${{ event.priceRanges['0'].min }} - ${{ event.priceRanges['0'].max }}</p>
-      <div id="button">
-        <i ng-click="$ctrl.removeCard($index);" id="icon1" class="material-icons">cancel</i>
-        <i ng-click="$ctrl.saveCard($index);" id="icon2" class="material-icons">check</i>
-      </div>
+        <div id = "text">
+          <h3>{{ event.name }}</h3>
+          <p>{{ event._embedded.venues['0'].name }}</p>
+          <p>{{ event._embedded.venues['0'].address.line1 }}</p>
+          <p>Price: ${{ event.priceRanges['0'].min }} - ${{ event.priceRanges['0'].max }}</p>
+        </div>
+        <div id="button">
+          <i ng-click="$ctrl.removeCard($index);" id="icon1" class="material-icons">cancel</i>
+          <i ng-click="$ctrl.saveCard($index);" id="icon2" class="material-icons">check</i>
+        </div>
     </div>
     <div ng-show="$ctrl.object.minchoice">
       There are no events under $35 dollars, click the change city button to change your price range or city.
@@ -19,7 +21,7 @@
     <div ng-show="$ctrl.object.maxchoice">
       There are no events, select a different city.
     </div>
-        
+
     <div class="hide" ng-show="$ctrl.object.goOutEvent">
       <h2>This is the event for date night!</h2>
       <img ng-src="{{ $ctrl.winningEvent.images['0'].url }}">
@@ -28,18 +30,18 @@
       <p>{{ $ctrl.winningEvent._embedded.venues['0'].address.line1 }}</p>
       <p>Price: ${{ $ctrl.winningEvent.priceRanges['0'].min }} - ${{ $ctrl.winningEvent.priceRanges['0'].max }}</p>
       <a href="{{ $ctrl.winningEvent.url }}">Purchase Tickets</a>
-      
+
     </div>
-    
+
     <div class="hide" ng-hide="$ctrl.object.goOutEvent">
         <h2>This is the event for date night!</h2>
         <img ng-src="{{$ctrl.winningEvent.Image}}">
         <p>{{$ctrl.winningEvent.idea}}</p>
         <a href="{{$ctrl.winningEvent.Details}}">More Details</a>
     </div>
-    
-    
-    
+
+
+
     <button type="button" ng-click="$ctrl.randomEvent();" ng-hide="$ctrl.object.player1" tinder-directive>CLICK HERE TO GET YOUR DATE</button>
 
 <div ng-repeat="idea in $ctrl.ideas track by $index" id="event" ng-show="$ctrl.object.stayin">

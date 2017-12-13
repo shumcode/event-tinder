@@ -225,8 +225,14 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
   cursor: pointer;
   margin-bottom:25px;
 }
+<<<<<<< HEAD
 #round3 input[type=checkbox]{
     visibility: hidden;
+=======
+
+#round3 input[type=checkbox]{
+	visibility: hidden;
+>>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 }
 .btn3{
   width:90%;
@@ -239,11 +245,24 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
 -moz-box-shadow: 0px 4px 5px 0px rgb(80, 33, 46);
 box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
 }
+<<<<<<< HEAD
 /*end of Round3*/
 /*Start of tindertime*/
 #icon1, #icon2 {
     font-size:55px;
   }
+=======
+
+/*end of Round3*/
+
+/*Start of tindertime*/
+
+#icon1, #icon2 {
+    font-size:55px;
+  }
+
+
+>>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 #eventpageholder {
   margin: 0 auto;
   width:90%;
@@ -261,6 +280,10 @@ box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
   width:100%;
   margin-bottom:25px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 #eventpageholder #button{
   margin-top:10px;
 }
@@ -270,6 +293,12 @@ box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
   display: block;
   border-radius: 5px 5px 0 0;
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 #event {
   display: flex;
   flex-direction: column;
@@ -285,12 +314,20 @@ box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
   top:70px;
   margin-bottom:20px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 #eventpageholder h3{
   font-size:18px;
   margin:17px 0 2px 0;
   color:#ddd8d5;
   letter-spacing:.5px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 #eventpageholder p{
   font-size:18px;
   color:#fff;
@@ -344,6 +381,10 @@ button {
   color: white;
   border:none;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 .choice {
   display: flex;
   justify-content: space-around;
