@@ -20,22 +20,22 @@
       There are no events, select a different city.
     </div>
         
-    <div class="hide">
+    <div class="hide" ng-show="$ctrl.object.goOutEvent">
       <h2>This is the event for date night!</h2>
       <img ng-src="{{ $ctrl.winningEvent.images['0'].url }}">
       <p>{{ $ctrl.winningEvent.name }}</p>
       <p>{{ $ctrl.winningEvent._embedded.venues['0'].name }}</p>
       <p>{{ $ctrl.winningEvent._embedded.venues['0'].address.line1 }}</p>
       <p>Price: ${{ $ctrl.winningEvent.priceRanges['0'].min }} - ${{ $ctrl.winningEvent.priceRanges['0'].max }}</p>
-      <a href="{{ $ctrl.winningEvent.url }}">Click here to access the Event!</a>
+      <a href="{{ $ctrl.winningEvent.url }}">Purchase Tickets</a>
       
     </div>
     
-    <div class="hide">
+    <div class="hide" ng-hide="$ctrl.object.goOutEvent">
         <h2>This is the event for date night!</h2>
         <img ng-src="{{$ctrl.winningEvent.Image}}">
         <p>{{$ctrl.winningEvent.idea}}</p>
-        <a href="{{$ctrl.winningEvent.Details}}">Link Stay In Event Idea</a>
+        <a href="{{$ctrl.winningEvent.Details}}">More Details</a>
     </div>
     
     
