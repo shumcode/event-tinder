@@ -161,6 +161,7 @@
       finalEvent.push(p2RandomEvent);
       finalEvent.push(p1RandomEvent);
       finalRandomEvent = finalEvent[Math.floor(Math.random() * finalEvent.length)];
+      
       return finalRandomEvent;
     }
       
@@ -281,6 +282,9 @@
         obj.stayin = false;
         obj.goout = true;
         playerCounter++;
+        if (playerCounter === 2 && obj.goout === true) {
+          obj.p2go = true;
+        }
         if (playerCounter === 2) {
           obj.player2 = true;
           obj.player1 = false;
@@ -521,33 +525,36 @@
         
           stayInArray = movieTVFullArray.filter(function(item, index){
             //Movie route to return movie genres filtered by selection  
-              if(obj.choice5 = "Watch a movie"){
-             console.log("movie route works")
+              if(obj.choice5 === "Watch a movie"){
             if(obj.choice9checked === true){
                 if(item.infoset == 8){
                     return item;
-                }}
+                }
+              }
             if(obj.choice10checked === true){
                 
                 if(item.infoset == 9){
                     return item;
-                }}
+                }
+              }
             if(obj.choice11checked === true){
                 if(item.infoset == 10){
                     return item;
-                }}
+                }
+              }
             if(obj.choice12checked === true){
                 if(item.infoset == 11){
                     return item;
-                }}
+                }
+              }
             if(obj.choice13checked === true){
                 if(item.infoset == 12){
                     return item;
-                }}
+                }
+              }
              }
         //TV route to return TV genres filtered by selection
-          if(obj.choice6 = "Watch a tv show"){
-            console.log("tv route works")
+          if(obj.choice6 === "Watch a tv show"){
             if(obj.choice9checked === true){
                 if(item.infoset == 17){
                     return item;
@@ -559,7 +566,6 @@
                 }
                 }
             if(obj.choice11checked === true){
-                console.log("Choice 11 is true and working");
                 if(item.infoset == 13){
                     return item;
                 }
@@ -577,7 +583,7 @@
               
           }})
           console.log(stayInArray);
-          return stayInArray
+          return stayInArray;
       }
              
       
