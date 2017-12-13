@@ -27,40 +27,13 @@
     var yyyy = today.getFullYear();
 
     if(dd<10) {
-<<<<<<< HEAD
-        dd = '0'+dd
-    }
-
-    if(mm<10) {
-        mm = '0'+mm
-    }
-
-    today = yyyy + '-' + mm + '-' + dd;
-    // var todaydate = null;
-    // var currentdatedd = obj.currentDate.getDate();
-    // var currentdatemm = obj.currentDate.getMonth()+1;
-    // var currentdateyyyy = obj.currentDate.getFullYear();
-
-    // if (currentdatedd<10) {
-    //   currentdatedd = '0'+currentdatedd
-    // }
-    // if(currentdatemm<10) {
-    //   currentdatemm = '0'+currentdatemm
-    // }
-
-    // todaydate = yyyy + '-' + currentdatemm + '-' + currendatedd;
-
-    // console.log(todaydate);
-
-=======
       dd = '0'+dd
-    } 
-    
+    }
+
     if(mm<10) {
       mm = '0'+mm
-    } 
-    today = yyyy + '-' + mm + '-' + dd; 
->>>>>>> ccdb6fb3986754e45dc8a9d49511d5166c335392
+    }
+    today = yyyy + '-' + mm + '-' + dd;
     return{
       startGame: startGame,
       routeFunc:routeFunc,
@@ -114,7 +87,7 @@
         return response;
       });
     }
- 
+
     function startOverRoute() {
       $location.path('/round2');
     }
@@ -190,13 +163,8 @@
 
     function tinderTime() {
       $location.path('/tindertime');
-<<<<<<< HEAD
-// this array shows all events under $35
-      minArr = tinderEvents.filter(function(item, index){
-        // this will stop running if there's nore price.
-=======
     }
-    
+
     function tinderRoute(todaydate, maxdate) {
       todaysDate = todaydate;
       maxDate = maxdate;
@@ -206,9 +174,8 @@
     var maxDate = "";
     function makeArrays() {
       console.log(tinderEvents);
-      minArr = tinderEvents.filter(function(item, index) { 
+      minArr = tinderEvents.filter(function(item, index) {
         var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
->>>>>>> ccdb6fb3986754e45dc8a9d49511d5166c335392
         if (item.priceRanges === undefined) {
 
         } else {
@@ -342,7 +309,7 @@
         obj.choice0 = "stayin";
         choiceArray.push(choice);
         $location.path('/round2');
-        obj.choice1 = "Cook at home";
+        obj.choice1 = "Go buy something to do at home";
         obj.choice2 = "Find something to do at home";
      }
 
@@ -365,17 +332,13 @@
         obj.choice6 = "Arts & Theatre";
       }
       //Round 4 - staying in
-      if(choice === "Cook at home"){
-          obj.cook = true;
-          obj.atHome = false;
+      if(choice === "Go buy something to do at home"){
           obj.choice2= null;
           choiceArray.push(choice);
           $location.path('/round4');
           obj.choice3 = "Buy things to cook from the store";
           obj.choice4 = "Buy things for other activities";
       }else if(choice === "Find something to do at home"){
-          obj.cook = false;
-          obj.atHome = true;
           obj.choice1= null;
           choiceArray.push(choice);
           $location.path('/round4');
@@ -399,7 +362,7 @@
       }
 
 // Round 5 - staying in
-      if(choice === "Cook at home"){
+      if(choice === "Buy things to cook from the store"){
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
@@ -415,8 +378,6 @@
         obj.choice6 = "Buy something active";
         //decision tree ends. Returns list of things to buy to do that are active from database
       }else if(choice === "Do something active"){
-        // obj.other = false;
-        obj.crafts = false;
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
@@ -425,8 +386,6 @@
         obj.choice6 = "Other active activities";
         //decision tree ends. Returns list of things more active from database
       }else if(choice === "Do something relaxing"){
-        // obj.other = true;
-        obj.crafts = true;
         obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
@@ -438,7 +397,6 @@
 
 //Round 6- Only for staying in
       if(choice === "Buy ingredients for dinner"){
-        obj.buy = true;
         obj.choice6 = null;
         choiceArray.push(choice);
         $location.path('/round6');
@@ -447,7 +405,6 @@
         obj.choice8 = "Hard Recipe";
         //decision tree ends. Returns hard recipes for dinner
       } else if(choice === "Watch a movie"){
-        obj.buy = false;
         obj.choice6 = null;
         choiceArray.push(choice);
         $location.path('/round7');
