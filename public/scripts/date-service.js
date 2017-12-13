@@ -18,6 +18,8 @@
     var DS = null;
     var todaysDate = null;
     var maxDate = null;
+    var minArrLength = null;
+    var maxArrLength = null;
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
@@ -51,7 +53,8 @@
       movieTVRequest: movieTVRequest,
       filteredMovieTV: filteredMovieTV,
       tinderTime: tinderTime,
-      makeArrays: makeArrays
+      makeArrays: makeArrays,
+      returnArrayLength: returnArrayLength
     }
 
     function getDate () {
@@ -71,6 +74,14 @@
         return minArr;
       } else {
         return maxArr;
+      }
+    }
+
+    function returnArrayLength () {
+      if (obj.userChoice <= 50) {
+        return minArrLength;
+      } else {
+        return maxArrLength;
       }
     }
       
@@ -123,22 +134,31 @@
         var minCard = minArr[index];
         p1Events.push(minCard);
         minArr.splice(index, 1);
+        minArrLength = minArr.length;
+        console.log(minArrLength);
       } else {
         var maxCard = maxArr[index];
         p1Events.push(maxCard);
         maxArr.splice(index, 1);
+        maxArrLength = maxArr.length;
+        console.log(maxArrLength);
       }
     } else {
       if (obj.userChoice < 50) {
         var minCard = minArr[index];
         p2Events.push(minCard);
         minArr.splice(index, 1);
+        minArrLength = minArr.length;
+        console.log(minArrLength);
       } else {
         var maxCard = maxArr[index];
         p2Events.push(maxCard);
         maxArr.splice(index, 1);
+        maxArrLength = maxArr.length;
+        console.log(maxArrLength);
       }
     }
+    returnArrayLength();
     }
 
     function randomEvent() {
@@ -235,8 +255,10 @@
       }
     }
       })
-      //console.log(minArr);
-      //console.log(maxArr);
+      // minArrLength = minArr.length;
+      // maxArrLength = maxArr.length;
+      // console.log(minArrLength);
+      // console.log(maxArrLength);
       if (maxArr.length === 0 && obj.userChoice === 55) {
         obj.maxchoice = true;
       } else {

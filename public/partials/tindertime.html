@@ -2,6 +2,7 @@
     <button player-two-directive ng-hide="$ctrl.object.player2" ng-click="$ctrl.playerTwo();">PLAYER 2</button>
     <button ng-hide="$ctrl.object.stayin" ng-click="$ctrl.startOver();">CHANGE CITY</button>
     <div ng-repeat="event in $ctrl.events track by $index" ng-show="event.priceRanges" id="event">
+        <p>{{ $ctrl.arrayLength }}</p>
         <img ng-src="{{ event.images['0'].url }}">
         <p>{{ event.name }}</p>
         <p>{{ event._embedded.venues['0'].name }}</p>
@@ -42,6 +43,7 @@
     <button type="button" ng-click="$ctrl.randomEvent();" ng-hide="$ctrl.object.player1" tinder-directive>CLICK HERE TO GET YOUR DATE</button>
 
 <div ng-repeat="idea in $ctrl.ideas track by $index" id="event" ng-show="$ctrl.object.stayin">
+    <p>{{ $ctrl.arrayLength }}</p>
     <img ng-src="{{idea.Image}}">
     <p>{{ idea.idea }}</p>
     <a href="{{ idea.Details }}">Link to Idea</a>
@@ -52,7 +54,7 @@
 </div>
 
 <div ng-repeat="movie in $ctrl.movies track by $index" id="event" ng-show="$ctrl.object.stayin">
-    
+    <p>{{ $ctrl.arrayLength }}</p>
     <img ng-src="{{movie.Image}}">
     <p>{{ movie.idea }}</p>
     <a href="{{ movie.Details }}">Link to Idea</a>

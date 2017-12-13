@@ -48,6 +48,12 @@
       EventService.startOverRoute();
     }
     vm.events = EventService.returnTinderEvents();
+    
+    vm.getArrayLength = function () {
+      vm.arrayLength = EventService.returnArrayLength();
+      console.log(vm.arrayLength);
+    }
+    // vm.arrayLength = EventService.returnArrayLength();
       
     vm.movies = EventService.filteredMovieTV();
     
