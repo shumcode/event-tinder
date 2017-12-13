@@ -37,11 +37,11 @@
 
 /*Home page styling*/
 h1 {
-  font-size: 20px;
+  font-size: 30px;
   font-family: 'Quicksand', sans-serif;
   font-family: 'Itim', cursive;
   font-family: 'Cormorant Garamond', serif;
-  color: #feaf80;
+  color: #5b3848;
   font-weight: bold;
 }
 
@@ -71,7 +71,7 @@ to {top: 50px; background-color: lightgrey;}
 }
 
 #startpagediv p {
-  font-size: 12px;
+  font-size: 18px;
   font-family: 'Quicksand', sans-serif;
   font-family: 'Itim', cursive;
   font-family: 'Cormorant Garamond', serif;

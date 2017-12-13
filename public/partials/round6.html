@@ -1,15 +1,12 @@
-<div>
-  
+<div id="round6In">
 
   <div id ="choice7" class ="choice">
-    <img src="" />
-    {{$ctrl.object.choice7}}
-    <button ng-click="$ctrl.routeFunc($ctrl.object.choice7)" >{{$ctrl.object.choice7}} </button>
+    <img ng-show="$ctrl.object.buy" ng-src="images/Pasta.jpg" />
+    <button ng-click="$ctrl.routeFunc($ctrl.object.choice7)" button-directive>{{$ctrl.object.choice7}} </button>
   </div>
 
-  <div id="choice8" class ="choice">
-    <img src="" />
-    {{$ctrl.object.choice8}}
-    <button ng-click="$ctrl.routeFunc($ctrl.object.choice8)">{{$ctrl.object.choice8}}</button>
+  <div id="choice8" class="choice">
+    <img ng-show="$ctrl.object.buy" ng-src="images/CordonBleu.jpg" />
+    <button ng-click="$ctrl.routeFunc($ctrl.object.choice8)" button-directive>{{$ctrl.object.choice8}}</button>
   </div>
 </div>

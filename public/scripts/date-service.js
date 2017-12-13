@@ -179,6 +179,7 @@
       $location.path('/tindertime');
 // this array shows all events under $35
       minArr = tinderEvents.filter(function(item, index){
+        // this will stop running if there's nore price.
         if (item.priceRanges === undefined) {
 
         } else {
@@ -336,12 +337,16 @@
       }
       //Round 4 - staying in
       if(choice === "Cook at home"){
+          obj.cook = true;
+          obj.atHome = false;
           obj.choice2= null;
           choiceArray.push(choice);
           $location.path('/round4');
           obj.choice3 = "Buy things to cook from the store";
           obj.choice4 = "Buy things for other activities";
       }else if(choice === "Find something to do at home"){
+          obj.cook = false;
+          obj.atHome = true;
           obj.choice1= null;
           choiceArray.push(choice);
           $location.path('/round4');
@@ -381,6 +386,8 @@
         obj.choice6 = "Buy something active";
         //decision tree ends. Returns list of things to buy to do that are active from database
       }else if(choice === "Do something active"){
+        // obj.other = false;
+        obj.crafts = false;
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
@@ -389,6 +396,8 @@
         obj.choice6 = "Other active activities";
         //decision tree ends. Returns list of things more active from database
       }else if(choice === "Do something relaxing"){
+        // obj.other = true;
+        obj.crafts = true;
         obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
@@ -400,6 +409,7 @@
 
 //Round 6- Only for staying in
       if(choice === "Buy ingredients for dinner"){
+        obj.buy = true;
         obj.choice6 = null;
         choiceArray.push(choice);
         $location.path('/round6');
@@ -408,6 +418,7 @@
         obj.choice8 = "Hard Recipe";
         //decision tree ends. Returns hard recipes for dinner
       } else if(choice === "Watch a movie"){
+        obj.buy = false;
         obj.choice6 = null;
         choiceArray.push(choice);
         $location.path('/round7');
