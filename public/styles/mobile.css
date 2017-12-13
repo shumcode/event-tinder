@@ -104,9 +104,10 @@ h3{
   width: 90%;
   margin:50px auto;
   height: auto;
-  -webkit-animation-name: example;  /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 3s;  /* Safari 4.0 - 8.0 */
-  -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+  position: relative;
+  -webkit-animation-name: example;  /* chrome */
+  -webkit-animation-duration: 3s;  /* chrome */
+  -webkit-animation-fill-mode: forwards; /* chrome */
   animation-name: example;
   animation-duration: 3s;
   animation-fill-mode: forwards;
@@ -155,7 +156,7 @@ box-shadow: 2px 7px 32px -12px rgba(0,0,0,1);
     width:90%;
     margin:20px 0 20px 0;
   }
-/* 
+/*
 @-webkit-keyframes example {
 from {top: 0px;}
 to {top: 50px; background-color: lightgrey;}
@@ -316,7 +317,7 @@ input[type=checkbox]{
   position: relative;
   flex-direction: column;
   align-items: center;
- 
+
 }
 
 #eventpageholder div{
