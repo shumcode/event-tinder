@@ -1,7 +1,7 @@
 
 <div id="eventpageholder">
     <button player-two-directive ng-hide="$ctrl.object.player2" ng-click="$ctrl.playerTwo();">PLAYER 2</button>
-    <button ng-hide="$ctrl.object.player2" ng-click="$ctrl.startOver();">CHANGE CITY</button>
+    <button ng-hide="$ctrl.object.stayin" ng-click="$ctrl.startOver();">CHANGE CITY</button>
     <div ng-repeat="event in $ctrl.events track by $index" ng-show="event.priceRanges" id="event">
         <img ng-src="{{ event.images['0'].url }}">
         <p>{{ event.name }}</p>
@@ -21,7 +21,7 @@
     </div>
     
 <!--This is what will show if final event is a Go Out event -->    
-    <div class="hide" ng-hide="$ctrl.finalEventType();">
+    <div class="hide">
       <h2>This is the event for date night!</h2>
       <img ng-src="{{ $ctrl.winningEvent.images['0'].url }}">
       <p>{{ $ctrl.winningEvent.name }}</p>
@@ -29,12 +29,11 @@
       <p>{{ $ctrl.winningEvent._embedded.venues['0'].address.line1 }}</p>
       <p>Price: ${{ $ctrl.winningEvent.priceRanges['0'].min }} - ${{ $ctrl.winningEvent.priceRanges['0'].max }}</p>
       <a href="{{ $ctrl.winningEvent.url }}">Click here to access the Event!</a>
-        <a href="{{$ctrl.winningEvent.Details}}">Link Stay In Event Idea</a>
       
     </div>
     
 <!--This is what will show if the final event night is a Stay At Home idea -->
-    <div class="" ng-show="$ctrl.finalEventType();">
+    <div class="hide">
         <h2>This is the event for date night!</h2>
         <img ng-src="{{$ctrl.winningEvent.Image}}">
         <p>{{$ctrl.winningEvent.idea}}</p>
@@ -72,7 +71,7 @@ I have tested the things below {{$ctrl...stuff}}, and they work
 <!--    {{ $ctrl.movies }}-->
     
     <img ng-src="{{movie.Image}}">
-    <p>{{ idea.idea }}</p>
+    <p>{{ movie.idea }}</p>
     <a href="{{ movie.Details }}">Link to Idea</a>
     <div id="button">
         <i ng-click="$ctrl.removeSICard($index);" id="icon1" class="material-icons">cancel</i>

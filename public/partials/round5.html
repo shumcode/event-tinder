@@ -4,13 +4,13 @@
   <div id="round5In">
     <div id ="choice5" class ="choice">
       <img class="imgbuy" ng-show="$ctrl.object.cook" ng-src="images/gobuy.jpeg" />
-      <img class="imgarts" ng-show="$ctrl.object.crafts" ng-src="images/arts.jpeg" />
+      <img class="imgarts" ng-hide="$ctrl.object.relaxing" ng-src="images/arts.jpeg" />
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice5)" button-directive>{{$ctrl.object.choice5}} </button>
     </div>
 
     <div id="choice6" class ="choice">
       <img class="imgdesserts" ng-show="$ctrl.object.cook" src="images/desserts.jpeg" />
-      <img class="imgotheractive" ng-show="$ctrl.object.crafts" ng-src="images/otheractive.jpeg" />
+      <img class="imgotheractive" ng-hide="$ctrl.object.relaxing" ng-src="images/otheractive.jpeg" />
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice6)" button-directive>{{$ctrl.object.choice6}}</button>
     </div>
   </div>

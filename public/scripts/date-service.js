@@ -161,6 +161,7 @@
       finalEvent.push(p2RandomEvent);
       finalEvent.push(p1RandomEvent);
       finalRandomEvent = finalEvent[Math.floor(Math.random() * finalEvent.length)];
+      
       return finalRandomEvent;
     }
       
@@ -281,6 +282,9 @@
         obj.stayin = false;
         obj.goout = true;
         playerCounter++;
+        if (playerCounter === 2 && obj.goout === true) {
+          obj.p2go = true;
+        }
         if (playerCounter === 2) {
           obj.player2 = true;
           obj.player1 = false;
@@ -344,12 +348,14 @@
       }
       //Round 4 - staying in
       if(choice === "Go buy something to do at home"){
+          obj.atHome = false;
           obj.choice2= null;
           choiceArray.push(choice);
           $location.path('/round4');
           obj.choice3 = "Buy things to cook from the store";
           obj.choice4 = "Buy things for other activities";
       }else if(choice === "Find something to do at home"){
+          obj.atHome = true;
           obj.choice1= null;
           choiceArray.push(choice);
           $location.path('/round4');
@@ -384,11 +390,12 @@
         obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
-        obj.choice5 = "Buy arts and crafts supplies";
+        obj.choice5 = "Arts and Crafts Supplies";
         //decision tree ends. Returns list of things to buy to make arts and crafts from database
-        obj.choice6 = "Buy something active";
+        obj.choice6 = "Something Active";
         //decision tree ends. Returns list of things to buy to do that are active from database
       }else if(choice === "Do something active"){
+        obj.relaxing = false;
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
@@ -397,6 +404,7 @@
         obj.choice6 = "Other active activities";
         //decision tree ends. Returns list of things more active from database
       }else if(choice === "Do something relaxing"){
+        obj.relaxing = true;
         obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
@@ -517,33 +525,36 @@
         
           stayInArray = movieTVFullArray.filter(function(item, index){
             //Movie route to return movie genres filtered by selection  
-              if(obj.choice5 = "Watch a movie"){
-             console.log("movie route works")
+              if(obj.choice5 === "Watch a movie"){
             if(obj.choice9checked === true){
                 if(item.infoset == 8){
                     return item;
-                }}
+                }
+              }
             if(obj.choice10checked === true){
                 
                 if(item.infoset == 9){
                     return item;
-                }}
+                }
+              }
             if(obj.choice11checked === true){
                 if(item.infoset == 10){
                     return item;
-                }}
+                }
+              }
             if(obj.choice12checked === true){
                 if(item.infoset == 11){
                     return item;
-                }}
+                }
+              }
             if(obj.choice13checked === true){
                 if(item.infoset == 12){
                     return item;
-                }}
+                }
+              }
              }
         //TV route to return TV genres filtered by selection
-          if(obj.choice6 = "Watch a tv show"){
-            console.log("tv route works")
+          if(obj.choice6 === "Watch a tv show"){
             if(obj.choice9checked === true){
                 if(item.infoset == 17){
                     return item;
@@ -555,7 +566,6 @@
                 }
                 }
             if(obj.choice11checked === true){
-                console.log("Choice 11 is true and working");
                 if(item.infoset == 13){
                     return item;
                 }
@@ -573,7 +583,7 @@
               
           }})
           console.log(stayInArray);
-          return stayInArray
+          return stayInArray;
       }
              
       
