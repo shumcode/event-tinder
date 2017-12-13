@@ -147,7 +147,9 @@
       finalEvent.push(p2RandomEvent);
       finalEvent.push(p1RandomEvent);
       finalRandomEvent = finalEvent[Math.floor(Math.random() * finalEvent.length)];
-      
+      if (finalRandomEvent.Details === undefined) {
+        obj.goOutEvent = true;
+      }
       return finalRandomEvent;
     }
 
