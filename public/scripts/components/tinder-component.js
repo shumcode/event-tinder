@@ -24,10 +24,15 @@
       EventService.twoRoute();
     }
     vm.object = EventService.returnObj();
-    //
+    
     vm.randomEvent = function() {
       vm.winningEvent = EventService.randomEvent();
     }
+    
+//    vm.finalEventType = function(){
+//        vm.finalEventType = EventService.finalEventType();
+//    }
+    
     vm.startOver = function() {
       vm.try = EventService.returnObj();
       vm.try.location = "";

@@ -15,6 +15,7 @@
     var finalRandomEvent = {};
     var stayInArray = [];
     var movieTVFullArray = [];
+//    var finalEventType;
     var DS = null;
     // gets date for if statement
     var today = new Date();
@@ -65,7 +66,8 @@
       removeSICard: removeSICard,
       addSICard: addSICard,
       movieTVRequest: movieTVRequest,
-      filteredMovieTV: filteredMovieTV,    
+      filteredMovieTV: filteredMovieTV,
+//      finalEventType: finalEventType
     }
 
     function getDate () {
@@ -177,6 +179,14 @@
       finalRandomEvent = finalEvent[Math.floor(Math.random() * finalEvent.length)];
       return finalRandomEvent;
     }
+      
+//    function finalEventType(){
+//        //If .idea is null, that means the final event is a Go Out event
+////        if(finalRandomEvent.idea = null){finalEventType === true};
+//        //If .idea is NOT null, final event is a Stay In idea
+//        if(finalRandomEvent.idea != null){console.log("finalEventType is StayIn"); finalEventType === true};
+//        return finalEventType
+//    }  
 
     function tinderRoute() {
       console.log(obj);
