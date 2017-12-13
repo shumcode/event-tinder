@@ -47,12 +47,10 @@
       EventService.tinderRoute(todaydatehyphens, enddatehyphens);
     }
 
-//This is called via ng-click of "Stay-In" on Round1.html.  Sets the movieTVFullArray equal to everything pulled from the database
     vm.makeMovieTVRequest = function() {
         EventService.movieTVRequest()
     }
-    
-//This executes the filtering of the TV/Movie list    
+        
     vm.filteredMovieTV = function(object){
         EventService.filteredMovieTV(object)
     }

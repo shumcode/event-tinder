@@ -86,8 +86,6 @@ h3{
   text-align:center;
 }
 
-/*Home page styling*/
-
 #homepage{
   display:flex;
   flex-direction:column;
@@ -161,23 +159,6 @@ box-shadow: 2px 7px 32px -12px rgba(0,0,0,1);
     width:90%;
     margin:20px 0 20px 0;
   }
-/*
-@-webkit-keyframes example {
-from {top: 0px;}
-to {top: 50px; background-color: lightgrey;}
-}
-
-@keyframes example {
-from {top: 0px;}
-to {top: 50px; background-color: lightgrey;}
-} */
-
-
-
-
-/*End of home page styling*/
-
-/*Round 1*/
 
 #Round1{
   display:flex;
@@ -203,10 +184,6 @@ margin: 0 0 20px 0;
   margin-bottom:35px;
 }
 
-
-/*End of round1 styling*/
-
-/*Round2 styling*/
 
 #Round2{
   display:flex;
@@ -252,12 +229,6 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
   flex-direction:column;
 }
 
-
-
-#Round2 #choice1{
-  width:
-}
-
 #Round2 button{
   width:100%;
   margin-bottom:20px;
@@ -266,9 +237,6 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
 
 
 
-/*End of round2 styling*/
-
-/*Round3 styling*/
 .submit{
   display:flex;
   flex-direction:column;
@@ -299,7 +267,7 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
   margin-bottom:25px;
 }
 
-input[type=checkbox]{
+#Round3 input[type=checkbox]{
 	visibility: hidden;
 }
 
@@ -316,9 +284,7 @@ input[type=checkbox]{
 -moz-box-shadow: 0px 4px 5px 0px rgb(80, 33, 46);
 box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
 }
-/*End of round3 styling*/
 
-/*Tindertime styling*/
 #eventpageholder {
   margin: 0 auto;
   width:90%;
@@ -364,11 +330,6 @@ box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
 #eventpageholder #button{
   margin-top:15px;
 }
-
-
-
-
-/*End of tindertime styling*/
 
 .playerdiv{
   align-items: center;

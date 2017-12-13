@@ -15,11 +15,9 @@
     var finalRandomEvent = {};
     var stayInArray = [];
     var movieTVFullArray = [];
-//    var finalEventType;
     var DS = null;
     var todaysDate = null;
     var maxDate = null;
-    // gets date for if statement
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
@@ -52,7 +50,6 @@
       addSICard: addSICard,
       movieTVRequest: movieTVRequest,
       filteredMovieTV: filteredMovieTV,
-//      finalEventType: finalEventType
       tinderTime: tinderTime,
       makeArrays: makeArrays
     }
@@ -65,13 +62,11 @@
       $location.path('/round1');
     }
 
-    //grabbing the API city.
     function cityFunc(location){
       makeRequest(location);
     }
 
     function returnTinderEvents() {
-//returns minArr if userchoice is <= 50, returns maxArr if userchoice is > 50
       if (obj.userChoice <= 50) {
         return minArr;
       } else {
@@ -79,8 +74,6 @@
       }
     }
       
-
-//This function is requesting API
     function makeRequest(location) {
       return $http({
         method: "GET",
@@ -95,13 +88,10 @@
       $location.path('/round2');
     }
 
-      //THIS FOR ROUND 5 GOING OUT
     function twoRoute() {
       $location.path('/round1');
     }
 
-
-//Adds the Stay In ideas in Tinder mode to a user's array
     function addSICard(index) {
         if (playerCounter === 1) {
             var minCard = stayInArray[index];
@@ -114,15 +104,11 @@
         }
     }
 
-//Removes Stay In ideas in Tinder mode from the screen
     function removeSICard(index){
           stayInArray.splice(index, 1);
     }
 
 
-
-
-// removes cards from min and max array when you press X
     function cardRemover(index) {
       if (obj.userChoice < 50) {
         minArr.splice(index, 1);
@@ -164,14 +150,6 @@
       
       return finalRandomEvent;
     }
-      
-//    function finalEventType(){
-//        //If .idea is null, that means the final event is a Go Out event
-////        if(finalRandomEvent.idea = null){finalEventType === true};
-//        //If .idea is NOT null, final event is a Stay In idea
-//        if(finalRandomEvent.idea != null){console.log("finalEventType is StayIn"); finalEventType === true};
-//        return finalEventType
-//    }  
 
     function tinderTime() {
       $location.path('/tindertime');
@@ -223,7 +201,7 @@
       } else {
         obj.minchoice = false;
       }
-// this array shows all events above $50
+
       maxArr = tinderEvents.filter(function(item, index){
         var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
         if (item.priceRanges === undefined) {
@@ -275,9 +253,8 @@
         }
     }
 
-//This function will handle how each route is populated
+
     function routeFunc(choice){
-//Route 2
       if(choice === "goout"){
         obj.stayin = false;
         obj.goout = true;
@@ -328,7 +305,6 @@
         obj.choice2 = "Find something to do at home";
      }
 
-//Round 3 - going out
       if(choice === "Less than $50"){
         obj.userChoice = 30;
         choiceArray.push(choice);
@@ -346,7 +322,7 @@
         obj.choice5 = "Family";
         obj.choice6 = "Arts & Theatre";
       }
-      //Round 4 - staying in
+
       if(choice === "Go buy something to do at home"){
           obj.atHome = false;
           obj.choice2= null;
@@ -363,7 +339,6 @@
           obj.choice4 = "Do something relaxing";
       }
 
-//Round 4 - going out
       if(choice === "Music"){
         choiceArray.push(choice);
 
@@ -378,31 +353,25 @@
 
       }
 
-// Round 5 - staying in
       if(choice === "Buy things to cook from the store"){
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Buy ingredients for dinner";
         obj.choice6 = "Buy ingredients for a dessert";
-        //decision tree ends. Returns list of desserts to make from database
       }else if(choice === "Buy things for other activities"){
         obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Arts and Crafts Supplies";
-        //decision tree ends. Returns list of things to buy to make arts and crafts from database
         obj.choice6 = "Something Active";
-        //decision tree ends. Returns list of things to buy to do that are active from database
       }else if(choice === "Do something active"){
         obj.relaxing = false;
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Do arts and crafts";
-        //decision tree ends. Returns list of things to make from database
         obj.choice6 = "Other active activities";
-        //decision tree ends. Returns list of things more active from database
       }else if(choice === "Do something relaxing"){
         obj.relaxing = true;
         obj.choice3 = null;
@@ -414,15 +383,12 @@
 
 
 
-//Round 6- Only for staying in
       if(choice === "Buy ingredients for dinner"){
         obj.choice6 = null;
         choiceArray.push(choice);
         $location.path('/round6');
         obj.choice7 = "Easy Recipe";
-        //decision tree ends. Returns easy recipes for dinner
         obj.choice8 = "Hard Recipe";
-        //decision tree ends. Returns hard recipes for dinner
       } else if(choice === "Watch a movie"){
         obj.choice6 = null;
         choiceArray.push(choice);
@@ -443,8 +409,6 @@
         obj.choice13 = "Drama";
       }
 
-
-    //These are the final endpoints that will transfer to the stayintinder component with the appropriate data set//
         if(choice === "Easy Recipe"){
             DS = 1;
             $location.path("/tindertime");
@@ -483,15 +447,11 @@
 
     }//end of route function
 
-    //This function will return an object full of the choices the player made. Use choices in array to filter out API.
     function returnObj(){
-      // console.log(obj);
       return obj;
     }
 
 
-
-//This is a working version, DON'T DELETE
     function stayInIdeas() {
         return $http({
             method: "GET",
@@ -502,9 +462,7 @@
             return response;
         });
     }
-      
-      
-//This is called when the choice to Stay In is called in round1.html - it captures the entire database in the variable movieTVFullArray      
+          
       function movieTVRequest(){
           return $http({
               method: "GET",
@@ -514,17 +472,11 @@
           });
       }
       
-      
-      
-//This function returns the filtered list of movies/TV shows that the user chooses      
+            
       function filteredMovieTV(){
           $location.path('/tindertime');
-    
-          
-    //Problem:  As soon as this function is called, the obj.choice 5 and obj.choice6 are reset to be "Watch a movie" and "Watch a tv show".  These are set to null in the routeFunc, and I have proven this is the case.  I am not sure why they are being reset to zero in this function//
         
-          stayInArray = movieTVFullArray.filter(function(item, index){
-            //Movie route to return movie genres filtered by selection  
+          stayInArray = movieTVFullArray.filter(function(item, index){ 
               if(obj.choice5 === "Watch a movie"){
             if(obj.choice9checked === true){
                 if(item.infoset == 8){
@@ -553,7 +505,6 @@
                 }
               }
              }
-        //TV route to return TV genres filtered by selection
           if(obj.choice6 === "Watch a tv show"){
             if(obj.choice9checked === true){
                 if(item.infoset == 17){

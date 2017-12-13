@@ -19,8 +19,7 @@
     <div ng-show="$ctrl.object.maxchoice">
       There are no events, select a different city.
     </div>
-    
-<!--This is what will show if final event is a Go Out event -->    
+        
     <div class="hide">
       <h2>This is the event for date night!</h2>
       <img ng-src="{{ $ctrl.winningEvent.images['0'].url }}">
@@ -32,7 +31,6 @@
       
     </div>
     
-<!--This is what will show if the final event night is a Stay At Home idea -->
     <div class="hide">
         <h2>This is the event for date night!</h2>
         <img ng-src="{{$ctrl.winningEvent.Image}}">
@@ -45,17 +43,6 @@
     <button type="button" ng-click="$ctrl.randomEvent();" ng-hide="$ctrl.object.player1" tinder-directive>CLICK HERE TO GET YOUR DATE</button>
 </div>
 
-
-<!--//I'm thinking I should do an ng-show for a div that includes the information for the Stay In idea that works.  Would somehow need to register that the winningEvent is from the StayIn side, rather than the GoOut side. Would then set the div container (that would have the ng-show) to the class that would make this look good.
-
-I have tested the things below {{$ctrl...stuff}}, and they work
-
-<img ng-src="{{$ctrl.winningEvent.Image}}">
-<p>{{$ctrl.winningEvent.idea}}</p>
-<a href="{{$ctrl.winningEvent.Details}}">Link Stay In Event Idea</a>
-
--->
-
 <div ng-repeat="idea in $ctrl.ideas track by $index" id="event" ng-show="$ctrl.object.stayin">
     <img ng-src="{{idea.Image}}">
     <p>{{ idea.idea }}</p>
@@ -67,8 +54,6 @@ I have tested the things below {{$ctrl...stuff}}, and they work
 </div>
 
 <div ng-repeat="movie in $ctrl.movies track by $index" id="event" ng-show="$ctrl.object.stayin">
-    
-<!--    {{ $ctrl.movies }}-->
     
     <img ng-src="{{movie.Image}}">
     <p>{{ movie.idea }}</p>
