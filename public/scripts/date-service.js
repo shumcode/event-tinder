@@ -20,7 +20,7 @@
     var maxDate = null;
     var today = new Date();
     var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
+    var mm = today.getMonth()+1;
     var yyyy = today.getFullYear();
 
     if(dd<10) {
@@ -73,7 +73,7 @@
         return maxArr;
       }
     }
-      
+
     function makeRequest(location) {
       return $http({
         method: "GET",
@@ -147,9 +147,7 @@
       finalEvent.push(p2RandomEvent);
       finalEvent.push(p1RandomEvent);
       finalRandomEvent = finalEvent[Math.floor(Math.random() * finalEvent.length)];
-      if (finalRandomEvent.Details === undefined) {
-        obj.goOutEvent = true;
-      }
+
       return finalRandomEvent;
     }
 
@@ -464,7 +462,7 @@
             return response;
         });
     }
-          
+
       function movieTVRequest(){
           return $http({
               method: "GET",
@@ -473,12 +471,12 @@
               movieTVFullArray = response.data;
           });
       }
-      
-            
+
+
       function filteredMovieTV(){
           $location.path('/tindertime');
-        
-          stayInArray = movieTVFullArray.filter(function(item, index){ 
+
+          stayInArray = movieTVFullArray.filter(function(item, index){
               if(obj.choice5 === "Watch a movie"){
             if(obj.choice9checked === true){
                 if(item.infoset == 8){
@@ -486,7 +484,7 @@
                 }
               }
             if(obj.choice10checked === true){
-                
+
                 if(item.infoset == 9){
                     return item;
                 }
@@ -532,17 +530,17 @@
                 if(item.infoset == 15){
                     return item;
                 }
-                }      
-              
+                }
+
           }})
           console.log(stayInArray);
           return stayInArray;
       }
-             
-      
-    
-    
-      
+
+
+
+
+
 
   }//end of service
   angular
