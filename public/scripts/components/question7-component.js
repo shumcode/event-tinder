@@ -1,6 +1,7 @@
 (function(){
   var questionSevenComponent = {
-    templateUrl:"partials/round7.html"
+    templateUrl:"partials/round7.html",
+    controller: "QuestionController"
   }
 
   angular

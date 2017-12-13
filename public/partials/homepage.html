@@ -1,11 +1,22 @@
-<div id="startpagediv">
-        <h1>Welcome to Date-Off!</h1>
+<div id = "homepage">
+  <div id="startpagediv">
+          <div id ="instructionsintro">
+            <h1>Welcome to Date-Off!</h1>
 
-        <p>Having trouble figuring out date night? This app will choose a date for you!</p>
-        <p> This game will allow you and your date to choose what types of events or activities you want to do.
-        Once you click start this will let the first user choose the types of activities or events that they want to do.
-        After the first user chooses it will allow the second user to choose what types of activities
-        or events they want to do. Lastly, the game will choose for your date night! Ready to play? Press the start to begin.
-        </p>
-        <button ng-click="$ctrl.startGame();" player-one-directive button-directive>START</button>
+            <p id="intro">Tired of arguing over what to do for date night? Let Date-Off choose it for you!</p>
+          </div>
+          <!-- <p> Date-Off is game that will generate date night activities based of questions you and your partner have answered. </p> -->
+          <div id = "instructions">
+            <p><span id = "Step1">Step 1: </span>Player 1 chooses the type of activities or events that he/she want to do.</p>
+            <br />
+            <p><span id = "Step2">Step 2: </span>Player 2 chooses the type of activities or events that he/she want to do.</p>
+            <br />
+            <p><span id = "Step2">Step 3: </span>After both players have chosen their activities, one random date will be chosen for the couple. </p>
+
+            <br />
+            <p>Ready to play?</p>
+          </div>
+          <button ng-click="$ctrl.startGame();" player-one-directive button-directive>START</button>
+
+  </div>
 </div>
