@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+#header a{
+  text-decoration:none;
+  color:#feaf80;
+}
+
 #icon1:hover {
   color:grey;
 }
@@ -255,6 +260,7 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
 
 #Round2 button{
   width:100%;
+  margin-bottom:20px;
 }
 
 
@@ -275,9 +281,7 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
 
 #round3 img{
   width:100%;
-  -webkit-box-shadow: 2px 10px 32px -12px rgba(0,0,0,1);
--moz-box-shadow: 2px 10px 32px -12px rgba(0,0,0,1);
-box-shadow: 2px 7px 32px -12px rgba(0,0,0,1);
+  margin-bottom:13px;
 }
 
 #round3 input{
@@ -288,15 +292,15 @@ box-shadow: 2px 7px 32px -12px rgba(0,0,0,1);
 #round3 label{
   font-family:'Cabin';
   font-weight:800px;
-  font-size:20px;
+  font-size:24px;
   color:#65293a;
   display: block;
   cursor: pointer;
-  margin-bottom:20px;
+  margin-bottom:25px;
 }
 
 input[type=checkbox]{
-/* 	visibility: hidden; */
+	visibility: hidden;
 }
 
 .btn3{
@@ -307,6 +311,11 @@ input[type=checkbox]{
   width:100%;
 }
 
+.clicked{
+ -webkit-box-shadow: 0px 4px 5px 0px rgb(80, 33, 46);
+-moz-box-shadow: 0px 4px 5px 0px rgb(80, 33, 46);
+box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
+}
 /*End of round3 styling*/
 
 /*Tindertime styling*/
@@ -345,13 +354,19 @@ input[type=checkbox]{
   position: absolute;
   background-color: white;
   margin-top: 100px;
-  border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 2px;
-  height: 350px;
+  height: 320px;
   width: 90%;
   box-shadow: 2px 7px 21px 2px rgba(0,0,0,0.57);
 }
+
+#eventpageholder #button{
+  margin-top:15px;
+}
+
+
+
 
 /*End of tindertime styling*/
 
@@ -438,8 +453,4 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#checkbox {
-  padding: 10px;
 }
