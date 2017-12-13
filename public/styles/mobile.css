@@ -2,20 +2,16 @@
   margin:0;
   padding: 0;
 }
-
 #header a{
   text-decoration:none;
   color:#feaf80;
 }
-
 #icon1:hover {
   color:grey;
 }
-
 #icon2:hover {
   color:grey;
 }
-
 #icon1{
   font-size: 30px;
   color: red;
@@ -26,17 +22,14 @@
   color: green;
   font-size: 30px;
 }
-
 @font-face{
   font-family:'Cabin';
   src:url("../fonts/Cabin.ttf");
 }
-
 @font-face{
   font-family:'Blacklist';
   src:url("../fonts/Blacklist.ttf");
 }
-
 #header{
     display:flex;
     flex-direction:column;
@@ -48,7 +41,6 @@
 -moz-box-shadow: 2px 10px 32px -12px rgba(0,0,0,1);
 box-shadow: 2px 10px 32px -12px rgba(0,0,0,1);
 }
-
 #header h1{
     color: #feaf80;
     font-family: 'Blacklist';
@@ -58,18 +50,15 @@ box-shadow: 2px 10px 32px -12px rgba(0,0,0,1);
     letter-spacing: 2px;
     text-shadow: 1px 1px 15px #000;
 }
-
 .moneyicons2 {
   display: flex;
   flex-direction: row;
 }
-
 #startpagediv #instructions button {
   border-radius:5px;
   border:none;
   width:90%;
 }
-
 h2 {
   display: flex;
   justify-content: center;
@@ -78,14 +67,12 @@ h2 {
   font-size:25px;
   margin-bottom:10px;
 }
-
 h3{
   font-family:'Cabin';
   color: #65293a;
   margin-bottom:10px;
   text-align:center;
 }
-
 #homepage{
   display:flex;
   flex-direction:column;
@@ -101,7 +88,6 @@ h3{
   letter-spacing:1px;
   margin:10px 0 7px 0;
 }
-
 #startpagediv {
   background-color: rgb(101, 41, 58);
   width: 90%;
@@ -117,7 +103,6 @@ h3{
   display:flex;
   border-radius:5px;
   }
-
   #startpagediv #instructionsintro{
     background-color:rgb(70, 29, 40);
     width:100%;
@@ -129,48 +114,40 @@ h3{
 -moz-box-shadow: 2px 10px 32px -12px rgba(0,0,0,1);
 box-shadow: 2px 7px 32px -12px rgba(0,0,0,1);
   }
-
   #startpagediv #instructions{
     width:87%;
     margin-top:30px;
   }
-
   #startpagediv #intro{
     font-style:italic;
     font-size:16px;
     padding-bottom:9px;
   }
-
   span{
     font-size:22px;
     font-family: 'Blacklist';
     letter-spacing:1px;
     color: #feaf80;
   }
-
   #startpagediv p{
     font-family:'Cabin';
     font-size:15px;
     text-align:center;
     color:#fff;
   }
-
   #startpagediv button{
     width:90%;
     margin:20px 0 20px 0;
   }
-
 #Round1{
   display:flex;
   flex-direction:column;
   align-items:center;
 }
-
 #Round1 #container{
   width:90%;
   margin-top:20px
 }
-
 #Round1 #container img{
  width:100%;
  -webkit-box-shadow: 2px 10px 32px -12px rgba(0,0,0,1);
@@ -178,19 +155,15 @@ box-shadow: 2px 7px 32px -12px rgba(0,0,0,1);
 box-shadow: 2px 7px 32px -12px rgba(0,0,0,1);
 margin: 0 0 20px 0;
 }
-
 #Round1 #container button{
   width:100%;
   margin-bottom:35px;
 }
-
-
 #Round2{
   display:flex;
   flex-direction:column;
   align-items:center;
 }
-
 #Round2 input {
   border: 1px solid #cdbcb1;
   border-radius:2px;
@@ -200,63 +173,49 @@ margin: 0 0 20px 0;
 box-shadow: 2px 4px 32px -15px rgba(0,0,0,1);
 margin-bottom:20px;
 }
-
 #Round2 input:hover{
  -webkit-box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
 -moz-box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
 box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
 }
-
 #Round2 input[type=text]{
   color: #7f6f66;
 }
-
 #Round2 input::placeholder{
   font-family: 'Cabin', sans-serif;
   font-size: 15px;
   color:#a5978e;
 }
-
 #Round2 #date{
   width:90%;
   display:flex;
   justify-content:space-between;
 }
-
 #price{
   width:90%;
   display:flex;
   flex-direction:column;
 }
-
 #Round2 button{
   width:100%;
   margin-bottom:20px;
 }
-
-
-
-
 .submit{
   display:flex;
   flex-direction:column;
   align-items:center;
 }
-
 #round3{
   width:90%;
 }
-
 #round3 img{
   width:100%;
   margin-bottom:13px;
 }
-
 #round3 input{
   display:block;
   margin:0 auto;
 }
-
 #round3 label{
   font-family:'Cabin';
   font-weight:800px;
@@ -266,25 +225,25 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
   cursor: pointer;
   margin-bottom:25px;
 }
-
-#Round3 input[type=checkbox]{
-	visibility: hidden;
+#round3 input[type=checkbox]{
+    visibility: hidden;
 }
-
 .btn3{
   width:90%;
 }
-
 .btn3 button{
   width:100%;
 }
-
 .clicked{
  -webkit-box-shadow: 0px 4px 5px 0px rgb(80, 33, 46);
 -moz-box-shadow: 0px 4px 5px 0px rgb(80, 33, 46);
 box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
 }
-
+/*end of Round3*/
+/*Start of tindertime*/
+#icon1, #icon2 {
+    font-size:55px;
+  }
 #eventpageholder {
   margin: 0 auto;
   width:90%;
@@ -292,26 +251,25 @@ box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
   position: relative;
   flex-direction: column;
   align-items: center;
-
 }
-
 #eventpageholder div{
   font-family: 'Cabin';
   font-size:18px;
   font-style:italic;
 }
-
 #eventpageholder button{
   width:100%;
-  margin-bottom:15px;
+  margin-bottom:25px;
 }
-
+#eventpageholder #button{
+  margin-top:10px;
+}
 #event img {
+  width:100%;
   min-width: 250px;
-  max-width: 250px;
   display: block;
+  border-radius: 5px 5px 0 0;
 }
-
 #event {
   display: flex;
   flex-direction: column;
@@ -321,16 +279,37 @@ box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
   background-color: white;
   margin-top: 100px;
   border-radius: 6px;
-  padding: 2px;
-  height: 320px;
+  height: 360px;
   width: 90%;
   box-shadow: 2px 7px 21px 2px rgba(0,0,0,0.57);
+  top:70px;
+  margin-bottom:20px;
 }
-
-#eventpageholder #button{
-  margin-top:15px;
+#eventpageholder h3{
+  font-size:18px;
+  margin:17px 0 2px 0;
+  color:#ddd8d5;
+  letter-spacing:.5px;
 }
-
+#eventpageholder p{
+  font-size:18px;
+  color:#fff;
+  letter-spacing:.5px;
+}
+#eventpageholder #text{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background: -webkit-linear-gradient(#7d3247, #431c26); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#7d3247, #431c26); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#7d3247, #431c26); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#7d3247, #431c26); /* Standard syntax */
+  width:100%;
+  padding: 0 0 10px 0;
+   -webkit-box-shadow: 2px 10px 32px -12px rgba(0,0,0,1);
+-moz-box-shadow: 2px 10px 32px -12px rgba(0,0,0,1);
+box-shadow: 2px 10px 32px -12px rgba(0,0,0,1);
+}
 .playerdiv{
   align-items: center;
   display: flex;
@@ -342,21 +321,16 @@ box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
   font-size:18px;
   letter-spacing:1px;
   margin-bottom:10px;
-
 }
-
 .round2inputhide {
   display: none;
 }
-
 .round2inputshow {
   display: block;
 }
-
 .submit {
   text-align: center;
 }
-
 button {
   cursor:pointer;
   font-family: 'Cabin', sans-serif;
@@ -370,28 +344,21 @@ button {
   color: white;
   border:none;
 }
-
-
 .choice {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
 }
-
 img {
 /*   min-width: 350px;
   max-width: 350px;
   padding: 17px; */
   border-radius: 6px;
 }
-
-
-
 .hide {
   display: none;
 }
-
 .show {
   display: flex;
   flex-direction: column;
@@ -409,7 +376,6 @@ img {
 .show a {
   text-decoration: none;
 }
-
 #startpagediv {
   display: flex;
   flex-direction: column;
