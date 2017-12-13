@@ -17,37 +17,22 @@
     var movieTVFullArray = [];
 //    var finalEventType;
     var DS = null;
+    var todaysDate = null;
+    var maxDate = null;
     // gets date for if statement
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
-    
+
     if(dd<10) {
-        dd = '0'+dd
-    } 
-    
+      dd = '0'+dd
+    }
+
     if(mm<10) {
-        mm = '0'+mm
-    } 
-    
-    today = yyyy + '-' + mm + '-' + dd; 
-    // var todaydate = null;
-    // var currentdatedd = obj.currentDate.getDate();
-    // var currentdatemm = obj.currentDate.getMonth()+1;
-    // var currentdateyyyy = obj.currentDate.getFullYear();
-
-    // if (currentdatedd<10) {
-    //   currentdatedd = '0'+currentdatedd
-    // }
-    // if(currentdatemm<10) {
-    //   currentdatemm = '0'+currentdatemm
-    // }
-
-    // todaydate = yyyy + '-' + currentdatemm + '-' + currendatedd;
-
-    // console.log(todaydate);
-
+      mm = '0'+mm
+    }
+    today = yyyy + '-' + mm + '-' + dd;
     return{
       startGame: startGame,
       routeFunc:routeFunc,
@@ -68,6 +53,8 @@
       movieTVRequest: movieTVRequest,
       filteredMovieTV: filteredMovieTV,
 //      finalEventType: finalEventType
+      tinderTime: tinderTime,
+      makeArrays: makeArrays
     }
 
     function getDate () {
@@ -84,8 +71,8 @@
     }
 
     function returnTinderEvents() {
-//returns minArr if userchoice is <= 35, returns maxArr if userchoice is > 35
-      if (obj.userChoice <= 35) {
+//returns minArr if userchoice is <= 50, returns maxArr if userchoice is > 50
+      if (obj.userChoice <= 50) {
         return minArr;
       } else {
         return maxArr;
@@ -120,8 +107,6 @@
             var minCard = stayInArray[index];
             p1Events.push(minCard);
             stayInArray.splice(index, 1);
-            console.log(stayInArray);
-            console.log(p1Events);
         } else {
             var minCard = stayInArray[index];
             p2Events.push(minCard);
@@ -132,7 +117,6 @@
 //Removes Stay In ideas in Tinder mode from the screen
     function removeSICard(index){
           stayInArray.splice(index, 1);
-          console.log(stayInArray);
     }
 
 
@@ -140,7 +124,7 @@
 
 // removes cards from min and max array when you press X
     function cardRemover(index) {
-      if (obj.userChoice < 35) {
+      if (obj.userChoice < 50) {
         minArr.splice(index, 1);
       } else {
         maxArr.splice(index, 1);
@@ -149,7 +133,7 @@
 
     function cardSaver(index) {
       if (playerCounter === 1) {
-        if (obj.userChoice < 35) {
+        if (obj.userChoice < 50) {
         var minCard = minArr[index];
         p1Events.push(minCard);
         minArr.splice(index, 1);
@@ -159,7 +143,7 @@
         maxArr.splice(index, 1);
       }
     } else {
-      if (obj.userChoice < 35) {
+      if (obj.userChoice < 50) {
         var minCard = minArr[index];
         p2Events.push(minCard);
         minArr.splice(index, 1);
@@ -188,17 +172,65 @@
 //        return finalEventType
 //    }  
 
-    function tinderRoute() {
-      console.log(obj);
+    function tinderTime() {
       $location.path('/tindertime');
-// this array shows all events under $35
-      minArr = tinderEvents.filter(function(item, index){
+    }
+
+    function tinderRoute(todaydate, maxdate) {
+      todaysDate = todaydate;
+      maxDate = maxdate;
+    }
+
+    var todaysDate = "";
+    var maxDate = "";
+    function makeArrays() {
+      console.log(tinderEvents);
+      minArr = tinderEvents.filter(function(item, index) {
+        var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
         if (item.priceRanges === undefined) {
 
         } else {
 
-        if (item.dates.start.localDate == today) {
-        if (item.priceRanges['0'].min <= 35) {
+        if (eventdatenumber >= todaysDate && eventdatenumber <= maxDate) {
+        if (item.priceRanges['0'].min <= 50) {
+          if (obj.choice3checked === true) {
+            if (item.classifications['0'].segment.name === "Music") {
+              return item;
+            }
+          }
+          if (obj.choice4checked === true) {
+            if (item.classifications['0'].segment.name === "Sports") {
+              return item;
+            }
+          }
+          if (obj.choice5checked === true) {
+            if (item.classifications['0'].segment.name === "Family") {
+              return item;
+            }
+          }
+          if (obj.choice6checked === true) {
+            if (item.classifications['0'].segment.name === "Arts & Theatre") {
+              return item;
+            }
+          }
+        }
+      }
+    }
+      })
+      if (minArr.length === 0 && obj.userChoice === 30) {
+        obj.minchoice = true;
+      } else {
+        obj.minchoice = false;
+      }
+// this array shows all events above $50
+      maxArr = tinderEvents.filter(function(item, index){
+        var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
+        if (item.priceRanges === undefined) {
+
+        } else {
+
+        if (eventdatenumber >= todaysDate && eventdatenumber <= maxDate) {
+        if (item.priceRanges['0'].min > 50) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
               return item;
@@ -224,45 +256,8 @@
     }
       })
       console.log(minArr);
-      if (minArr.length === 0 && obj.userChoice === 30) {
-        obj.minchoice = true;
-      } else {
-        obj.minchoice = false;
-      }
-// this array shows all events above $35
-      maxArr = tinderEvents.filter(function(item, index){
-        if (item.priceRanges === undefined) {
-
-        } else {
-
-        if (item.dates.start.localDate == today) {
-        if (item.priceRanges['0'].min > 35) {
-          if (obj.choice3checked === true) {
-            if (item.classifications['0'].segment.name === "Music") {
-              return item;
-            }
-          }
-          if (obj.choice4checked === true) {
-            if (item.classifications['0'].segment.name === "Sports") {
-              return item;
-            }
-          }
-          if (obj.choice5checked === true) {
-            if (item.classifications['0'].segment.name === "Family") {
-              return item;
-            }
-          }
-          if (obj.choice6checked === true) {
-            if (item.classifications['0'].segment.name === "Arts & Theatre") {
-              return item;
-            }
-          }
-        }
-      }
-    }
-      })
       console.log(maxArr);
-      if (maxArr.length === 0 && obj.userChoice === 36) {
+      if (maxArr.length === 0 && obj.userChoice === 55) {
         obj.maxchoice = true;
       } else {
         obj.maxchoice = false;
@@ -289,7 +284,7 @@
         if (playerCounter === 2) {
           obj.player2 = true;
           obj.player1 = false;
- 
+
         }
         if (playerCounter === 1) {
           obj.player1 = true;
@@ -308,8 +303,8 @@
         obj.choice0 = "goout";
         choiceArray.push(choice);
         $location.path('/round2');
-        obj.choice1 = "Less than $35";
-        obj.choice2 = "More than $35";
+        obj.choice1 = "Less than $50";
+        obj.choice2 = "More than $50";
       }else if(choice === "stayin"){
         obj.goout = false;
         obj.stayin = true;
@@ -321,7 +316,6 @@
         if (playerCounter === 1) {
           obj.player1 = true;
         }
-        // console.log(playerCounter);
         obj.hide = true;
         obj.choice0 = "stayin";
         choiceArray.push(choice);
@@ -331,7 +325,7 @@
      }
 
 //Round 3 - going out
-      if(choice === "Less than $35"){
+      if(choice === "Less than $50"){
         obj.userChoice = 30;
         choiceArray.push(choice);
         $location.path('/round3');
@@ -339,8 +333,8 @@
         obj.choice4 = "Sports";
         obj.choice5 = "Family";
         obj.choice6 = "Arts & Theatre";
-      }else if(choice === "More than $35"){
-        obj.userChoice = 36;
+      }else if(choice === "More than $50"){
+        obj.userChoice = 55;
         choiceArray.push(choice);
         $location.path('/round3');
         obj.choice3 = "Music";
@@ -451,37 +445,31 @@
         if(choice === "Hard Recipe"){
             DS = 2;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
         if(choice === "Buy arts and crafts supplies"){
             DS = 3;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
         if(choice === "Buy something active"){
             DS = 4;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
         if(choice === "Do arts and crafts"){
             DS = 5;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
         if(choice === "Other active activities"){
             DS = 6;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
         if(choice === "Buy ingredients for a dessert"){
             DS = 7;
             $location.path("/tindertime");
-            console.log(choiceArray);
         }
 
 

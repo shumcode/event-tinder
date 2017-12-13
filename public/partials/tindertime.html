@@ -1,6 +1,6 @@
 
 <div id="eventpageholder">
-    <button player-two-directive ng-hide="$ctrl.object.player2" ng-click="$ctrl.playerTwo();">CLICK HERE FOR PLAYER TWO!</button>
+    <button player-two-directive ng-hide="$ctrl.object.player2" ng-click="$ctrl.playerTwo();">PLAYER 2</button>
     <button ng-hide="$ctrl.object.player2" ng-click="$ctrl.startOver();">CHANGE CITY</button>
     <div ng-repeat="event in $ctrl.events track by $index" ng-show="event.priceRanges" id="event">
         <img ng-src="{{ event.images['0'].url }}">

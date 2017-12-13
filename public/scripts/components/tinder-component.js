@@ -59,12 +59,14 @@
         EventService.addSICard(index);
     }
             
-    vm.removeSICard = function(index){
-        EventService.removeSICard(index);
+      vm.removeSICard = function(index){
+          EventService.removeSICard(index);
+      }
     }
-  }
-};
-angular
-  .module("app")
-  .component("tinderComponent", tinderComponent);
+  };
+
+
+    angular
+      .module("app")
+      .component("tinderComponent", tinderComponent);
 })();

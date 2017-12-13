@@ -1,21 +1,24 @@
-<div>
-  <h2>How much would you like to spend? In what City? ROUND 2</h2>
+<div id ="Round2">
+  <h2>ROUND 2</h2>
 
-    <div ng-hide="$ctrl.object.player2" id="round2input">
+
+    <div ng-hide="$ctrl.object.player2 || $ctrl.object.stayin id="round2input">
+      <h3>Select your City</h3>
       <input type="text" ng-model="$ctrl.object.location" placeholder="Your City" class="cityinput">
     </div>
-    <div>
+    <h3>Select Date Range</h3>
+    <div id="date" ng-hide="$ctrl.object.stayin">
       <input type="date" min="{{$ctrl.todaydate}}" ng-model="$ctrl.object.currentdate">
-      <p>Set Date for Events</p>
       <input type="date" min="{{$ctrl.todaydate}}" ng-model="$ctrl.object.maxdate">
     </div>
-  <div class="Round2">
+  <div id="price">
+    <h3>Select your Price Range</h3>
     <div id ="choice1" class="choice" ng-hide="$ctrl.object.lesschoice">
       <img ng-hide="$ctrl.object.goout" ng-src="images/gobuy.jpeg" />
       <div class="moneyicons1">
         <i ng-show="$ctrl.object.goout" class="material-icons">&#xE227;</i>
         </div>
-      <button ng-click="$ctrl.routeFunc($ctrl.object.choice1);$ctrl.getCity($ctrl.object.location);" button-directive>{{$ctrl.object.choice1}} </button>
+      <button ng-click="$ctrl.routeFunc($ctrl.object.choice1);$ctrl.getCity($ctrl.object.location);" button-directive>$</button>
     </div>
 
     <div id="choice2" class="choice" ng-hide="$ctrl.object.morechoice">
@@ -23,8 +26,8 @@
       <div class="moneyicons2">
       <i ng-show="$ctrl.object.goout" class="material-icons">&#xE227;</i>
       <i ng-show="$ctrl.object.goout" class="material-icons">&#xE227;</i>
-      </div>
-      <button ng-click="$ctrl.routeFunc($ctrl.object.choice2);$ctrl.getCity($ctrl.object.location);" button-directive>{{$ctrl.object.choice2}}</button>
+    </div>
+      <button ng-click="$ctrl.routeFunc($ctrl.object.choice2);$ctrl.getCity($ctrl.object.location);$ctrl.awesome();" button-directive>{{$ctrl.object.choice2}}</button>
     </div>
   </div>
 </div>

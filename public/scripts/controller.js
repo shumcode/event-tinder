@@ -9,28 +9,42 @@
     }
 
     vm.tinder = function() {
-      EventService.tinderRoute();
+      EventService.tinderTime();
     }
-
-    vm.todaydate = EventService.getDate();
 
     vm.object = EventService.returnObj();
       
+    vm.filterArray = function () {
+      var stuff = EventService.makeArrays();
+      console.log(stuff);
+    }
+
     vm.awesome = function() {
       var todaydate = null;
-      var currentdatedd = vm.object.currentDate.getDate();
-      var currentdatemm = vm.object.currentDate.getMonth()+1;
-      var currentdateyyyy = vm.object.currentDate.getFullYear();
-  
+      var enddate = null;
+      var currentdatedd = vm.object.currentdate.getDate();
+      var currentdatemm = vm.object.currentdate.getMonth()+1;
+      var currentdateyyyy = vm.object.currentdate.getFullYear();
+      var maxdatedd = vm.object.maxdate.getDate();
+      var maxdatemm = vm.object.maxdate.getMonth()+1;
+      var maxdateyyyy = vm.object.maxdate.getFullYear();
       if (currentdatedd<10) {
         currentdatedd = '0'+currentdatedd
       }
       if(currentdatemm<10) {
         currentdatemm = '0'+currentdatemm
       }
-   
-      todaydate = yyyy + '-' + currentdatemm + '-' + currendatedd;
-      console.log(todaydate);
+      todaydate = currentdateyyyy + '-' + currentdatemm + '-' + currentdatedd;
+      if (maxdatedd<10) {
+        maxdatedd = '0'+maxdatedd
+      }
+      if(maxdatemm<10) {
+        maxdatemm = '0'+maxdatemm
+      }
+      enddate = maxdateyyyy + '-' + maxdatemm + '-' + maxdatedd;
+      var enddatehyphens = Number(enddate.replace(/-/g, ""));
+      var todaydatehyphens = Number(todaydate.replace(/-/g, ""));
+      EventService.tinderRoute(todaydatehyphens, enddatehyphens);
     }
 
 //This is called via ng-click of "Stay-In" on Round1.html.  Sets the movieTVFullArray equal to everything pulled from the database
@@ -44,7 +58,7 @@
     }
     
     vm.getCity = function(location){
-      EventService.makeRequest(location).then(function(response) {
+        EventService.makeRequest(location).then(function(response) {
         vm.events = response.data._embedded.events;
       });
     }
@@ -53,5 +67,5 @@
 
   angular
     .module("app")
-    .controller("QuestionController", QuestionController)
+    .controller("QuestionController", QuestionController);
 })();
