@@ -14,6 +14,7 @@
     var finalEvent = [];
     var finalRandomEvent = {};
     var stayInArray = [];
+    var movieTVFullArray = [];
     var DS = null;
     // gets date for if statement
     var today = new Date();
@@ -62,7 +63,9 @@
       randomEvent: randomEvent,
       getDate: getDate,
       removeSICard: removeSICard,
-      addSICard: addSICard
+      addSICard: addSICard,
+      movieTVRequest: movieTVRequest,
+      filteredMovieTV: filteredMovieTV,    
     }
 
     function getDate () {
@@ -86,6 +89,7 @@
         return maxArr;
       }
     }
+      
 
 //This function is requesting API
     function makeRequest(location) {
@@ -419,8 +423,8 @@
       } else if(choice === "Watch a tv show"){
         obj.choice5 = null;
         choiceArray.push(choice);
-        $location.path('/round7');
-        obj.choice9 = "Horror";
+        $location.path('/round8');
+        obj.choice9 = "Documentary";
         obj.choice10 = "Sci-Fi";
         obj.choice11 = "Action/Adventure";
         obj.choice12 = "Comedy";
@@ -470,16 +474,6 @@
             console.log(choiceArray);
         }
 
-//        if(choice === "Horror" && obj.choice5 === "Watch a movie"){
-//            console.log("Horror Movie is happy");
-//        }
-//
-//        if(choice === "Sci-Fi" && obj.choice5 === "Watch a movie"){
-//            console.log("Sci-Fi Movie is happy");
-//        }
-
-
-
 
     }//end of route function
 
@@ -491,16 +485,103 @@
 
 
 
+//This is a working version, DON'T DELETE
     function stayInIdeas() {
         return $http({
-        method: "GET",
-        url: "/stayInIdeas/" + DS
-      }).then(function(response) {
+            method: "GET",
+            url: "/stayInIdeas/" + DS
+        }).then(function(response) {
             stayInArray = response.data;
             console.log(stayInArray);
             return response;
-      });
+        });
     }
+      
+      
+//This is called when the choice to Stay In is called in round1.html - it captures the entire database in the variable movieTVFullArray      
+      function movieTVRequest(){
+          return $http({
+              method: "GET",
+              url:"/movieTV"
+          }).then(function(response){
+              movieTVFullArray = response.data;
+          });
+      }
+      
+      
+      
+//This function returns the filtered list of movies/TV shows that the user chooses      
+      function filteredMovieTV(){
+          $location.path('/tindertime');
+    
+          
+    //Problem:  As soon as this function is called, the obj.choice 5 and obj.choice6 are reset to be "Watch a movie" and "Watch a tv show".  These are set to null in the routeFunc, and I have proven this is the case.  I am not sure why they are being reset to zero in this function//
+        
+          stayInArray = movieTVFullArray.filter(function(item, index){
+            //Movie route to return movie genres filtered by selection  
+              if(obj.choice5 = "Watch a movie"){
+             console.log("movie route works")
+            if(obj.choice9checked === true){
+                if(item.infoset == 8){
+                    return item;
+                }}
+            if(obj.choice10checked === true){
+                
+                if(item.infoset == 9){
+                    return item;
+                }}
+            if(obj.choice11checked === true){
+                if(item.infoset == 10){
+                    return item;
+                }}
+            if(obj.choice12checked === true){
+                if(item.infoset == 11){
+                    return item;
+                }}
+            if(obj.choice13checked === true){
+                if(item.infoset == 12){
+                    return item;
+                }}
+             }
+        //TV route to return TV genres filtered by selection
+          if(obj.choice6 = "Watch a tv show"){
+            console.log("tv route works")
+            if(obj.choice9checked === true){
+                if(item.infoset == 17){
+                    return item;
+                }
+                }
+            if(obj.choice10checked === true){
+                if(item.infoset == 16){
+                    return item;
+                }
+                }
+            if(obj.choice11checked === true){
+                console.log("Choice 11 is true and working");
+                if(item.infoset == 13){
+                    return item;
+                }
+                }
+            if(obj.choice12checked === true){
+                if(item.infoset == 14){
+                    return item;
+                }
+                }
+            if(obj.choice13checked === true){
+                if(item.infoset == 15){
+                    return item;
+                }
+                }      
+              
+          }})
+          console.log(stayInArray);
+          return stayInArray
+      }
+             
+      
+    
+    
+      
 
   }//end of service
   angular

@@ -15,6 +15,7 @@
     vm.todaydate = EventService.getDate();
 
     vm.object = EventService.returnObj();
+      
     vm.awesome = function() {
       var todaydate = null;
       var currentdatedd = vm.object.currentDate.getDate();
@@ -32,6 +33,16 @@
       console.log(todaydate);
     }
 
+//This is called via ng-click of "Stay-In" on Round1.html.  Sets the movieTVFullArray equal to everything pulled from the database
+    vm.makeMovieTVRequest = function() {
+        EventService.movieTVRequest()
+    }
+    
+//This executes the filtering of the TV/Movie list    
+    vm.filteredMovieTV = function(object){
+        EventService.filteredMovieTV(object)
+    }
+    
     vm.getCity = function(location){
       EventService.makeRequest(location).then(function(response) {
         vm.events = response.data._embedded.events;

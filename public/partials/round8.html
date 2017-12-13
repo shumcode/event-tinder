@@ -1,45 +1,43 @@
 <div class="submit">
 
 
-  <p?>This is round 8 for the stay in</p?>
-    
-    <h2>What genre do you want to watch?</h2>
+    <h2>What genre of TV Show do you want to watch?</h2>
 
 
   <div id="round8">
     <div id ="choice9" class ="choice">
       <img src="" />
       {{$ctrl.object.choice9}}
-      <input type="checkbox" ng-model="$ctrl.obj.choice9checked" id="checkbox">
+      <input type="checkbox" ng-model="$ctrl.object.choice9checked" id="checkbox">
     </div>
 
     <div id="choice10" class ="choice">
       <img src="" />
       {{$ctrl.object.choice10}}
-      <input type="checkbox" ng-model="$ctrl.obj.choice10checked" id="checkbox">
+      <input type="checkbox" ng-model="$ctrl.object.choice10checked" id="checkbox">
     </div>
 
     <div id="choice11" class ="choice">
       <img src="" />
       {{$ctrl.object.choice11}}
-      <input type="checkbox" ng-model="$ctrl.obj.choice11checked" id="checkbox">
+      <input type="checkbox" ng-model="$ctrl.object.choice11checked" id="checkbox">
     </div>
 
     <div id="choice12" class ="choice">
       <img src="" >
       {{$ctrl.object.choice12}}
-      <input type="checkbox" ng-model="$ctrl.obj.choice12checked" id="checkbox">
+      <input type="checkbox" ng-model="$ctrl.object.choice12checked" id="checkbox">
     </div>
     
     <div id="choice13" class ="choice">
       <img src="" >
       {{$ctrl.object.choice13}}
-      <input type="checkbox" ng-model="$ctrl.obj.choice13checked" id="checkbox">
+      <input type="checkbox" ng-model="$ctrl.object.choice13checked" id="checkbox">
     </div>  
       
   </div>
     <div class="btn3">
-      <button ng-click="$ctrl.routeFunc($ctrl.object);$ctrl.tinder();" button-directive>SUBMIT</button>
+      <button ng-click="$ctrl.routeFunc($ctrl.object);$ctrl.filteredMovieTV($ctrl.object);" button-directive>SUBMIT</button>
     </div>
 </div>
 

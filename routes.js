@@ -25,4 +25,12 @@ routes.get("/stayInIdeas/:id", function(req, res){
     })
 })
 
+routes.get("/movieTV", function(req, res){
+    pool.query("select * from stayIn").then(function(result){
+        console.log(result.rows);
+        res.send(result.rows)    
+    })
+})
+
+
 module.exports = routes;

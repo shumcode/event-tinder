@@ -27,14 +27,39 @@
       <p>{{ $ctrl.winningEvent._embedded.venues['0'].address.line1 }}</p>
       <p>Price: ${{ $ctrl.winningEvent.priceRanges['0'].min }} - ${{ $ctrl.winningEvent.priceRanges['0'].max }}</p>
       <a href="{{ $ctrl.winningEvent.url }}">Click here to access the Event!</a>
+      
     </div>
     <button type="button" ng-click="$ctrl.randomEvent();" ng-hide="$ctrl.object.player1" tinder-directive>CLICK HERE TO GET YOUR DATE</button>
 </div>
+
+
+<!--//I'm thinking I should to an ng-show for a div that includes the information for the Stay In idea that works.  Would somehow need to register that the winningEvent is from the StayIn side, rather than the GoOut side. Would then set the div container (that would have the ng-show) to the class that would make this look good.
+
+I have tested the things below {{$ctrl...stuff}}, and they work
+
+<img ng-src="{{$ctrl.winningEvent.Image}}">
+<p>{{$ctrl.winningEvent.idea}}</p>
+<a href="{{$ctrl.winningEvent.Details}}">Link Stay In Event Idea</a>
+
+-->
 
 <div ng-repeat="idea in $ctrl.ideas track by $index" id="event" ng-show="$ctrl.object.stayin">
     <img ng-src="{{idea.Image}}">
     <p>{{ idea.idea }}</p>
     <a href="{{ idea.Details }}">Link to Idea</a>
+    <div id="button">
+        <i ng-click="$ctrl.removeSICard($index);" id="icon1" class="material-icons">cancel</i>
+        <i ng-click="$ctrl.addSICard($index);" id="icon2" class="material-icons">check</i>
+    </div>
+</div>
+
+<div ng-repeat="movie in $ctrl.movies track by $index" id="event" ng-show="$ctrl.object.stayin">
+    
+<!--    {{ $ctrl.movies }}-->
+    
+    <img ng-src="{{movie.Image}}">
+    <p>{{ idea.idea }}</p>
+    <a href="{{ movie.Details }}">Link to Idea</a>
     <div id="button">
         <i ng-click="$ctrl.removeSICard($index);" id="icon1" class="material-icons">cancel</i>
         <i ng-click="$ctrl.addSICard($index);" id="icon2" class="material-icons">check</i>

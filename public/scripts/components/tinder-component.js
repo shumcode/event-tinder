@@ -16,12 +16,16 @@
       vm.try.choice4checked = false;
       vm.try.choice5checked = false;
       vm.try.choice6checked = false;
+      vm.try.choice9checked = false;
+      vm.try.choice10checked = false;
+      vm.try.choice11checked = false;
+      vm.try.choice12checked = false;
+      vm.try.choice13checked = false;
       EventService.twoRoute();
     }
     vm.object = EventService.returnObj();
     //
     vm.randomEvent = function() {
-      console.log("it's working");
       vm.winningEvent = EventService.randomEvent();
     }
     vm.startOver = function() {
@@ -31,14 +35,21 @@
       vm.try.choice4checked = false;
       vm.try.choice5checked = false;
       vm.try.choice6checked = false;
+      vm.try.choice9checked = false;
+      vm.try.choice10checked = false;
+      vm.try.choice11checked = false;
+      vm.try.choice12checked = false;
+      vm.try.choice13checked = false;
       EventService.startOverRoute();
     }
     vm.events = EventService.returnTinderEvents();
+      
+    vm.movies = EventService.filteredMovieTV();
     
     EventService.stayInIdeas().then(function(response){
         vm.ideas = response.data;
     });
-    
+      
     vm.addSICard = function(index){
         EventService.addSICard(index);
     }
