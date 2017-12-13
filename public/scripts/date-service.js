@@ -344,12 +344,14 @@
       }
       //Round 4 - staying in
       if(choice === "Go buy something to do at home"){
+          obj.atHome = false;
           obj.choice2= null;
           choiceArray.push(choice);
           $location.path('/round4');
           obj.choice3 = "Buy things to cook from the store";
           obj.choice4 = "Buy things for other activities";
       }else if(choice === "Find something to do at home"){
+          obj.atHome = true;
           obj.choice1= null;
           choiceArray.push(choice);
           $location.path('/round4');
@@ -384,11 +386,12 @@
         obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
-        obj.choice5 = "Buy arts and crafts supplies";
+        obj.choice5 = "Arts and Crafts Supplies";
         //decision tree ends. Returns list of things to buy to make arts and crafts from database
-        obj.choice6 = "Buy something active";
+        obj.choice6 = "Something Active";
         //decision tree ends. Returns list of things to buy to do that are active from database
       }else if(choice === "Do something active"){
+        obj.relaxing = false;
         obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
@@ -397,6 +400,7 @@
         obj.choice6 = "Other active activities";
         //decision tree ends. Returns list of things more active from database
       }else if(choice === "Do something relaxing"){
+        obj.relaxing = true;
         obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
