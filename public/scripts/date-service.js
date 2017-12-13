@@ -15,8 +15,6 @@
     var finalRandomEvent = {};
     var stayInArray = [];
     var DS = null;
-    var todaysDate = "";
-    var maxDate = "";
     // gets date for if statement
     var today = new Date();
     var dd = today.getDate();
@@ -166,7 +164,11 @@
       todaysDate = todaydate;
       maxDate = maxdate;
     }
+
+    var todaysDate = "";
+    var maxDate = "";
     function makeArrays() {
+      console.log(tinderEvents);
       minArr = tinderEvents.filter(function(item, index) { 
         var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
         if (item.priceRanges === undefined) {

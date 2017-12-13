@@ -15,6 +15,7 @@
     vm.object = EventService.returnObj();
     vm.filterArray = function () {
       var stuff = EventService.makeArrays();
+      console.log(stuff);
     }
     vm.awesome = function() {
       var todaydate = null;
@@ -53,6 +54,6 @@
 
   angular
     .module("app")
-    .controller("QuestionController", QuestionController)
+    .controller("QuestionController", QuestionController);
 })();
 
