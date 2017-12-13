@@ -15,8 +15,8 @@
     var finalRandomEvent = {};
     var stayInArray = [];
     var DS = null;
-    var todaysDate = "";
-    var maxDate = "";
+    var todaysDate = null;
+    var maxDate = null;
     // gets date for if statement
     var today = new Date();
     var dd = today.getDate();
@@ -66,8 +66,8 @@
     }
 
     function returnTinderEvents() {
-//returns minArr if userchoice is <= 35, returns maxArr if userchoice is > 35
-      if (obj.userChoice <= 35) {
+//returns minArr if userchoice is <= 50, returns maxArr if userchoice is > 50
+      if (obj.userChoice <= 50) {
         return minArr;
       } else {
         return maxArr;
@@ -118,7 +118,7 @@
 
 // removes cards from min and max array when you press X
     function cardRemover(index) {
-      if (obj.userChoice < 35) {
+      if (obj.userChoice < 50) {
         minArr.splice(index, 1);
       } else {
         maxArr.splice(index, 1);
@@ -127,7 +127,7 @@
 
     function cardSaver(index) {
       if (playerCounter === 1) {
-        if (obj.userChoice < 35) {
+        if (obj.userChoice < 50) {
         var minCard = minArr[index];
         p1Events.push(minCard);
         minArr.splice(index, 1);
@@ -137,7 +137,7 @@
         maxArr.splice(index, 1);
       }
     } else {
-      if (obj.userChoice < 35) {
+      if (obj.userChoice < 50) {
         var minCard = minArr[index];
         p2Events.push(minCard);
         minArr.splice(index, 1);
@@ -167,6 +167,7 @@
       maxDate = maxdate;
     }
     function makeArrays() {
+      console.log(tinderEvents);
       minArr = tinderEvents.filter(function(item, index) { 
         var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
         if (item.priceRanges === undefined) {
@@ -174,7 +175,7 @@
         } else {
 
         if (eventdatenumber >= todaysDate && eventdatenumber <= maxDate) {
-        if (item.priceRanges['0'].min <= 35) {
+        if (item.priceRanges['0'].min <= 50) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
               return item;
@@ -204,7 +205,7 @@
       } else {
         obj.minchoice = false;
       }
-// this array shows all events above $35
+// this array shows all events above $50
       maxArr = tinderEvents.filter(function(item, index){
         var eventdatenumber = Number(item.dates.start.localDate.replace(/-/g, ""));
         if (item.priceRanges === undefined) {
@@ -212,7 +213,7 @@
         } else {
 
         if (eventdatenumber >= todaysDate && eventdatenumber <= maxDate) {
-        if (item.priceRanges['0'].min > 35) {
+        if (item.priceRanges['0'].min > 50) {
           if (obj.choice3checked === true) {
             if (item.classifications['0'].segment.name === "Music") {
               return item;
@@ -238,7 +239,8 @@
     }
       })
       console.log(minArr);
-      if (maxArr.length === 0 && obj.userChoice === 36) {
+      console.log(maxArr);
+      if (maxArr.length === 0 && obj.userChoice === 55) {
         obj.maxchoice = true;
       } else {
         obj.maxchoice = false;
@@ -284,8 +286,8 @@
         obj.choice0 = "goout";
         choiceArray.push(choice);
         $location.path('/round2');
-        obj.choice1 = "Less than $35";
-        obj.choice2 = "More than $35";
+        obj.choice1 = "Less than $50";
+        obj.choice2 = "More than $50";
       }else if(choice === "stayin"){
         obj.goout = false;
         obj.stayin = true;
@@ -306,7 +308,7 @@
      }
 
 //Round 3 - going out
-      if(choice === "Less than $35"){
+      if(choice === "Less than $50"){
         obj.userChoice = 30;
         choiceArray.push(choice);
         $location.path('/round3');
@@ -314,8 +316,8 @@
         obj.choice4 = "Sports";
         obj.choice5 = "Family";
         obj.choice6 = "Arts & Theatre";
-      }else if(choice === "More than $35"){
-        obj.userChoice = 36;
+      }else if(choice === "More than $50"){
+        obj.userChoice = 55;
         choiceArray.push(choice);
         $location.path('/round3');
         obj.choice3 = "Music";
