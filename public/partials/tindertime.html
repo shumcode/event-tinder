@@ -1,4 +1,3 @@
-
 <div id="eventpageholder">
     <button player-two-directive ng-hide="$ctrl.object.player2" ng-click="$ctrl.playerTwo();">PLAYER 2</button>
     <button ng-hide="$ctrl.object.stayin" ng-click="$ctrl.startOver();">CHANGE CITY</button>
@@ -41,7 +40,6 @@
     
     
     <button type="button" ng-click="$ctrl.randomEvent();" ng-hide="$ctrl.object.player1" tinder-directive>CLICK HERE TO GET YOUR DATE</button>
-</div>
 
 <div ng-repeat="idea in $ctrl.ideas track by $index" id="event" ng-show="$ctrl.object.stayin">
     <img ng-src="{{idea.Image}}">
@@ -62,4 +60,5 @@
         <i ng-click="$ctrl.removeSICard($index);" id="icon1" class="material-icons">cancel</i>
         <i ng-click="$ctrl.addSICard($index);" id="icon2" class="material-icons">check</i>
     </div>
+</div>
 </div>

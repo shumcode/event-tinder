@@ -1,5 +1,5 @@
 const pg = require('pg');
-const url =require('url');
+const url = require('url');
 try{
   require('dotenv').config();
 }catch (e){
