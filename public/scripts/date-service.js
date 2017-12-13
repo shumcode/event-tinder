@@ -15,11 +15,8 @@
     var finalRandomEvent = {};
     var stayInArray = [];
     var DS = null;
-<<<<<<< HEAD
-=======
     var todaysDate = null;
     var maxDate = null;
->>>>>>> 9dca34f7ee8f7222a9c794ad9e71ca36453c0e3a
     // gets date for if statement
     var today = new Date();
     var dd = today.getDate();
