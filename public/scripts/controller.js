@@ -15,19 +15,20 @@
     vm.todaydate = EventService.getDate();
 
     vm.object = EventService.returnObj();
+
     vm.awesome = function() {
       var todaydate = null;
       var currentdatedd = vm.object.currentDate.getDate();
       var currentdatemm = vm.object.currentDate.getMonth()+1;
       var currentdateyyyy = vm.object.currentDate.getFullYear();
-  
+
       if (currentdatedd<10) {
         currentdatedd = '0'+currentdatedd
       }
       if(currentdatemm<10) {
         currentdatemm = '0'+currentdatemm
       }
-   
+
       todaydate = yyyy + '-' + currentdatemm + '-' + currendatedd;
       console.log(todaydate);
     }
