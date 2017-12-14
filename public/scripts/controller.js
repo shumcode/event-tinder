@@ -4,6 +4,7 @@
     vm.rmessage;
     vm.events = [];
     vm.classifcation = [];
+    vm.object = {};
     vm.routeFunc = function(choice){
       EventService.routeFunc(choice);
     }
@@ -16,7 +17,6 @@
 
     vm.filterArray = function () {
       var stuff = EventService.makeArrays();
-      console.log(stuff);
     }
 
     vm.awesome = function() {

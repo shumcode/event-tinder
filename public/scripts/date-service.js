@@ -139,6 +139,7 @@
         maxArr.splice(index, 1);
       }
     }
+    console.log(p2Events, p1Events);
     }
 
     function randomEvent() {
@@ -147,7 +148,13 @@
       finalEvent.push(p2RandomEvent);
       finalEvent.push(p1RandomEvent);
       finalRandomEvent = finalEvent[Math.floor(Math.random() * finalEvent.length)];
-
+      if (finalRandomEvent.Details === undefined) {
+        obj.goOutEvent = true;
+      } else {
+        obj.goOutEvent = false;
+      }
+      console.log(obj);
+      console.log(finalRandomEvent);
       return finalRandomEvent;
     }
 
