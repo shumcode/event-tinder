@@ -19,25 +19,27 @@
       There are no events under $35 dollars, click the change city button to change your price range or city.
     </div>
     <div ng-show="$ctrl.object.maxchoice">
-      There are no events, select a different city.
+      There are no events above $50 dollars, click the change city button to change your price range or city.
     </div>
 
-    <div class="hide" ng-show="$ctrl.object.goOutEvent">
+    <!-- <div ng-hide="$ctrl.object.goOutEvent">
       <h2>This is the event for date night!</h2>
-      <img ng-src="{{ $ctrl.winningEvent.images['0'].url }}">
-      <p>{{ $ctrl.winningEvent.name }}</p>
-      <p>{{ $ctrl.winningEvent._embedded.venues['0'].name }}</p>
-      <p>{{ $ctrl.winningEvent._embedded.venues['0'].address.line1 }}</p>
-      <p>Price: ${{ $ctrl.winningEvent.priceRanges['0'].min }} - ${{ $ctrl.winningEvent.priceRanges['0'].max }}</p>
-      <a href="{{ $ctrl.winningEvent.url }}">Purchase Tickets</a>
+      <img ng-src="{{$ctrl.winningEvent.Image}}">
+      <p>{{$ctrl.winningEvent.idea}}</p>
+      <a href="{{$ctrl.winningEvent.Details}}">More Details</a>
+    </div> -->
 
-    </div>
-
-    <div class="hide" ng-hide="$ctrl.object.goOutEvent">
-        <h2>This is the event for date night!</h2>
-        <img ng-src="{{$ctrl.winningEvent.Image}}">
-        <p>{{$ctrl.winningEvent.idea}}</p>
-        <a href="{{$ctrl.winningEvent.Details}}">More Details</a>
+    <div class="hide">
+      <h2>This is the event for date night!</h2>
+      <img ng-src="{{ $ctrl.winningEvent.images['0'].url }}" ng-show="$ctrl.object.goOutEvent">
+      <img ng-src="{{$ctrl.winningEvent.Image}}" ng-hide="$ctrl.object.goOutEvent">
+      <p ng-hide="$ctrl.object.goOutEvent">{{$ctrl.winningEvent.idea}}</p>
+      <p ng-show="$ctrl.object.goOutEvent">{{ $ctrl.winningEvent.name }}</p>
+      <p ng-show="$ctrl.object.goOutEvent">{{ $ctrl.winningEvent._embedded.venues['0'].name }}</p>
+      <p ng-show="$ctrl.object.goOutEvent">{{ $ctrl.winningEvent._embedded.venues['0'].address.line1 }}</p>
+      <p ng-show="$ctrl.object.goOutEvent">Price: ${{ $ctrl.winningEvent.priceRanges['0'].min }} - ${{ $ctrl.winningEvent.priceRanges['0'].max }}</p>
+      <a ng-hide="$ctrl.object.goOutEvent" href="{{$ctrl.winningEvent.Details}}">More Details</a>
+      <a ng-show="$ctrl.object.goOutEvent" href="{{ $ctrl.winningEvent.url }}">Purchase Tickets</a>
     </div>
 
 

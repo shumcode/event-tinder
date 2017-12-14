@@ -24,6 +24,10 @@
       EventService.twoRoute();
     }
     vm.object = EventService.returnObj();
+
+    vm.returnObj = function () {
+      vm.object = EventService.returnObj();
+    }
     
     vm.randomEvent = function() {
       vm.winningEvent = EventService.randomEvent();
