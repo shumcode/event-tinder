@@ -1,14 +1,16 @@
 <div>
-  <div id="round5In">
+  <div class="round">
     <div id ="choice5" class ="choice">
-      <img class="imgbuy" ng-show="$ctrl.object.cook" ng-src="images/gobuy.jpeg" />
-      <img class="imgarts" ng-hide="$ctrl.object.relaxing" ng-src="images/arts.jpeg" />
+      <img class="imgarts" ng-show="$ctrl.object.buycook" ng-hide="$ctrl.object.relaxing || $ctrl.object.active" ng-src="images/dinner.jpeg" />
+      <img class="imgarts" ng-show="$ctrl.object.active" ng-hide="$ctrl.object.buycook || $ctrl.object.relaxing" ng-src="images/arts.jpeg" />
+      <img class="imgarts" ng-show="$ctrl.object.relaxing" ng-hide="$ctrl.object.buycook || $ctrl.object.active" ng-src="images/movies/Comedy/rushhour.jpg" />
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice5)" button-directive>{{$ctrl.object.choice5}}</button>
     </div>
 
     <div id="choice6" class ="choice">
-      <img class="imgdesserts" ng-show="$ctrl.object.cook" src="images/desserts.jpeg" />
-      <img class="imgotheractive" ng-hide="$ctrl.object.relaxing" ng-src="images/otheractive.jpeg" />
+      <img class="imgdesserts" ng-hide="$ctrl.object.relaxing || $ctrl.object.active" ng-show="$ctrl.object.buycook" src="images/desserts.jpeg" />
+      <img class="imgotheractive" ng-show="$ctrl.object.active" ng-hide="$ctrl.object.buycook || $ctrl.object.relaxing" ng-src="images/otheractive.jpeg" />
+      <img class="imgarts" ng-show="$ctrl.object.relaxing" ng-hide="$ctrl.object.buycook || $ctrl.object.active" ng-src="images/Tvshows/Action/supergirl.jpg" />
       <button ng-click="$ctrl.routeFunc($ctrl.object.choice6)" button-directive>{{$ctrl.object.choice6}}</button>
     </div>
   </div>

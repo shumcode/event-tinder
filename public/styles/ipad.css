@@ -12,14 +12,16 @@
     color: #feaf80;
     font-weight: bold;
   }
- 
-  
-  
+
+
+
     /*Round 1 */
+
+
     #container {
+
       display: flex;
-      justify-content:space-between
-      margin-top: 20px;
+      justify-content:space-between;
     }
     /*End of Round 1 */
     /*Round 3*/
@@ -32,23 +34,9 @@
     .btn3 {
       display:flex;
       justify-content: center;
-      margin-top: 106px;
+      /* margin-top: 106px; */
+      margin-bottom: 50px;
     }
-    #choice3 img {
-     min-width: 200px;
-     max-width: 200px;
-   }
-   #choice4 img {
-     min-width: 200px;
-     max-width: 200px;
-   }
-   #choice5 img {
-     min-width: 200px;
-     max-width: 200px;
-   }
-   #choice6 img {
-     min-width: 200px;
-     max-width: 200px;
-   }
+
     /*End of Round 3*/
   }

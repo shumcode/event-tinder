@@ -1,39 +1,48 @@
 <div class="submit">
-  <h2>What genre MOVIE do you want to watch?</h2>
+  <h2>Pick a movie genre</h2>
   <div id="round7">
     <div id ="choice9" class ="choice">
-      <img src="" />
+      <label>
+      <img image-directive src="images/movies/horror/amityviller.jpg" />
       {{$ctrl.object.choice9}}
       <input type="checkbox" ng-model="$ctrl.object.choice9checked" id="checkbox">
+      </label>
     </div>
 
     <div id="choice10" class ="choice">
-      <img src="" />
+      <label>
+      <img image-directive src="images/movies/SciFi/startrek.jpg" />
       {{$ctrl.object.choice10}}
       <input type="checkbox" ng-model="$ctrl.object.choice10checked" id="checkbox">
+      </label>
     </div>
 
     <div id="choice11" class ="choice">
-      <img src="" />
+      <label>
+      <img image-directive src="images/movies/Action/allnight.jpg" />
       {{$ctrl.object.choice11}}
       <input type="checkbox" ng-model="$ctrl.object.choice11checked" id="checkbox">
+      </label>
     </div>
 
     <div id="choice12" class ="choice">
-      <img src="" >
+      <label>
+      <img image-directive src="images/movies/Comedy/christmas.jpg" />
       {{$ctrl.object.choice12}}
       <input type="checkbox" ng-model="$ctrl.object.choice12checked" id="checkbox">
+      </label>
     </div>
-    
+
     <div id="choice13" class ="choice">
-      <img src="" >
+      <label>
+      <img image-directive src="images/movies/Drama/light.jpg" />
       {{$ctrl.object.choice13}}
       <input type="checkbox" ng-model="$ctrl.object.choice13checked" id="checkbox">
-    </div>  
-      
+      </label>
+    </div>
+
   </div>
     <div class="btn3">
       <button ng-click="$ctrl.routeFunc($ctrl.object);$ctrl.filteredMovieTV($ctrl.object);" button-directive>SUBMIT</button>
     </div>
 </div>
-

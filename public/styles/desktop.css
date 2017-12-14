@@ -20,7 +20,7 @@
   #startpagediv h1{
     font-size:50px;
   }
-  
+
   #startpagediv #instructionsintro p{
      font-size: 18px;
    }
@@ -34,9 +34,9 @@
     font-size:24px;
   }
 
-  h2{
-    font-size:33px;
-    margin-top:15px;
+  .show h2{
+    font-size: 1em;
+    margin: 12px;
   }
 
   #container{
@@ -46,67 +46,122 @@
 
   #container div{
     width:45%;
-    margin:15px;
   }
-  
+
   #container img {
-    min-width: 400px;
+    /* min-width: 400px; */
   }
 
 /*Round 2 styling*/
 
-#Round2{
-  
+#questionform{
+  min-width:590px;
+  z-index: 2;
+  width:70%;
+  background: -webkit-linear-gradient(#7d3247, #431c26); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#7d3247, #431c26); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#7d3247, #431c26); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#431c26, #864255); /* Standard syntax */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+#Round2 h3{
+  font-weight:100;
+  font-size:23px;
+  /* margin-bottom: 9px; */
 }
 
 #Round2 h2{
   text-align:center;
 }
 
+#Round2 input{
+  margin-bottom:0;
+}
+
+
+#Round2 #date{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  margin:0 0 10px 0;
+}
+
+#dateinput{
+  width:auto;
+}
+
 .cityinput{
-  width:200px;
+  width:140px;
 }
 
 #round2input{
   width:90%;
   display:flex;
-  
+  flex-direction:row;
+  justify-content:space-between;
+  margin:20px 0 10px 0;
 }
 
-  #round5In .imgbuy, #round5In .imgdesserts, #round5In .imgarts, #round5In .imgotheractive {
+
+#price{
+  width:90%;
+  z-index: 3;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+#price button{
+  width: max-content;
+  font-size:18px;
+  margin-left: 10px;
+}
+
+.alert{
+  margin-top:15px;
+}
+  .round .imgbuy, .round .imgdesserts, .round .imgarts, .round .imgotheractive {
    min-width: 400px;
    max-width: 400px;
  }
-  #round5In .imgbuy {
+  .round .imgbuy {
     min-width: 400px;
     max-width: 400px;
   }
-  #choice3 img {
-   min-width: 300px;
-   max-width: 300px;
+  .choice img {
+    width: 300px;
+    margin-bottom: 10px;
+  }
+ .choice button {
+   padding: 10px;
  }
- #choice4 img {
-   min-width: 300px;
-   max-width: 300px;
+ .choice {
+   width: 50%;
  }
- #choice5 img {
-   min-width: 300px;
-   max-width: 300px;
+ .choice label {
+   display: flex;
+   flex-direction: column;
  }
- #choice6 img {
-   min-width: 300px;
-   max-width: 300px;
+ #round3, #round7, #round8 {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
  }
-  #event img {
+
+  #event img, #round7 img, .show img {
     min-height: 250px;
     max-height: 250px;
     min-width: 400px;
     max-width: 400px;
   }
   #event {
-    height:450px;
+    height: 455px;
   }
-  #round5In {
+  .round {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;

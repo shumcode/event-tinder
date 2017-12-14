@@ -4,7 +4,7 @@
     <div ng-repeat="event in $ctrl.events track by $index" ng-show="event.priceRanges" id="event">
         <p>{{ $ctrl.arrayLength }}</p>
         <img ng-src="{{ event.images['0'].url }}">
-        <div id = "text">
+        <div class = "text">
           <h3>{{ event.name }}</h3>
           <p>{{ event._embedded.venues['0'].name }}</p>
           <p>{{ event._embedded.venues['0'].address.line1 }}</p>
@@ -15,10 +15,10 @@
           <i ng-click="$ctrl.saveCard($index);" id="icon2" class="material-icons">check</i>
         </div>
     </div>
-    <div ng-show="$ctrl.object.minchoice">
-      There are no events under $35 dollars, click the change city button to change your price range or city.
+    <div ng-show="$ctrl.object.minchoice" class="alert">
+      There are no events under $50 dollars, click the change city button to change your price range or city.
     </div>
-    <div ng-show="$ctrl.object.maxchoice">
+    <div ng-show="$ctrl.object.maxchoice" class="alert">
       There are no events above $50 dollars, click the change city button to change your price range or city.
     </div>
 
@@ -33,13 +33,15 @@
       <h2>This is the event for date night!</h2>
       <img ng-src="{{ $ctrl.winningEvent.images['0'].url }}" ng-show="$ctrl.object.goOutEvent">
       <img ng-src="{{$ctrl.winningEvent.Image}}" ng-hide="$ctrl.object.goOutEvent">
-      <p ng-hide="$ctrl.object.goOutEvent">{{$ctrl.winningEvent.idea}}</p>
-      <p ng-show="$ctrl.object.goOutEvent">{{ $ctrl.winningEvent.name }}</p>
-      <p ng-show="$ctrl.object.goOutEvent">{{ $ctrl.winningEvent._embedded.venues['0'].name }}</p>
-      <p ng-show="$ctrl.object.goOutEvent">{{ $ctrl.winningEvent._embedded.venues['0'].address.line1 }}</p>
-      <p ng-show="$ctrl.object.goOutEvent">Price: ${{ $ctrl.winningEvent.priceRanges['0'].min }} - ${{ $ctrl.winningEvent.priceRanges['0'].max }}</p>
-      <a ng-hide="$ctrl.object.goOutEvent" href="{{$ctrl.winningEvent.Details}}">More Details</a>
-      <a ng-show="$ctrl.object.goOutEvent" href="{{ $ctrl.winningEvent.url }}">Purchase Tickets</a>
+      <div class="text">
+        <p ng-hide="$ctrl.object.goOutEvent">{{$ctrl.winningEvent.idea}}</p>
+        <p ng-show="$ctrl.object.goOutEvent">{{ $ctrl.winningEvent.name }}</p>
+        <p ng-show="$ctrl.object.goOutEvent">{{ $ctrl.winningEvent._embedded.venues['0'].name }}</p>
+        <p ng-show="$ctrl.object.goOutEvent">{{ $ctrl.winningEvent._embedded.venues['0'].address.line1 }}</p>
+        <p ng-show="$ctrl.object.goOutEvent">Price: ${{ $ctrl.winningEvent.priceRanges['0'].min }} - ${{ $ctrl.winningEvent.priceRanges['0'].max }}</p>
+        <a ng-hide="$ctrl.object.goOutEvent" href="{{$ctrl.winningEvent.Details}}">More Details</a>
+        <a ng-show="$ctrl.object.goOutEvent" href="{{ $ctrl.winningEvent.url }}">Purchase Tickets</a>
+      </div>
     </div>
 
 
@@ -49,8 +51,10 @@
 <div ng-repeat="idea in $ctrl.ideas track by $index" id="event" ng-show="$ctrl.object.stayin">
     <p>{{ $ctrl.arrayLength }}</p>
     <img ng-src="{{idea.Image}}">
-    <p>{{ idea.idea }}</p>
-    <a href="{{ idea.Details }}">Link to Idea</a>
+    <div class="text">
+      <p>{{ idea.idea }}</p>
+      <a href="{{ idea.Details }}">Link to Idea</a>
+    </div>
     <div id="button">
         <i ng-click="$ctrl.removeSICard($index);" id="icon1" class="material-icons">cancel</i>
         <i ng-click="$ctrl.addSICard($index);" id="icon2" class="material-icons">check</i>
@@ -60,8 +64,10 @@
 <div ng-repeat="movie in $ctrl.movies track by $index" id="event" ng-show="$ctrl.object.stayin">
     <p>{{ $ctrl.arrayLength }}</p>
     <img ng-src="{{movie.Image}}">
-    <p>{{ movie.idea }}</p>
-    <a href="{{ movie.Details }}">Link to Idea</a>
+    <div class="text">
+      <p>{{ movie.idea }}</p>
+      <a href="{{ movie.Details }}">Link to Idea</a>
+    </div>
     <div id="button">
         <i ng-click="$ctrl.removeSICard($index);" id="icon1" class="material-icons">cancel</i>
         <i ng-click="$ctrl.addSICard($index);" id="icon2" class="material-icons">check</i>

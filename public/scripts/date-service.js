@@ -148,11 +148,13 @@
       finalEvent.push(p2RandomEvent);
       finalEvent.push(p1RandomEvent);
       finalRandomEvent = finalEvent[Math.floor(Math.random() * finalEvent.length)];
+      returnObj();
       if (finalRandomEvent.Details === undefined) {
         obj.goOutEvent = true;
       } else {
         obj.goOutEvent = false;
       }
+
       console.log(obj);
       console.log(finalRandomEvent);
       return finalRandomEvent;
@@ -332,14 +334,12 @@
 
       if(choice === "Go buy something to do at home"){
           obj.atHome = false;
-          obj.choice2= null;
           choiceArray.push(choice);
           $location.path('/round4');
           obj.choice3 = "Buy things to cook from the store";
           obj.choice4 = "Buy things for other activities";
       }else if(choice === "Find something to do at home"){
           obj.atHome = true;
-          obj.choice1= null;
           choiceArray.push(choice);
           $location.path('/round4');
           obj.choice3 = "Do something active";
@@ -361,27 +361,27 @@
       }
 
       if(choice === "Buy things to cook from the store"){
-        obj.choice4 = null;
+        obj.buycook=true;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Buy ingredients for dinner";
         obj.choice6 = "Buy ingredients for a dessert";
       }else if(choice === "Buy things for other activities"){
-        obj.choice3 = null;
+        obj.active = true;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Arts and Crafts Supplies";
         obj.choice6 = "Something Active";
       }else if(choice === "Do something active"){
+        obj.active = true;
         obj.relaxing = false;
-        obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Do arts and crafts";
         obj.choice6 = "Other active activities";
       }else if(choice === "Do something relaxing"){
+        obj.active = false;
         obj.relaxing = true;
-        obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Watch a movie";
@@ -391,7 +391,6 @@
 
 
       if(choice === "Buy ingredients for dinner"){
-        obj.choice6 = null;
         choiceArray.push(choice);
         $location.path('/round6');
         obj.choice7 = "Easy Recipe";
@@ -426,12 +425,12 @@
             $location.path("/tindertime");
         }
 
-        if(choice === "Buy arts and crafts supplies"){
+        if(choice === "Arts and Crafts Supplies"){
             DS = 3;
             $location.path("/tindertime");
         }
 
-        if(choice === "Buy something active"){
+        if(choice === "Something Active"){
             DS = 4;
             $location.path("/tindertime");
         }
@@ -511,8 +510,7 @@
                     return item;
                 }
               }
-             }
-          if(obj.choice6 === "Watch a tv show"){
+            } else {
             if(obj.choice9checked === true){
                 if(item.infoset == 17){
                     return item;

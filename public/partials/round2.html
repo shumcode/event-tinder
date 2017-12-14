@@ -1,31 +1,36 @@
 <div id ="Round2">
-  <h2>ROUND 2</h2>
+  <h2>Round Two</h2>
+    <div id="questionform">
+
     <div ng-show="$ctrl.object.goout || $ctrl.object.p2go" id="round2input">
       <h3>Select your City</h3>
       <input type="text" ng-model="$ctrl.object.location" placeholder="Your City" class="cityinput">
     </div>
     <div id="date" ng-hide="$ctrl.object.stayin">
       <h3 ng-hide="$ctrl.object.stayin">Select Date Range</h3>
-      <input type="date" min="{{$ctrl.todaydate}}" ng-model="$ctrl.object.currentdate">
-      <input type="date" min="{{$ctrl.todaydate}}" ng-model="$ctrl.object.maxdate">
+      <div id="dateinput">
+        <input type="date" min="{{$ctrl.todaydate}}" ng-model="$ctrl.object.currentdate"> <span class="date-range-span">to</span>
+        <input type="date" min="{{$ctrl.todaydate}}" ng-model="$ctrl.object.maxdate">
+      </div>
+
     </div>
   <div id="price">
     <h3 ng-hide="$ctrl.object.stayin">Select your Price Range</h3>
-    <div id ="choice1" class="choice">
-      <img ng-hide="$ctrl.object.goout" ng-src="images/gobuy.jpeg" />
-      <!-- <div class="moneyicons1">
-        <i ng-show="$ctrl.object.goout" class="material-icons">&#xE227;</i>
-        </div> -->
-  </div>
-      <button ng-click="$ctrl.routeFunc($ctrl.object.choice1);$ctrl.getCity($ctrl.object.location);$ctrl.awesome();" button-directive>{{$ctrl.object.choice1}}</button>
+    <div class="price-button-wrapper">
 
-    <div id="choice2" class="choice" ng-hide="$ctrl.object.morechoice">
-      <img ng-hide="$ctrl.object.goout" ng-src="images/homeact.jpeg" />
-       <!-- <div class="moneyicons2">
-      <i ng-show="$ctrl.object.goout" class="material-icons">&#xE227;</i>
-      <i ng-show="$ctrl.object.goout" class="material-icons">&#xE227;</i>
-    </div> -->
-      <button ng-click="$ctrl.routeFunc($ctrl.object.choice2);$ctrl.getCity($ctrl.object.location);$ctrl.awesome();" button-directive>{{$ctrl.object.choice2}}</button>
+
+      <div id ="choice1" class="choice">
+        <img ng-hide="$ctrl.object.goout" ng-src="images/gobuy.jpeg" />
+          <button ng-click="$ctrl.routeFunc($ctrl.object.choice1);$ctrl.getCity($ctrl.object.location);$ctrl.awesome();" button-directive>{{$ctrl.object.choice1}}</button>
+    </div>
+
+
+      <div id="choice2" class="choice" ng-hide="$ctrl.object.morechoice">
+        <img ng-hide="$ctrl.object.goout" ng-src="images/homeact.jpeg" />
+        <button ng-click="$ctrl.routeFunc($ctrl.object.choice2);$ctrl.getCity($ctrl.object.location);$ctrl.awesome();" button-directive>{{$ctrl.object.choice2}}</button>
+      </div>
     </div>
   </div>
+  <div ng-show="$ctrl.object.stayin" id="fix"></div>
+</div><!--end of question form-->
 </div>
