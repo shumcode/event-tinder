@@ -1,11 +1,78 @@
 @media screen and (min-width:780px)  {
+
+  button{
+    font-size:19px;
+  }
+
+  h3{
+    font-size:24px;
+  }
+  /*Start page*/
+
+  #header h1{
+    font-size: 55px;
+  }
+
   #startpagediv{
-    max-width:500px;
+    max-width:660px;
   }
-  img {
+
+  #startpagediv h1{
+    font-size:50px;
+  }
+  
+  #startpagediv #instructionsintro p{
+     font-size: 18px;
+   }
+
+  #startpagediv #instructions p{
+    font-size:18px;
+  }
+
+  /*Round 1 styling*/
+  .playerdiv{
+    font-size:24px;
+  }
+
+  h2{
+    font-size:33px;
+    margin-top:15px;
+  }
+
+  #container{
+    display:flex;
+    justify-content:center;
+  }
+
+  #container div{
+    width:45%;
+    margin:15px;
+  }
+  
+  #container img {
     min-width: 400px;
-    max-width: 400px;
   }
+
+/*Round 2 styling*/
+
+#Round2{
+  
+}
+
+#Round2 h2{
+  text-align:center;
+}
+
+.cityinput{
+  width:200px;
+}
+
+#round2input{
+  width:90%;
+  display:flex;
+  
+}
+
   #round5In .imgbuy, #round5In .imgdesserts, #round5In .imgarts, #round5In .imgotheractive {
    min-width: 400px;
    max-width: 400px;
@@ -38,11 +105,6 @@
   }
   #event {
     height:450px;
-  }
-  .Round2 {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
   }
   #round5In {
     display: flex;

@@ -6,22 +6,7 @@
   text-decoration:none;
   color:#feaf80;
 }
-#icon1:hover {
-  color:grey;
-}
-#icon2:hover {
-  color:grey;
-}
-#icon1{
-  font-size: 30px;
-  color: red;
-  cursor:default;
-}
-#icon2 {
-  cursor: default;
-  color: green;
-  font-size: 30px;
-}
+
 @font-face{
   font-family:'Cabin';
   src:url("../fonts/Cabin.ttf");
@@ -104,6 +89,7 @@ h3{
   border-radius:5px;
   }
   #startpagediv #instructionsintro{
+    padding-bottom:9px;
     background-color:rgb(70, 29, 40);
     width:100%;
     display:flex;
@@ -118,13 +104,12 @@ box-shadow: 2px 7px 32px -12px rgba(0,0,0,1);
     width:87%;
     margin-top:30px;
   }
-  #startpagediv #intro{
+  #startpagediv .intro{
     font-style:italic;
     font-size:16px;
-    padding-bottom:9px;
   }
   span{
-    font-size:22px;
+    font-size:30px;
     font-family: 'Blacklist';
     letter-spacing:1px;
     color: #feaf80;
@@ -139,6 +124,8 @@ box-shadow: 2px 7px 32px -12px rgba(0,0,0,1);
     width:90%;
     margin:20px 0 20px 0;
   }
+
+  /*Round 1 Styling*/
 #Round1{
   display:flex;
   flex-direction:column;
@@ -146,7 +133,7 @@ box-shadow: 2px 7px 32px -12px rgba(0,0,0,1);
 }
 #Round1 #container{
   width:90%;
-  margin-top:20px
+  margin-top:20px;
 }
 #Round1 #container img{
  width:100%;
@@ -159,6 +146,8 @@ margin: 0 0 20px 0;
   width:100%;
   margin-bottom:35px;
 }
+
+/*Round 2 Styling*/
 #Round2{
   display:flex;
   flex-direction:column;
@@ -186,11 +175,13 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
   font-size: 15px;
   color:#a5978e;
 }
+
 #Round2 #date{
   width:90%;
   display:flex;
-  justify-content:space-between;
+  
 }
+
 #price{
   width:90%;
   display:flex;
@@ -205,6 +196,10 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
   flex-direction:column;
   align-items:center;
 }
+
+
+
+/*Round 3 Styling*/
 #round3{
   width:90%;
 }
@@ -225,14 +220,13 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
   cursor: pointer;
   margin-bottom:25px;
 }
-<<<<<<< HEAD
+
 #round3 input[type=checkbox]{
     visibility: hidden;
-=======
+}
 
 #round3 input[type=checkbox]{
 	visibility: hidden;
->>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 }
 .btn3{
   width:90%;
@@ -245,24 +239,37 @@ box-shadow: 2px 4px 32px -11px rgba(0,0,0,1);
 -moz-box-shadow: 0px 4px 5px 0px rgb(80, 33, 46);
 box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
 }
-<<<<<<< HEAD
-/*end of Round3*/
-/*Start of tindertime*/
-#icon1, #icon2 {
-    font-size:55px;
-  }
-=======
-
-/*end of Round3*/
 
 /*Start of tindertime*/
-
 #icon1, #icon2 {
     font-size:55px;
   }
 
 
->>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
+/*end of Round3*/
+
+/*Start of tindertime*/
+#icon1:hover {
+  color:grey;
+}
+#icon2:hover {
+  color:grey;
+}
+#icon1{
+  font-size: 30px;
+  color: red;
+  cursor:default;
+}
+#icon2 {
+  cursor: default;
+  color: green;
+  font-size: 30px;
+}
+
+#icon1, #icon2 {
+    font-size:55px;
+  }
+
 #eventpageholder {
   margin: 0 auto;
   width:90%;
@@ -280,10 +287,7 @@ box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
   width:100%;
   margin-bottom:25px;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 #eventpageholder #button{
   margin-top:10px;
 }
@@ -293,12 +297,7 @@ box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
   display: block;
   border-radius: 5px 5px 0 0;
 }
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 #event {
   display: flex;
   flex-direction: column;
@@ -314,20 +313,14 @@ box-shadow: 0px 0px 15px 10px rgb(80, 33, 46);
   top:70px;
   margin-bottom:20px;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 #eventpageholder h3{
   font-size:18px;
   margin:17px 0 2px 0;
   color:#ddd8d5;
   letter-spacing:.5px;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 #eventpageholder p{
   font-size:18px;
   color:#fff;
@@ -381,10 +374,7 @@ button {
   color: white;
   border:none;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 00232aba411b1a356b3bf7660f4cb840b5001efb
 .choice {
   display: flex;
   justify-content: space-around;
