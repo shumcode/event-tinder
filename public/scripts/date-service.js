@@ -396,7 +396,6 @@
         obj.choice7 = "Easy Recipe";
         obj.choice8 = "Hard Recipe";
       } else if(choice === "Watch a movie"){
-        obj.choice6 = null;
         choiceArray.push(choice);
         $location.path('/round7');
         obj.choice9 = "Horror";
@@ -405,7 +404,6 @@
         obj.choice12 = "Comedy";
         obj.choice13 = "Drama";
       } else if(choice === "Watch a tv show"){
-        obj.choice5 = null;
         choiceArray.push(choice);
         $location.path('/round8');
         obj.choice9 = "Documentary";
