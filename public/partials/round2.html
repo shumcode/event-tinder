@@ -2,7 +2,9 @@
   <h2>ROUND 2</h2>
     <div ng-show="$ctrl.object.goout || $ctrl.object.p2go" id="round2input">
       <h3>Select your City</h3>
-      <input type="text" ng-model="$ctrl.object.location" placeholder="Your City" class="cityinput">
+      <form name="myform">
+      <input type="text" ng-model="$ctrl.object.location" placeholder="Your City" class="cityinput" ng-required="true">
+      </form>
     </div>
     <h3 ng-hide="$ctrl.object.stayin">Select Date Range</h3>
     <div id="date" ng-hide="$ctrl.object.stayin">

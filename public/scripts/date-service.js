@@ -361,27 +361,23 @@
       }
 
       if(choice === "Buy things to cook from the store"){
-        obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Buy ingredients for dinner";
         obj.choice6 = "Buy ingredients for a dessert";
       }else if(choice === "Buy things for other activities"){
-        obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Arts and Crafts Supplies";
         obj.choice6 = "Something Active";
       }else if(choice === "Do something active"){
         obj.relaxing = false;
-        obj.choice4 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Do arts and crafts";
         obj.choice6 = "Other active activities";
       }else if(choice === "Do something relaxing"){
         obj.relaxing = true;
-        obj.choice3 = null;
         choiceArray.push(choice);
         $location.path('/round5');
         obj.choice5 = "Watch a movie";
@@ -391,13 +387,11 @@
 
 
       if(choice === "Buy ingredients for dinner"){
-        obj.choice6 = null;
         choiceArray.push(choice);
         $location.path('/round6');
         obj.choice7 = "Easy Recipe";
         obj.choice8 = "Hard Recipe";
       } else if(choice === "Watch a movie"){
-        obj.choice6 = null;
         choiceArray.push(choice);
         $location.path('/round7');
         obj.choice9 = "Horror";
@@ -406,7 +400,6 @@
         obj.choice12 = "Comedy";
         obj.choice13 = "Drama";
       } else if(choice === "Watch a tv show"){
-        obj.choice5 = null;
         choiceArray.push(choice);
         $location.path('/round8');
         obj.choice9 = "Documentary";
@@ -426,12 +419,12 @@
             $location.path("/tindertime");
         }
 
-        if(choice === "Buy arts and crafts supplies"){
+        if(choice === "Arts and Crafts Supplies"){
             DS = 3;
             $location.path("/tindertime");
         }
 
-        if(choice === "Buy something active"){
+        if(choice === "Something Active"){
             DS = 4;
             $location.path("/tindertime");
         }
